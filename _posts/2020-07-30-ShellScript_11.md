@@ -15,7 +15,7 @@ seo:
 
 <br>
 
-##### 예제.1 - Read a File
+### 예제.1 - Read a File
 
 ``` bash
 $ vi read_file.sh
@@ -41,7 +41,7 @@ $ ./read_file.sh
 ```
 <br>
 
-##### 예제.2 - Reading file content from command line
+### 예제.2 - Reading file content from command line
 
 ```bash
 $ vi company.txt
@@ -61,7 +61,7 @@ iphone
 ```
 <br>
 
-##### 예제.3 - Reading file content using script
+### 예제.3 - Reading file content using script
 
 ```bash
 $ vi readfile3.sh
@@ -84,7 +84,7 @@ Line No. 5 : iphone
 ```
 <br>
 
-##### 예제.4 - Passing filename from the command line and reading the file
+### 예제.4 - Passing filename from the command line and reading the file
 
 ``` bash
 $ vi readfile4.sh
@@ -105,7 +105,7 @@ iphone
 ```
 <br>
 
-##### 예제.5 - Reading file by omitting backslash escape
+### 예제.5 - Reading file by omitting backslash escape
 
 ``` bash
 $ ./readfile5.sh
