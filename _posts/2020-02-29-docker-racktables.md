@@ -6,7 +6,8 @@ tags: [Docker]
 
 {% include googlead.html %}
 
-# Docker-Racktables 활용
+## Docker-Racktables 활용
+
 ---
 >*현재 사내에서 racktables, mysql 을 사용하고 있는데요.*  
 >*Docker를 사용하면 장애발생 시 빠르게 복구할 수 있는 장점이 있습니다.*
@@ -17,7 +18,7 @@ racktables 버전별 Download : <https://github.com/RackTables/racktables/releas
 
 <br>
 
-#### 1. Dockfile 로 부터 Image Build.
+### 1. Dockfile 로 부터 Image Build.
 
 Dockfile 위치에서
 ```
@@ -26,7 +27,7 @@ docker build -t racktables-test .
 
 <br>
 
-#### 2. Build 된 Image 확인
+### 2. Build 된 Image 확인
 
 정상적으로 작업이 끝나면 아래와 같은 Image를 확인할 수 있습니다.
 
@@ -38,7 +39,7 @@ docker.io/centos    centos6             d0957ffdf8a2        11 months ago       
 ```
 
 <br>
-##### 3. Build 된 이미지로 부터 Container 실행
+### 3. Build 된 이미지로 부터 Container 실행
 
 저는 외부에서 접근시 7777포트를 사용합니다.(사용하고자 하는 포트 입력)
 
@@ -48,7 +49,7 @@ docker run -d -p 7777:80 --name racktables c0f598aece7e
 
 <br>
 
-#### 4. Container 확인
+### 4. Container 확인
 
 Container가 정상으로 올라오면 아래와 같이 확인이 됩니다.
 
@@ -60,7 +61,8 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 
 <br>
-#### 5. Browser에서 접속
+
+### 5. Browser에서 접속
 
 ip-address 에는 현재 서버의 ip를 입력.
 
@@ -70,19 +72,19 @@ ip-address 에는 현재 서버의 ip를 입력.
 
 <br>
 
-#### 6. 설치 진행
+### 6. 설치 진행
 
 총 7단계로 진행이 됩니다.
 
 <br>
 
-#### 7. 설치진행 도중 Browser에
+### 7. 설치진행 도중 Browser에
 
 " chown nobody:nogroup secret.php; chmod 400 secret.php" 메세지가 보이면 다음단계로 넘어가서 진행해주세요.
 
 <br>
 
-#### 8. Container 접속하여, 파일 속성 변경
+### 8. Container 접속하여, 파일 속성 변경
 
 ```
 docker exec -it 26e140d4411d /bin/bash
@@ -93,7 +95,7 @@ chmod 400 /var/www/html/inc/secret.php
 
 <br>
 
-#### 9. Docker에서 Data 복구 및 백업 방법
+### 9. Docker에서 Data 복구 및 백업 방법
 
 장애가 발생했다는 가정하에서 평소 백업해 두었던 sql 파일로 복구진행을 하면 됩니다.  
 추후 Docker를 사용하여 계속 사용할 것을 생각하여 복구, 백업 모두 기록해 놓았습니다.
@@ -112,7 +114,7 @@ docker exec CONTAINER /usr/bin/mysqldump -u root --password=$PASSWORD DATABASE >
 
 <br>
 
-#### 10. Data 복구시 ERROR 발생 Trouble Shooting
+### 10. Data 복구시 ERROR 발생 Trouble Shooting
 
 하기와 같은 에러발생시
 
@@ -129,7 +131,8 @@ mysql> set global net_buffer_length=1000000;
 Dockerfile 안에서 이부분은 설정해 보았으나 안되어서 수동으로 진행하였습니다.ㅠㅠ
 
 <br>
-#### 11. Docker MySQL 복구
+
+### 11. Docker MySQL 복구
 
 9단계에서 실패한 복구 과정을 다시 실행하면 복구가 잘되는 걸 확인할 수 있습니다.
 
@@ -138,6 +141,7 @@ cat racktables_db.sql | docker exec -i 26e140d4411d /usr/bin/mysql -u root --pas
 ```
 
 <br>
-#### 12. Browser 에서 접속 및 확인
+
+### 12. Browser 에서 접속 및 확인
 
 로그인이 계정과 패스워드도 복구가 되므로 기존사용하던 계정/패스워드가 있을경우 계정/패스워드를 입력하시면 됩니다.

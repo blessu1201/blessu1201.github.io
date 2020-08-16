@@ -17,7 +17,7 @@ CentOs7 에서 GeoIP를 활용하여 국가IP차단 하는 방법. 서버 보안
 
 <br>
 
-#### 1. 패키지 설치
+### 1. 패키지 설치
 
 ```
 $ yum install gcc gcc-c++ make automake unzip zip xz kernel-devel-`uname -r` iptables-devel
@@ -40,7 +40,7 @@ $ vi mconfig
 
 <br>
 
-#### 2.모듈셋팅
+### 2.모듈셋팅
 
 ```
 $ cd geoip/
@@ -52,7 +52,7 @@ $ cp -r {BE,LE} /usr/share/xt_geoip/
 
 <br>
 
-#### 3. 설정하기
+### 3. 설정하기
 
 ```
 $ iptables -I INPUT -m geoip --src-cc CN -j DROP

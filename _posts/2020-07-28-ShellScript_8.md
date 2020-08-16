@@ -14,7 +14,7 @@ tags: [Linux, ShellScript]
 
 <br>
 
-##### 예제.1 - Combine String variables
+### 예제.1 - Combine String variables
 
 ``` bash
 #!/bin/bash
@@ -34,7 +34,7 @@ Linux+Hint is a good tutorial blog site
 
 <br>
 
-##### 예제.2 - Get substring of String
+### 예제.2 - Get substring of String
 
 ``` bash
 #!/bin/bash

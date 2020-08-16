@@ -15,7 +15,7 @@ tags: [Linux, ShellScript]
 
 <br>
 
-#### 1. 반복문 while (Using While Loop) 문법
+### 1. 반복문 while (Using While Loop) 문법
 
 ``` bash
 #!/bin/bash
@@ -30,7 +30,7 @@ done
 <br>
 <br>
 
-##### 예제.1
+#### 예제.1
 
 ``` bash
 $ vi while1.sh
@@ -53,7 +53,7 @@ Running 5 time
 ```
 <br>
 
-##### 예제.2 - break
+#### 예제.2 - break
 
 ``` bash
 $ vi while2.sh
@@ -86,7 +86,7 @@ terminated
 ```
 <br>
 
-##### 예제.3 - continue
+#### 예제.3 - continue
 
 ``` bash
 $ vi while3.sh
@@ -116,7 +116,7 @@ Position: 6
 
 <br>
 
-##### 예제.4 - infinite loop
+#### 예제.4 - infinite loop
 
 ``` bash
 $ vi while4.sh
@@ -161,7 +161,7 @@ The current value of n=10
 ---
 <br>
 
-#### 2. 반복문 for (Using For Loop) 문법
+### 2. 반복문 for (Using For Loop) 문법
 
 ``` bash
 #!/bin/bash
@@ -183,7 +183,7 @@ done
 <br>
 <br>
 
-##### 예제.1 - Reading static values
+#### 예제.1 - Reading static values
 
 ``` bash
 $ vi for1.sh
@@ -204,7 +204,7 @@ Color = Red
 
 <br>
 
-##### 예제.2 - Reading Array Variable
+#### 예제.2 - Reading Array Variable
 
 ``` bash
 $ vi for2.sh
@@ -224,7 +224,7 @@ My favorite color is Pink
 
 <br>
 
-##### 예제.3 - Reading Command-line arguments
+#### 예제.3 - Reading Command-line arguments
 
 ``` bash
 $ vi for3.sh
@@ -242,7 +242,7 @@ Argument: ShellScript
 
 <br>
 
-##### 예제.4 - Finding odd and even number using three expressions
+#### 예제.4 - Finding odd and even number using three expressions
 
 ``` bash
 $ vi for4.#!/bin/sh
@@ -266,7 +266,7 @@ $ ./for4.sh
 ```
 <br>
 
-##### 예제.5 - Reading file content
+#### 예제.5 - Reading file content
 
 ``` bash
 $ vi for5.sh

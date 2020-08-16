@@ -13,7 +13,7 @@ tags: [Linux, ShellScript]
 
 <br>
 
-##### 예제.1 - Using ‘expr’ command
+### 예제.1 - Using ‘expr’ command
 
 ``` bash
 #!/bin/bash
@@ -49,7 +49,7 @@ $ ./arith1.sh
 ```
 <br>
 
-##### 예제.2 - Using ‘expr’ command
+### 예제.2 - Using ‘expr’ command
 
 ``` bash
 #!/bin/bash
@@ -86,7 +86,7 @@ $ ./arith2.sh 60
 ```
 <br>
 
-##### 예제.3 - Using double brackets
+### 예제.3 - Using double brackets
 
 ``` bash
 #!/bin/bash
@@ -121,7 +121,7 @@ $ ./arith3.sh
 
 <br>
 
-##### 예제.4 - Using ‘bc’ command for float or double numbers
+### 예제.4 - Using ‘bc’ command for float or double numbers
 
 ``` bash
 #!/bin/bash

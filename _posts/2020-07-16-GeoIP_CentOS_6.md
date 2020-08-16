@@ -16,7 +16,7 @@ _참조사이트 : <https://www.enteroa.com/2014/09/26/xtables-addons-%EC%84%A4%
 
 <br>
 
-#### 1. 기본 라이브러리 설치
+### 1. 기본 라이브러리 설치
 
 ```
 $ yum install gcc gcc-c++ make automake unzip zip xz kernel-devel-`uname -r` iptables-devel
@@ -24,7 +24,7 @@ $ yum install gcc gcc-c++ make automake unzip zip xz kernel-devel-`uname -r` ipt
 
 <br>
 
-#### 2. Perl-Text 설치
+### 2. Perl-Text 설치
 
 ```
 $ wget https://nchc.dl.sourceforge.net/project/xtables-addons/Xtables-addons/xtables-addons-1.47.tar.xz
@@ -43,7 +43,7 @@ _()==> 정상적으로 컴파일이 되면 /lib64/xtables/libxt_geoip.so 파일�
 
 <br>
 
-#### 3. xtables-addons 설치 및 컴파일
+### 3. xtables-addons 설치 및 컴파일
 
 ```
 $ cd geoip
@@ -53,7 +53,7 @@ $ ./xt_geoip_build GeoIPCountryCSV.zip
 
 <br>
 
-#### 4. geoip 모듈 세팅
+### 4. geoip 모듈 세팅
 
 ```
 $ cd geoip
@@ -62,7 +62,7 @@ $ ./xt_geoip_build GeoIPCountryCSV.zip
 ```
 <br>
 
-#### 5. geoip DB를 위한 디렉토리 생성, BE,LE 디렉토리 복사(경우에 따라 4,5 순서가 바뀌어야 진행되는 경우가 있습니다.)
+### 5. geoip DB를 위한 디렉토리 생성, BE,LE 디렉토리 복사(경우에 따라 4,5 순서가 바뀌어야 진행되는 경우가 있습니다.)
 
 ```
 $ mkdir -p /usr/share/xt_geoip
@@ -71,7 +71,7 @@ $ cp -r {BE,LE} /usr/share/xt_geoip/
 
 <br>
 
-#### 6. 중국,러시아 ip 차단
+### 6. 중국,러시아 ip 차단
 
 ```
 $ iptables -I INPUT -m geoip --src-cc CN,RU -j DROP
@@ -79,7 +79,7 @@ $ iptables -I INPUT -m geoip --src-cc CN,RU -j DROP
 
 <br>
 
-#### 7.확인
+### 7.확인
 
 ```
 $ iptables --version
@@ -95,7 +95,7 @@ ACCEPT     all  --  anywhere             anywhere
 ```
 <br>
 
-#### 8. 트러블슈팅
+### 8. 트러블슈팅
 
 _참고사이트 : <http://vividrigh.tistory.com/296>_
 

@@ -28,7 +28,7 @@ tags: [Linux, ShellScript]
 <br>
 <br>
 
-##### 예제.1 - simple if
+### 예제.1 - simple if
 
 ``` bash
 $ vi simple_if.sh
@@ -47,7 +47,7 @@ It is a two digit number
 
 <br>
 
-##### 예제.2 - AND연산  "&&"
+### 예제.2 - AND연산  "&&"
 
 ``` bash
 $ vi if_with_AND.sh
@@ -82,7 +82,7 @@ invalid user
 
 <br>
 
-##### 예제.3 - OR연산 ||
+### 예제.3 - OR연산 ||
 
 ``` bash
 $ vi if_with_OR.sh
@@ -118,7 +118,7 @@ You lost the game
 
 <br>
 
-##### 예제.4 - if ~ elif ~ else ~ fi
+### 예제.4 - if ~ elif ~ else ~ fi
 
 ``` bash
 $ vi elseif_example.sh

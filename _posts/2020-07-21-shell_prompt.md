@@ -15,7 +15,7 @@ tags: [Linux, Bash]
 
 <br>
 
-#### 1. Text Attributes
+### 1. Text Attributes
 
 | ANSI CODE | Meaning |
 |:--------:|:--------:|
@@ -27,7 +27,7 @@ tags: [Linux, Bash]
 
 <br>
 
-#### 2. [ COLORS 색상표 ]
+### 2. [ COLORS 색상표 ]
 
 | Bold off | color | Bold on | color |
 |-|-|-|-|
@@ -42,7 +42,7 @@ tags: [Linux, Bash]
 
 <br>
 
-#### 3. 포어그라운드, 백그라운드 색상표
+### 3. 포어그라운드, 백그라운드 색상표
 
 | Color | Foreground | Background |
 |:--:|:--:|:--:|
@@ -57,7 +57,7 @@ tags: [Linux, Bash]
 
 <br>
 
-#### 4. 사용방법 예시
+### 4. 사용방법 예시
 
 ``` bash
 echo -e "\033[40;37;7m Hello World\033[0m"
@@ -83,7 +83,7 @@ echo -e "\e[0;37;47m LightGray\e[0m 0;37m \t\e[1;37;40m White      \e[0m 1;37m"
 
 <br>
 
-#### 5. 적용
+### 5. 적용
 
 .bash_profile _파일에 아래와 같이 변수를 지정하여 설정할 수 있습니다._
 

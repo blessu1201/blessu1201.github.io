@@ -1,6 +1,8 @@
 ---
 layout: article
 title: ShellScript(11) - read a File
+aside:
+  toc: true
 tags: [Linux, ShellScript]
 ---
 

@@ -16,7 +16,7 @@ tags: [Linux, ShellScript]
 
 <br>
 
-##### 예제.1 - Using simple read command
+### 예제.1 - Using simple read command
 
 ``` bash
 $ vi read1.sh
@@ -34,7 +34,7 @@ Oh! you like apple!
 
 <br>
 
-##### 예제.2 - Using read command with options
+### 예제.2 - Using read command with options
 
 ``` bash
 $ vi read2.sh
@@ -66,7 +66,7 @@ Unsuccessful login
 
 <br>
 
-##### 예제.3 - Using read command to take multiple inputs
+### 예제.3 - Using read command to take multiple inputs
 
 ``` bash
 $ vi read3.sh
@@ -92,7 +92,7 @@ python is your fourth choice
 
 <br>
 
-##### 예제.4 - Using read command with the time limit
+### 예제.4 - Using read command with the time limit
 
 ``` bash
 $ vi read4.sh

@@ -14,7 +14,7 @@ tags: [Linux, ShellScript]
 
 <br>
 
-##### 기본문법
+### 기본문법
 
 ``` bash
 case word in
@@ -25,7 +25,7 @@ esac
 <br>
 <br>
 
-##### 예제.1
+### 예제.1
 
 ``` bash
 #!/bin/bash
@@ -45,7 +45,7 @@ esac
 
 <br>
 
-##### 예제.2
+### 예제.2
 
 ``` c
 #!/bin/bash
@@ -70,7 +70,7 @@ esac
 
 <br>
 
-##### 예제.3
+### 예제.3
 
 ``` bash
 #!/bin/bash
@@ -82,7 +82,7 @@ esac
 
 <br>
 
-##### 예제.4
+### 예제.4
 
 ``` bash
 #!/bin/bash
@@ -105,7 +105,7 @@ esac
 
 <br>
 
-##### 예제.5
+### 예제.5
 
 ``` bash
 #!/bin/sh
@@ -126,7 +126,7 @@ esac
 
 <br>
 
-##### 예제.6
+### 예제.6
 
 ``` bash
 #!/bin/sh
@@ -146,7 +146,7 @@ exit 0
 
 <br>
 
-##### 예제.7
+### 예제.7
 
 ``` bash
 read val

@@ -18,7 +18,7 @@ tags: [Linux, ShellScript]
 
 <br>
 
-##### 예제.1 - Sending three numeric values as arguments
+### 예제.1 - Sending three numeric values as arguments
 
 ``` bash
 #!/bin/bash
@@ -55,7 +55,7 @@ Result of sum = 45
 
 <br>
 
-##### 예제.2 - Taking filename as argument
+### 예제.2 - Taking filename as argument
 
 ``` bash
 #!/bin/bash
@@ -76,7 +76,7 @@ Total number of characters are 18 argu_test.txt
 
 <br>
 
-##### 예제.3 - Reading arguments by getopts function
+### 예제.3 - Reading arguments by getopts function
 
 ``` bash
 #!/bin/bash
