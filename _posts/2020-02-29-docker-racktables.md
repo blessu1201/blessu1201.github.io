@@ -1,12 +1,10 @@
 ---
+layout: article
 title: Docker에서 racktables 운영하기
-date: 2020-02-29
-categories: [Linux, Docker]
 tags: [Docker]
-comments: true
-seo:
-  date_modified: 2020-08-15 16:59:05 +0900
 ---
+
+{% include googlead.html %}
 
 # Docker-Racktables 활용
 ---

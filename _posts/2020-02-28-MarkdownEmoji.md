@@ -1,12 +1,10 @@
 ---
+layout: article
 title: Markdown Emoji
-date: 2020-02-28
-categories: [Github, Markdown]
 tags: [Markdown]
-comments: true
-seo:
-  date_modified: 2020-08-02 01:12:36 +0900
 ---
+
+{% include googlead.html %}
 
 ## 1.People
 

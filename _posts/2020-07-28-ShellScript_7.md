@@ -1,12 +1,10 @@
 ---
+layout: article
 title: ShellScript(7) - argument , getopts
-date: 2020-07-28
-categories: [Linux, ShellScript]
-tags: [Linux, ShellScript, argument getopts(명령줄인수처리)]
-comments: true
-seo:
-  date_modified: 2020-08-15 16:59:05 +0900
+tags: [Linux, ShellScript]
 ---
+
+{% include googlead.html %}
 
 ## 리눅스 ShellScript 예제
 ---

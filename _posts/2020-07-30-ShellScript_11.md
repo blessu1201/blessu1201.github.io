@@ -1,17 +1,15 @@
 ---
 layout: article
 title: ShellScript(11) - read a File
-date: 2020-07-30
 tags: [Linux, ShellScript]
-comment: true
-seo:
-  date_modified: 2020-08-15 16:59:05 +0900
 ---
 
 ## 리눅스 ShellScript 예제
 ---
 
-> 데이터 파일을 만들어 Script 에서 가져다 사용하는 방법을알아보겠습니다.
+데이터 파일을 만들어 가져다 사용하는 방법을알아보겠습니다.
+{:.success}
+
 
 <br>
 

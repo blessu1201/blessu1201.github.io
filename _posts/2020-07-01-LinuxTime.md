@@ -1,12 +1,10 @@
 ---
+layout: article
 title: 리눅스 서버 시간설정하기
-date: 2020-07-13
-categories: [Linux, Time]
 tags: [Linux]
-comments: true
-seo:
-  date_modified: 2020-08-15 16:59:05 +0900
 ---
+
+{% include googlead.html %}
 
 ## 리눅스 현재시스템 시간, H/W시간 확인 및 설정하기
 ***

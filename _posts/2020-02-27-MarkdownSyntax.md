@@ -1,11 +1,7 @@
 ---
+layout: article
 title: Markdown Syntax
-date: 2020-02-27
-categories: [Github, Markdown]
 tags: [Markdown]
-comments: true
-seo:
-  date_modified: 2020-08-02 01:12:36 +0900
 ---
 
 {% include googlead.html %}

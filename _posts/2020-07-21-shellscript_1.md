@@ -1,12 +1,10 @@
 ---
+layout: article
 title: ShellScript(1) - 연산자
-date: 2020-07-21
-categories: [Linux, ShellScript]
-tags: [Linux, ShellScript, 연산자]
-comments: true
-seo:
-  date_modified: 2020-08-15 16:59:05 +0900
+tags: [Linux, ShellScript]
 ---
+
+{% include googlead.html %}
 
 ## 리눅스 ShellScript(1)
 ---

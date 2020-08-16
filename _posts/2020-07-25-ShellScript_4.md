@@ -1,12 +1,10 @@
 ---
+layout: article
 title: ShellScript(4) - read
-date: 2020-07-24
-categories: [Linux, ShellScript]
-tags: [Linux, ShellScript, read]
-comments: true
-seo:
-  date_modified: 2020-08-15 16:59:05 +0900
+tags: [Linux, ShellScript]
 ---
+
+{% include googlead.html %}
 
 ## 리눅스 ShellScript 예제
 ---

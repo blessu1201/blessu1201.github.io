@@ -1,12 +1,10 @@
 ---
+layout: article
 title: ShellScript(2) - echo , 주석처리
-date: 2020-07-23
-categories: [Linux, ShellScript]
-tags: [Linux, ShellScript, echo, 주석처리]
-comments: true
-seo:
-  date_modified: 2020-08-15 16:59:05 +0900
+tags: [Linux, ShellScript]
 ---
+
+{% include googlead.html %}
 
 ## 리눅스 ShellScript(2)
 ---

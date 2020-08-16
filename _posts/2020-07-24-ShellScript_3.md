@@ -1,12 +1,10 @@
 ---
+layout: article
 title: ShellScript(3) - while, for
-date: 2020-07-24
-categories: [Linux, ShellScript]
-tags: [Linux, ShellScript, while, for]
-comments: true
-seo:
-  date_modified: 2020-08-15 16:59:05 +0900
+tags: [Linux, ShellScript]
 ---
+
+{% include googlead.html %}
 
 ## 리눅스 ShellScript(3)
 ---

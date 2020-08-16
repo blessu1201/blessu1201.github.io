@@ -1,13 +1,10 @@
 ---
+layout: article
 title: 리눅스 GeoIP 설치(CentOS 7)
-date: 2020-07-17
-categories: [Linux, Server보안]
-tags: [Linux, geoip]
-comments: true
-seo:
-  date_modified: 2020-08-15 16:59:05 +0900
+tags: [Linux]
 ---
 
+{% include googlead.html %}
 
 ## CentOs 7 에서 GeoIP 설치
 ---

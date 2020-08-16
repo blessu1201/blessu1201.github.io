@@ -1,12 +1,10 @@
 ---
+layout: article
 title: BashShell 글자속성 및 색상 지정
-date: 2020-07-21
-categories: [Linux, BashShell]
-tags: [Linux, BashShell]
-comments: true
-seo:
-  date_modified: 2020-08-15 16:59:05 +0900
+tags: [Linux, Bash]
 ---
+
+{% include googlead.html %}
 
 ## Linux Shell Prompt 글자속성 변경 및 색상지정
 ---
