@@ -1,9 +1,9 @@
 ---
+layout: article
 title: ShellScript(11) - read a File
 date: 2020-07-30
-categories: [Linux, ShellScript]
-tags: [Linux, ShellScript, read_a_file]
-comments: true
+tags: [Linux, ShellScript]
+comment: true
 seo:
   date_modified: 2020-08-15 16:59:05 +0900
 ---
