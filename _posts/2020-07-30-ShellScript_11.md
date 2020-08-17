@@ -116,7 +116,7 @@ while read -r line; do
 done < company2.txt
 ```
 
-`-r` 옵션을 주면 \ (escape) 문자를 그대로 출력할 수 있습니다.
+`-r`{:.info} 옵션을 주면 \ (escape) 문자를 그대로 출력할 수 있습니다.
 
 ```
 $ sh readfile5.sh company2.txt

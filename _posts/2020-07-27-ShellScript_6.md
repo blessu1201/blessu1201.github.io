@@ -18,7 +18,7 @@ tags: [Linux, ShellScript]
 
 ``` bash
 case word in
-  pattern )
+  pattern)
     command ;;
 esac
 ```
