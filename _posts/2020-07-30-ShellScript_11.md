@@ -45,11 +45,11 @@ $ vi book.txt
 ``` bash
 $ ./read_file.sh
 ```
-{% highlight result linenos %}
-1. Pro AngularJS
-2. Learning JQuery
-3. PHP Programming
-4. CodeIgniter 3
+{% highlight result %}
+Pro AngularJS
+Learning JQuery
+PHP Programming
+CodeIgniter 3
 {% endhighlight %}
 
 <br>
@@ -72,7 +72,7 @@ iphone
 $ while read line; do echo $line; done < company.txt
 ```
 
-{% highlight result linenos %}
+{% highlight result %}
 Samsung
 Nokia
 LG
@@ -102,7 +102,7 @@ done < $filename
 $ ./readfile2.sh
 ```
 
-{% highlight result linenos %}
+{% highlight result %}
 Line No. 1 : Samsung
 Line No. 2 : Nokia
 Line No. 3 : LG
@@ -131,7 +131,7 @@ done < $filename
 $ ./readfile4.sh company.txt
 ```
 
-{% highlight result linenos %}
+{% highlight result %}
 Samsung
 Nokia
 LG
@@ -142,6 +142,8 @@ iphone
 <br>
 
 ### 예제.5 - Reading file by omitting backslash escape
+
+> `-r`{:.info} 옵션을 주면 \ (escape) 문자를 그대로 출력할 수 있습니다.
 
 ``` bash
 $ ./readfile5.sh
@@ -155,13 +157,12 @@ while read -r line; do
 done < company2.txt
 {% endhighlight %}
 
-`-r`{:.info} 옵션을 주면 \ (escape) 문자를 그대로 출력할 수 있습니다.
 
 ```bash
 $ sh readfile5.sh company2.txt
 ```
 
-{% highlight result linenos %}
+{% highlight result %}
 \Samsu\ng
 \Nokia
 \LG
