@@ -2,6 +2,7 @@
 layout: article
 title: Markdown Emoji
 tags: [Markdown]
+key: 20200228_markdown_emoji
 ---
 
 {% include googlead.html %}

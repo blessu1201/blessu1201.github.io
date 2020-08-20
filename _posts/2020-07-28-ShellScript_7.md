@@ -2,6 +2,7 @@
 layout: article
 title: ShellScript(7) - argument , getopts
 tags: [Linux, ShellScript]
+key: 20200728_shell_script_07
 ---
 
 {% include googlead.html %}

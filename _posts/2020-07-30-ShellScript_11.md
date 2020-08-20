@@ -1,9 +1,8 @@
 ---
 layout: article
 title: ShellScript(11) - read a File
-aside:
-  toc: true
 tags: [Linux, ShellScript]
+key: 20200730_shell_script_11
 ---
 
 ## 리눅스 ShellScript 예제

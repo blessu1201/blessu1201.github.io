@@ -2,6 +2,7 @@
 layout: article
 title: ShellScript(10) - function(함수)
 tags: [Linux, ShellScript]
+key: 20200729_shell_script_10
 ---
 
 {% include googlead.html %}

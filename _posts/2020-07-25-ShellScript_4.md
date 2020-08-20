@@ -2,6 +2,7 @@
 layout: article
 title: ShellScript(4) - read
 tags: [Linux, ShellScript]
+key: 20200725_shell_script_04
 ---
 
 {% include googlead.html %}

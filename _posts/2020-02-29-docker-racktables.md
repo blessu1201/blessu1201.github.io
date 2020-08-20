@@ -2,6 +2,7 @@
 layout: article
 title: Docker에서 racktables 운영하기
 tags: [Docker]
+key: 20200229_docker_racktables
 ---
 
 {% include googlead.html %}

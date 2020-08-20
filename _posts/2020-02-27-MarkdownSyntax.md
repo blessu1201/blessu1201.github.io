@@ -2,6 +2,7 @@
 layout: article
 title: Markdown Syntax
 tags: [Markdown]
+key: 20200227_markdown_syntax
 ---
 
 {% include googlead.html %}

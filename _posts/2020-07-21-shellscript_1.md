@@ -2,6 +2,7 @@
 layout: article
 title: ShellScript(1) - 연산자
 tags: [Linux, ShellScript]
+key: 20200721_shell_script_01
 ---
 
 {% include googlead.html %}

@@ -2,6 +2,7 @@
 layout: article
 title: ShellScript(5) - if, and, or
 tags: [Linux, ShellScript]
+key: 20200725_shell_script_05
 ---
 
 {% include googlead.html %}

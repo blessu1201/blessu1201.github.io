@@ -2,6 +2,7 @@
 layout: article
 title: 리눅스 서버 시간설정하기
 tags: [Linux]
+key: 20200701_linux_time
 ---
 
 {% include googlead.html %}

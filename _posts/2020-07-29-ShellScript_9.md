@@ -2,6 +2,7 @@
 layout: article
 title: ShellScript(9) - Arithmetic Operations (산술연산)
 tags: [Linux, ShellScript]
+key: 20200729_shell_script_09
 ---
 
 {% include googlead.html %}

@@ -2,6 +2,7 @@
 layout: article
 title: ShellScript(2) - echo , 주석처리
 tags: [Linux, ShellScript]
+key: 20200723_shell_script_02
 ---
 
 {% include googlead.html %}

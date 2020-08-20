@@ -2,6 +2,7 @@
 layout: article
 title: ShellScript(3) - while, for
 tags: [Linux, ShellScript]
+key: 20200724_shell_script_03
 ---
 
 {% include googlead.html %}

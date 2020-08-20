@@ -2,6 +2,7 @@
 layout: article
 title: ShellScript(6) - case
 tags: [Linux, ShellScript]
+key: 20200727_shell_script_06
 ---
 
 {% include googlead.html %}

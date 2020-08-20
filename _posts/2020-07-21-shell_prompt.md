@@ -2,6 +2,7 @@
 layout: article
 title: BashShell 글자속성 및 색상 지정
 tags: [Linux, Bash]
+key: 20200721_shell_prompt
 ---
 
 {% include googlead.html %}

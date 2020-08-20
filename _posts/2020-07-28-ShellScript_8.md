@@ -2,6 +2,7 @@
 layout: article
 title: ShellScript(8) - String
 tags: [Linux, ShellScript]
+key: 20200728_shell_script_08
 ---
 
 {% include googlead.html %}
