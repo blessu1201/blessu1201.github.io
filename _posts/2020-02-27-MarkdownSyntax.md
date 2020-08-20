@@ -8,12 +8,13 @@ key: 20200227_markdown_syntax
 {% include googlead.html %}
 
 ## Markdown 문법정리
->Markdown의 문법을 정리합니다.
+> Markdown의 문법을 정리합니다.
 
 <br>
 H1 ~ H6 까지 표현가능, #의 개수로 표현합니다.
 
 *Markdown*
+
 ```
 # H1
 ## H2
