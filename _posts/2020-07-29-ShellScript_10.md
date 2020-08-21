@@ -16,7 +16,7 @@ key: 20200729_shell_script_10
 
 ### 예제.1 - Create Function
 
-``` bash
+{% highlight bash linenos %}
 #!/bin/bash
 function F1()
 {
@@ -24,17 +24,17 @@ echo 'I like bash programming'
 }
 
 F1
-```
-```
-$ ./func1.sh
+{% endhighlight %}
+
+{% highlight result %}
 I like bash programming
-```
+{% endhighlight %}
 
 <br>
 
 ### 예제.2 - Create function with Parameters
 
-``` bash
+{% highlight bash linenos %}
 #!/bin/bash
 Rectangle_Area() {
     area=$(($1 * $2))
@@ -42,16 +42,17 @@ Rectangle_Area() {
 }
 
 Rectangle_Area 10 20
-```
-```
-$ ./func2.sh
+{% endhighlight %}
+
+{% highlight result %}
 Area is : 200
-```
+{% endhighlight %}
+
 <br>
 
 ### 예제.3 - Pass Return Value from Function
 
-``` bash
+{% highlight bash linenos %}
 #!/bin/bash
 function greeting() {
     str="Hello, $name"
@@ -63,18 +64,19 @@ function greeting() {
 
 val=$(greeting)
     echo "Return value of the function is $val"
-```
-```
-$ ./func3.sh
+{% endhighlight %}
+
+{% highlight result %}
 Enter your name
 kim
 Return value of the function is Hello, kim
-```
+{% endhighlight %}
+
 <br>
 
 ### 예제.4 - Using Global Variable
 
-``` bash
+{% highlight bash linenos %}
 #!/bin/bash
 function F1()
 {
@@ -85,17 +87,18 @@ function F1()
     echo $retval
 F1
     echo $retval
-```
-```
-$ sh func4.sh
+{% endhighlight %}
+
+{% highlight result %}
 I hate programming
 I like programming
-```
+{% endhighlight %}
+
 <br>
 
 ### 예제.5 - Using Function Command
 
-``` bash
+{% highlight bash linenos %}
 #!/bin/bash
 function F2()
 {
@@ -104,16 +107,17 @@ function F2()
 }
     getval=$(F2)  
     echo $getval
-```
-```
-$ ./func5.sh
+{% endhighlight %}
+
+{% highlight result %}
 Using BASH Function
-```
+{% endhighlight %}
+
 <br>
 
 ### 예제.6 - Using Variable
 
-``` bash
+{% highlight bash linenos %}
 #!/bin/bash
 function F3()
 {
@@ -131,17 +135,18 @@ F3 $getval1
     echo $retval
 getval2=$(F3)
     echo $getval2
-```
-```
-$ ./func6.sh
+{% endhighlight %}
+
+{% highlight result %}
 BASH function with variable
 No Argument
-```
+{% endhighlight %}
+
 <br>
 
 ### 예제.7 - Using Return Statement
 
-``` bash
+{% highlight bash linenos %}
 #!/bin/bash
 function F4() {
 echo 'Bash Return Statement'
@@ -150,9 +155,9 @@ return 35
 
 F4
 echo "Return value of the function is $?"
-```
-```
-$ ./func7.sh
+{% endhighlight %}
+
+{% highlight result %}
 Bash Return Statement
 Return value of the function is 35
-```
+{% endhighlight %}

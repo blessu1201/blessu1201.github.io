@@ -1,6 +1,6 @@
 ---
 layout: article
-title: ShellScript(9) - Arithmetic Operations (산술연산)
+title: ShellScript(9) - Arithmetic Operations(산술연산)
 tags: [Linux, ShellScript]
 key: 20200729_shell_script_09
 ---
@@ -16,7 +16,7 @@ key: 20200729_shell_script_09
 
 ### 예제.1 - Using ‘expr’ command
 
-``` bash
+{% highlight bash linenos %}
 #!/bin/bash
 
 # Works as string
@@ -38,21 +38,24 @@ myVal1=`expr 30 / 10`
 #Using expr within command substitute
 myVal2=$( expr 30 - 10 )
     echo $myVal2
-```
-```
-$ ./arith1.sh
+{% endhighlight %}
+
+{% highlight result %}
 10 + 30
 10+30
 40
 3
 3
 20
-```
+{% endhighlight %}
+
 <br>
 
 ### 예제.2 - Using ‘expr’ command
 
-``` bash
+>21번째 줄에 $1 이 있으므로 인수를 1개 적어줘야 합니다. 없으면 에러가 발생합니다.
+
+{% highlight bash linenos %}
 #!/bin/bash
 
 # Multiplying 9 by 8
@@ -75,21 +78,23 @@ let val4++
 # Using argument value in arithmetic operation
 let "val5=50+$1"
     echo $val5
-```
-<pre>마지막 Script에는 $1 이 있으므로 인수를 1개 적어줘야 합니다. 없으면 에러가발생합니다.</pre>
-```
+{% endhighlight %}
+
+
+{% highlight result %}
 $ ./arith2.sh 60
 27
 2
 6
 8
 110
-```
+{% endhighlight %}
+
 <br>
 
 ### 예제.3 - Using double brackets
 
-``` bash
+{% highlight bash linenos %}
 #!/bin/bash
 
 # Calculate the mathematical expression
@@ -110,21 +115,24 @@ val2=41
 # Dividing 40 by 6
 (( val3 = 40/6 ))
     echo $val3
-```
-```
+{% endhighlight %}
+
+{% highlight result %}
 $ ./arith3.sh
 65
 66
 40
 100
 6
-```
+{% endhighlight %}
 
 <br>
 
 ### 예제.4 - Using ‘bc’ command for float or double numbers
 
-``` bash
+>`bc`{:.info}(basic calculator)는 리눅스 기본계산기 입니다.
+
+{% highlight bash linenos %}
 #!/bin/bash
 
 # Dividing 55 by 3 with bc only
@@ -138,12 +146,12 @@ echo "scale=2; 55/3" | bc
 
 #거듭제곱
 echo "2^10" | bc
-```
-<pre>bc(basic calculator)는 리눅스 기본계산기 입니다.</pre>
-```
+{% endhighlight %}
+
+{% highlight result %}
 $ ./arith4.sh
 18
 18.33333333333333333333
 18.33
 1024
-```
+{% endhighlight %}

@@ -43,7 +43,7 @@ key: 20200721_shell_prompt
 
 <br>
 
-### 3. 포어그라운드, 백그라운드 색상표
+### 3. Foreground, Background 색상표
 
 | Color | Foreground | Background |
 |:--:|:--:|:--:|
@@ -58,7 +58,7 @@ key: 20200721_shell_prompt
 
 <br>
 
-### 4. 사용방법 예시
+### 4. 사용방법
 
 ``` bash
 echo -e "\033[40;37;7m Hello World\033[0m"
@@ -67,7 +67,7 @@ echo -e "\033[1;33;44m Bold yellow text on blue background\033[0m"
 echo -e "\033[1;4;33;44mBold yellow underlined text on blue background\033[0m"
 ```
 
-``` bash
+{% highlight bash linenos %}
 #!/bin/bash
 # This script echoes colors and codes
 
@@ -80,16 +80,16 @@ echo -e "\e[0;34;47m Blue     \e[0m 0;34m \t\e[1;34;40m Dark Blue  \e[0m 1;34m"
 echo -e "\e[0;35;47m Magenta  \e[0m 0;35m \t\e[1;35;40m DarkMagenta\e[0m 1;35m"
 echo -e "\e[0;36;47m Cyan     \e[0m 0;36m \t\e[1;36;40m Dark Cyan  \e[0m 1;36m"
 echo -e "\e[0;37;47m LightGray\e[0m 0;37m \t\e[1;37;40m White      \e[0m 1;37m"
-```
+{% endhighlight %}
 
 <br>
 
 ### 5. 적용
 
-.bash_profile _파일에 아래와 같이 변수를 지정하여 설정할 수 있습니다._
+> `.bash_profile` 파일에 아래와 같이 변수를 지정하여 설정할 수 있습니다.
 
 
-``` bash
+{% highlight bash linenos %}
 # define colors
 C_DEFAULT="\[\033[m\]"
 C_WHITE="\[\033[1m\]"
@@ -118,4 +118,4 @@ C_BG_CYAN="\[\033[46m\]"
 C_BG_LIGHTGRAY="\[\033[47m\]"
 
 export PS1="$C_GREEN\h:$C_CYAN\$PWD$C_DEFAULT\$ "
-```
+{% endhighlight %}

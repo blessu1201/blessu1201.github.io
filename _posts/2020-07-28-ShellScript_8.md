@@ -10,14 +10,13 @@ key: 20200728_shell_script_08
 ## 리눅스 ShellScript 예제
 ---
 
-
 > `String` (문자열)에 관한 내용입니다.
 
 <br>
 
 ### 예제.1 - Combine String variables
 
-``` bash
+{% highlight bash linenos %}
 #!/bin/bash
 
 string1="Linux"
@@ -26,24 +25,24 @@ string2="Hint"
 string3=$string1+$string2
 string3+=" is a good tutorial blog site"
     echo $string3
-```
-```
-$ ./string1.sh
+{% endhighlight %}
+
+{% highlight result %}
 LinuxHint
 Linux+Hint is a good tutorial blog site
-```
+{% endhighlight %}
 
 <br>
 
 ### 예제.2 - Get substring of String
 
-``` bash
+{% highlight bash linenos %}
 #!/bin/bash
 Str="Learn Linux from LinuxHint"
 subStr=${Str:6:5}
     echo $subStr
-```
-```
-$ ./string2.sh
+{% endhighlight %}
+
+{% highlight result %}
 Linux
-```
+{% endhighlight %}

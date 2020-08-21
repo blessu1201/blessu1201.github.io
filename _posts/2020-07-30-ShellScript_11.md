@@ -146,7 +146,7 @@ iphone
 > `-r`{:.info} 옵션을 주면 \ (escape) 문자를 그대로 출력할 수 있습니다.
 
 ``` bash
-$ ./readfile5.sh
+$ vi readfile5.sh
 ```
 
 {% highlight bash linenos %}
@@ -159,7 +159,20 @@ done < company2.txt
 
 
 ```bash
-$ sh readfile5.sh company2.txt
+$ vi company2.txt
+```
+
+{% highlight bash linenos %}
+\Samsu\ng
+\Nokia
+\LG
+\Symphony
+\Apple
+{% endhighlight %}
+
+
+```bash
+$ ./readfile5.sh company2.txt
 ```
 
 {% highlight result %}

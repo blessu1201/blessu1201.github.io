@@ -10,35 +10,35 @@ key: 20200725_shell_script_04
 ## 리눅스 ShellScript 예제
 ---
 
-출처 : <https://linuxhint.com/30_bash_script_examples/>
-
-> `read` 를 사용하여 사용자가 입력을 할 수 있습니다.
+> `read`{:.info} 를 사용하여 사용자가 입력을 할 수 있습니다.
 
 
 <br>
 
 ### 예제.1 - Using simple read command
 
-``` bash
-$ vi read1.sh
+{% highlight bash linenos %}
 #!/bin/bash
 echo -n "What is your favorite food : "
 read answer
 echo "Oh! you like $answer!"
-```
-<pre>apple 을 입력해 보겠습니다.</pre>
-```
-$ ./read1.sh
+{% endhighlight %}
+
+>apple 을 입력해 보겠습니다.
+
+{% highlight result %}
 What is your favorite food : apple
 Oh! you like apple!
-```
+{% endhighlight %}
 
 <br>
 
 ### 예제.2 - Using read command with options
 
-``` bash
-$ vi read2.sh
+>`-p`{:.info} 옵션은 입력을 위한 prompt를 활성화 시킵니다.  
+>`-s`{:.info} 옵션은 Secret mode 입니다.</pre>
+
+{% highlight bash linenos %}
 #!/bin/bash
 # Type your Login Information
 read -p 'Username: ' user
@@ -50,27 +50,26 @@ then
 else
      echo -e "\nUnsuccessful login"
 fi
-```
-<pre>-p 옵션은 입력을 위한 prompt를 활성화 시킵니다.
--s 옵션은 Secret mode 입니다.</pre>
-```
-$ ./read2.sh
+{% endhighlight %}
+
+
+{% highlight result %}
 Username: admin
 Password:
 Successful login
-```
-```
+{% endhighlight %}
+
+{% highlight result %}
 Username: test
 Password:
 Unsuccessful login
-```
+{% endhighlight %}
 
 <br>
 
 ### 예제.3 - Using read command to take multiple inputs
 
-``` bash
-$ vi read3.sh
+{% highlight bash linenos %}
 #!/bin/bash
 # Taking multiple inputs
 echo "Type four names of your favorite programming languages"
@@ -79,38 +78,37 @@ echo "$lan1 is your first choice"
 echo "$lan2 is your second choice"
 echo "$lan3 is your third choice"
 echo "$lan4 is your fourth choice"
-```
+{% endhighlight %}
 
-```
-$ ./read3.sh
+{% highlight result %}
 Type four names of your favorite programming languages
 java php c++ python
 java is your first choice
 php is your second choice
 c++ is your third choice
 python is your fourth choice
-```
+{% endhighlight %}
 
 <br>
 
 ### 예제.4 - Using read command with the time limit
 
-``` bash
-$ vi read4.sh
+>`-t`{:.info} 옵션은 일정시간 후에 입력대기를 종료하는 옵션입니다.  
+>(여기서는 5초동안 입력이 없으면 자동종료됩니다.)</pre>
+
+{% highlight bash linenos %}
 #!/bin/bash
 read -t 5 -p "Type your favorite color : " color
 echo $color
-```
+{% endhighlight %}
 
-<pre>-t 옵션은 일정시간 후에 입력대기를 종료하는 옵션입니다.
-(여기서는 5초동안 입력이 없으면 자동종료됩니다.)</pre>
-```
-$ ./read4.sh
+
+{% highlight result %}
 Type your favorite color : black
 black
-```
-```
-$ ./read4.sh
+{% endhighlight %}
+
+{% highlight result %}
 Type your favorite color :
 $
-```
+{% endhighlight %}

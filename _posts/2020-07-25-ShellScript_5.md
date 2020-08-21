@@ -9,15 +9,13 @@ key: 20200725_shell_script_05
 
 ## 리눅스 ShellScript 예제
 ---
-출처 : <https://linuxhint.com/30_bash_script_examples/>
 
-> `if` 문의 몇가지 예제로 사용방법을 알아보도록 하겠습니다.
+> `if` 문의 몇가지 예제를 통해 사용방법을 알아보도록 하겠습니다.
 
 <br>
-연산자는 [ShellScript(1)](https://blessu1201.github.io/posts/shellscript_1/)을 참고하세요.
 
 | 연산자 | 의미 |
-|:--:|:--:|
+|:----:|:---:|
 | x `-eq` y | x가 y와 같은지 체크 |
 | x `-ne` y | x가 y와 같지 않은지 체크 |
 | x `-lt` y | x가 y 보다 작은지 체크 |
@@ -31,8 +29,7 @@ key: 20200725_shell_script_05
 
 ### 예제.1 - simple if
 
-``` bash
-$ vi simple_if.sh
+{% highlight bash linenos %}
 #!/bin/bash
 n=10
 if [ $n -lt 10 ];then
@@ -40,18 +37,18 @@ if [ $n -lt 10 ];then
 else
     echo "It is a two digit number"
 fi
-```
-```
+{% endhighlight %}
+
+{% highlight result %}
 $ ./simple_if.sh
 It is a two digit number
-```
+{% endhighlight %}
 
 <br>
 
 ### 예제.2 - AND연산  "&&"
 
-``` bash
-$ vi if_with_AND.sh
+{% highlight bash linenos %}
 #!/bin/bash
 echo "Enter username"
 read username
@@ -63,30 +60,29 @@ if [[ ( $username == "admin" && $password == "secret" ) ]]; then
 else
     echo "invalid user"
 fi
-```
-```
-$ ./if_with_AND.sh
+{% endhighlight %}
+
+{% highlight result %}
 Enter username
 admin
 Enter password
 secret
 valid user
-```
-```
-$ ./if_with_AND.sh
+{% endhighlight %}
+
+{% highlight result %}
 Enter username
 admin
 Enter password
 12345
 invalid user
-```
+{% endhighlight %}
 
 <br>
 
 ### 예제.3 - OR연산 ||
 
-``` bash
-$ vi if_with_OR.sh
+{% highlight bash linenos %}
 #!/bin/bash
 echo "Enter any number"
 read n
@@ -97,32 +93,31 @@ then
 else
     echo "You lost the game"
 fi
-```
-```
-$ ./if_with_OR.sh
+{% endhighlight %}
+
+{% highlight result %}
 Enter any number
 15
 You won the game
-```
-```
-$ ./if_with_OR.sh
+{% endhighlight %}
+
+{% highlight result %}
 Enter any number
 45
 You won the game
-```
-```
-$ ./if_with_OR.sh
+{% endhighlight %}
+
+{% highlight result %}
 Enter any number
 20
 You lost the game
-```
+{% endhighlight %}
 
 <br>
 
 ### 예제.4 - if ~ elif ~ else ~ fi
 
-``` bash
-$ vi elseif_example.sh
+{% highlight bash linenos %}
 #!/bin/bash
 echo "Enter your lucky number"
 read n
@@ -135,28 +130,28 @@ elif [ $n -eq 999 ];then
 else
     echo "Sorry, try for the next time"
 fi
-```
-```
-$ ./elseif_example.sh
+{% endhighlight %}
+
+{% highlight result %}
 Enter your lucky number
 101
 You got 1st prize
-```
-```
-$ ./elseif_example.sh
+{% endhighlight %}
+
+{% highlight result %}
 Enter your lucky number
 510
 You got 2nd prize
-```
-```
-$ ./elseif_example.sh
+{% endhighlight %}
+
+{% highlight result %}
 Enter your lucky number
 999
 You got 3rd prize
-```
-```
-$ ./elseif_example.sh
+{% endhighlight %}
+
+{% highlight result %}
 Enter your lucky number
 9999
 Sorry, try for the next time
-```
+{% endhighlight %}

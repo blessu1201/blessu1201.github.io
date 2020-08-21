@@ -31,7 +31,7 @@ $ docker build -t racktables-test .
 
 ### 2. Build 된 Image 확인
 
-> 정상적으로 작업이 끝나면 아래와 같은 Image를 확인할 수 있습니다.
+> 정상적으로 작업이 끝나면 하기 명령어로 Image를 확인합니다.
 
 ```
 $ docker images
@@ -44,7 +44,8 @@ docker.io/centos    centos6             d0957ffdf8a2        11 months ago       
 
 ### 3. Build 된 이미지로 부터 Container 실행
 
-> 저는 외부에서 접근시 7777포트를 사용합니다.(사용하고자 하는 포트를 입력하시면 됩니다.)
+> 저는 외부에서 접근시 7777포트를 사용합니다.  
+> (사용하고자 하는 포트를 입력하시면 됩니다.)
 
 ```
 $ docker run -d -p 7777:80 --name racktables c0f598aece7e

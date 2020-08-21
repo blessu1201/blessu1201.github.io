@@ -15,7 +15,7 @@ key: 20200701_linux_time
 ### 1. 시스템 시간 확인
 
 ```
-# date
+$ date
 ```
 
 <br>
@@ -23,7 +23,7 @@ key: 20200701_linux_time
 ### 2. H/W 시간 확인
 
 ```
-# hwclock --show
+$ hwclock --show
 ```
 
 <br>
@@ -31,14 +31,14 @@ key: 20200701_linux_time
 ### 3. 현재 시스템 시간을 타임서버로 부터 동기화
 
 ```
-# rdate -s time.bora.net
+$ rdate -s time.bora.net
 ```
 
 >VMware를 사용하거나, 클라우드 VPC에 서버를 두고 사용할 경우 타임서버로 부터 rdate 설정이 안되는 경우가 있습니다. 그럴 경우 아래방법으로 시도해보세요.
 
 
 ```
-# sudo ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+$ sudo ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
 ```
 
 <br>

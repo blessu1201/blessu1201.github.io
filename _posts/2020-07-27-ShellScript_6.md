@@ -10,25 +10,24 @@ key: 20200727_shell_script_06
 ## 리눅스 ShellScript 예제
 ---
 
-
 > `case` 문을 알아보겠습니다.
 
 <br>
 
 ### 기본문법
 
-``` bash
+{% highlight bash linenos %}
 case word in
   pattern)
     command ;;
 esac
-```
-<br>
+{% endhighlight %}
+
 <br>
 
 ### 예제.1
 
-``` bash
+{% highlight bash linenos %}
 #!/bin/bash
 echo "Enter your lucky number"
 read n
@@ -42,13 +41,13 @@ case $n in
 *)
     echo "Sorry, try for the next time" ;;
 esac
-```
+{% endhighlight %}
 
 <br>
 
 ### 예제.2
 
-``` c
+{% highlight bash linenos %}
 #!/bin/bash
 echo "What is your preferred programming / scripting language"
 echo "1) bash"
@@ -67,25 +66,25 @@ case $case in
     4) echo "You selected c++";;
     5) exit
 esac
-```
+{% endhighlight %}
 
 <br>
 
 ### 예제.3
 
-``` bash
+{% highlight bash linenos %}
 #!/bin/bash
 case "$1" in
   abc) echo "$variable = abc" ;;
   xyz) echo "$variable = xyz" ;;
 esac
-```
+{% endhighlight %}
 
 <br>
 
 ### 예제.4
 
-``` bash
+{% highlight bash linenos %}
 #!/bin/bash
 echo "1) kim"
 echo "2) lee"
@@ -102,13 +101,13 @@ case $name in
 *)
     echo " your first name is park";;
 esac
-```
+{% endhighlight %}
 
 <br>
 
 ### 예제.5
 
-``` bash
+{% highlight bash linenos %}
 #!/bin/sh
 echo "리눅스가 재미있나요?(Yes / no)"
 read answer
@@ -123,13 +122,13 @@ case $answer in
     exit 1;;
 esac
     exit 0
-```
+{% endhighlight %}
 
 <br>
 
 ### 예제.6
 
-``` bash
+{% highlight bash linenos %}
 #!/bin/sh
 case "$1" in
 case1)
@@ -143,13 +142,13 @@ case2)
 ;;
 esac
 exit 0
-```
+{% endhighlight %}
 
 <br>
 
 ### 예제.7
 
-``` bash
+{% highlight bash linenos %}
 read val
 
 echo $val
@@ -159,4 +158,4 @@ case $val in
 [^0-9]*)
     echo "not number";;
 esac
-```
+{% endhighlight %}
