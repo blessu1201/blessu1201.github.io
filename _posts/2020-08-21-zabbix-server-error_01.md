@@ -71,8 +71,8 @@ MariaDB [(none)]>  SET GLOBAL max_connections = 500;
 ```
 <br>
 
-> 영구적으로 변경하려면 /etc/my.cnf 파일을 수정하면 된다.  
-> 재발방지를 위해 my.cnf 를 수정했다.
+> 영구적으로 변경하려면 `/etc/my.cnf` 파일을 수정하면 된다.  
+> 재발방지를 위해 `my.cnf` 를 수정했다.
 
 ```bash
 $ vi /etc/my.cnf
@@ -86,7 +86,7 @@ max_connections = 500
 ### 4. 서비스 재시작
 
 > 설정 적용을 위해 DB를 재시작 한후, zabbix-server 를 다시 올려주었다.  
-> 정상적으로 작동하는 것을 확인 할 수 있었다. 다행이다.
+> 정상적으로 작동하는 것을 확인 할 수 있었다.
 
 ```bash
 $ /bin/systemctl restart mariadb
