@@ -19,7 +19,7 @@ key: 20200821_zabbix_server_error_01
 ### 1. LOG 확인
 
 > log를 확인해보니, DB connection 오류가 많이 보인다.  
-> process를 죽이고 다시 시작을 해도 다시 stop 되는 상황이 발생한다.
+> process를 죽이고 다시 시작을 해도 다시 stop 되는 상황이 발생했다.
 
 ```bash
 $ cat /var/log/zabbix/zabbix_server.log
@@ -45,7 +45,7 @@ zabbix_server [14700]: [file:'log.c',line:245] lock failed: [22] Invalid argumen
 
 ### 2. database max_connections 확인
 
-> 구글링으로 검색해보니, max_connections을 500으로 넉넉하게 설정을 하라고 한다.  
+> 구글링으로 검색해보니, max_connections을 500으로 설정을 하라고 한다.  
 > 변경에 앞서 설정을 확인해보니 값이 151로 설정이 되어있다.
 
 ```bash
