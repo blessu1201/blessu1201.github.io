@@ -5,6 +5,8 @@ tags: [Linux, ShellScript]
 key: 20200730_shell_script_11
 ---
 
+{% include googlead.html %}
+
 ## 리눅스 ShellScript 예제
 ---
 
