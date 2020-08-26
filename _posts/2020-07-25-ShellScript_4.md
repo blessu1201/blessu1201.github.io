@@ -7,7 +7,6 @@ key: 20200725_shell_script_04
 
 {% include googlead.html %}
 
-## 리눅스 ShellScript 예제
 ---
 
 > `read`{:.info} 를 사용하여 사용자가 입력을 할 수 있습니다.
@@ -15,7 +14,7 @@ key: 20200725_shell_script_04
 
 <br>
 
-### 예제.1 - Using simple read command
+## 예제.1 - Using simple read command
 
 {% highlight bash linenos %}
 #!/bin/bash
@@ -33,7 +32,7 @@ Oh! you like apple!
 
 <br>
 
-### 예제.2 - Using read command with options
+## 예제.2 - Using read command with options
 
 >`-p`{:.info} 옵션은 입력을 위한 prompt를 활성화 시킵니다.  
 >`-s`{:.info} 옵션은 Secret mode 입니다.</pre>
@@ -67,7 +66,7 @@ Unsuccessful login
 
 <br>
 
-### 예제.3 - Using read command to take multiple inputs
+## 예제.3 - Using read command to take multiple inputs
 
 {% highlight bash linenos %}
 #!/bin/bash
@@ -91,7 +90,7 @@ python is your fourth choice
 
 <br>
 
-### 예제.4 - Using read command with the time limit
+## 예제.4 - Using read command with the time limit
 
 >`-t`{:.info} 옵션은 일정시간 후에 입력대기를 종료하는 옵션입니다.  
 >(여기서는 5초동안 입력이 없으면 자동종료됩니다.)</pre>

@@ -7,7 +7,6 @@ key: 20200728_shell_script_07
 
 {% include googlead.html %}
 
-## 리눅스 ShellScript 예제
 ---
 
 > `argument` 명령줄에서 인수를 처리하는 방법입니다.<br>
@@ -18,7 +17,7 @@ $1, $2 변수에 순차적으로 수신됩니다.
 
 <br>
 
-### 예제.1 - Sending three numeric values as arguments
+## 예제.1 - Sending three numeric values as arguments
 
 {% highlight bash linenos %}
 #!/bin/bash
@@ -56,7 +55,7 @@ Result of sum = 45
 
 <br>
 
-### 예제.2 - Taking filename as argument
+## 예제.2 - Taking filename as argument
 
 ```bash
 $ vi argu2.sh
@@ -82,7 +81,7 @@ Total number of characters are 18 argu_test.txt
 
 <br>
 
-### 예제.3 - Reading arguments by getopts function
+## 예제.3 - Reading arguments by getopts function
 
 {% highlight bash linenos %}
 #!/bin/bash

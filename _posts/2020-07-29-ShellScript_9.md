@@ -7,14 +7,13 @@ key: 20200729_shell_script_09
 
 {% include googlead.html %}
 
-## 리눅스 ShellScript 예제
 ---
 
 > 산술연산 방법에 대해 알아보겠습니다.
 
 <br>
 
-### 예제.1 - Using ‘expr’ command
+## 예제.1 - Using ‘expr’ command
 
 {% highlight bash linenos %}
 #!/bin/bash
@@ -51,7 +50,7 @@ myVal2=$( expr 30 - 10 )
 
 <br>
 
-### 예제.2 - Using ‘expr’ command
+## 예제.2 - Using ‘expr’ command
 
 >21번째 줄에 $1 이 있으므로 인수를 1개 적어줘야 합니다. 없으면 에러가 발생합니다.
 
@@ -92,7 +91,7 @@ $ ./arith2.sh 60
 
 <br>
 
-### 예제.3 - Using double brackets
+## 예제.3 - Using double brackets
 
 {% highlight bash linenos %}
 #!/bin/bash
@@ -128,7 +127,7 @@ $ ./arith3.sh
 
 <br>
 
-### 예제.4 - Using ‘bc’ command for float or double numbers
+## 예제.4 - Using ‘bc’ command for float or double numbers
 
 >`bc`{:.info}(basic calculator)는 리눅스 기본계산기 입니다.
 

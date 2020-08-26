@@ -7,14 +7,13 @@ key: 20200728_shell_script_08
 
 {% include googlead.html %}
 
-## 리눅스 ShellScript 예제
 ---
 
 > `String` (문자열)에 관한 내용입니다.
 
 <br>
 
-### 예제.1 - Combine String variables
+## 예제.1 - Combine String variables
 
 {% highlight bash linenos %}
 #!/bin/bash
@@ -34,7 +33,7 @@ Linux+Hint is a good tutorial blog site
 
 <br>
 
-### 예제.2 - Get substring of String
+## 예제.2 - Get substring of String
 
 {% highlight bash linenos %}
 #!/bin/bash

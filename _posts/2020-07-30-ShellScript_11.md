@@ -7,16 +7,14 @@ key: 20200730_shell_script_11
 
 {% include googlead.html %}
 
-## 리눅스 ShellScript 예제
 ---
 
-데이터 파일을 만든 후 ShellScript에서 사용하는 방법을 알아보겠습니다.
-{:.warning}
+> 데이터 파일을 만든 후 ShellScript에서 사용하는 방법을 알아보겠습니다.
 
 
 <br>
 
-### 예제.1 - Read a File
+## 예제.1 - Read a File
 
 ``` bash
 $ vi read_file.sh
@@ -56,7 +54,7 @@ CodeIgniter 3
 
 <br>
 
-### 예제.2 - Reading file content from command line
+## 예제.2 - Reading file content from command line
 
 ``` bash
 $ vi company.txt
@@ -84,7 +82,7 @@ iphone
 
 <br>
 
-### 예제.3 - Reading file content using script
+## 예제.3 - Reading file content using script
 
 ```bash
 $ vi readfile3.sh
@@ -114,7 +112,7 @@ Line No. 5 : iphone
 
 <br>
 
-### 예제.4 - Passing filename from the command line and reading the file
+## 예제.4 - Passing filename from the command line and reading the file
 
 ``` bash
 $ vi readfile4.sh
@@ -143,7 +141,7 @@ iphone
 
 <br>
 
-### 예제.5 - Reading file by omitting backslash escape
+## 예제.5 - Reading file by omitting backslash escape
 
 > `-r`{:.info} 옵션을 주면 \ (escape) 문자를 그대로 출력할 수 있습니다.
 

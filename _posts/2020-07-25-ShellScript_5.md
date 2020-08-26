@@ -7,7 +7,6 @@ key: 20200725_shell_script_05
 
 {% include googlead.html %}
 
-## 리눅스 ShellScript 예제
 ---
 
 > `if` 문의 몇가지 예제를 통해 사용방법을 알아보도록 하겠습니다.
@@ -27,7 +26,7 @@ key: 20200725_shell_script_05
 <br>
 <br>
 
-### 예제.1 - simple if
+## 예제.1 - simple if
 
 {% highlight bash linenos %}
 #!/bin/bash
@@ -46,7 +45,7 @@ It is a two digit number
 
 <br>
 
-### 예제.2 - AND연산  "&&"
+## 예제.2 - AND연산  "&&"
 
 {% highlight bash linenos %}
 #!/bin/bash
@@ -80,7 +79,7 @@ invalid user
 
 <br>
 
-### 예제.3 - OR연산 ||
+## 예제.3 - OR연산 ||
 
 {% highlight bash linenos %}
 #!/bin/bash
@@ -115,7 +114,7 @@ You lost the game
 
 <br>
 
-### 예제.4 - if ~ elif ~ else ~ fi
+## 예제.4 - if ~ elif ~ else ~ fi
 
 {% highlight bash linenos %}
 #!/bin/bash

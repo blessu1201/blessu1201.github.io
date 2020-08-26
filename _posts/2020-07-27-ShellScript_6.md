@@ -7,14 +7,13 @@ key: 20200727_shell_script_06
 
 {% include googlead.html %}
 
-## 리눅스 ShellScript 예제
 ---
 
 > `case` 문을 알아보겠습니다.
 
 <br>
 
-### 기본문법
+## 기본문법
 
 {% highlight bash linenos %}
 case word in
@@ -25,7 +24,7 @@ esac
 
 <br>
 
-### 예제.1
+## 예제.1
 
 {% highlight bash linenos %}
 #!/bin/bash
@@ -45,7 +44,7 @@ esac
 
 <br>
 
-### 예제.2
+## 예제.2
 
 {% highlight bash linenos %}
 #!/bin/bash
@@ -70,7 +69,7 @@ esac
 
 <br>
 
-### 예제.3
+## 예제.3
 
 {% highlight bash linenos %}
 #!/bin/bash
@@ -82,7 +81,7 @@ esac
 
 <br>
 
-### 예제.4
+## 예제.4
 
 {% highlight bash linenos %}
 #!/bin/bash
@@ -105,7 +104,7 @@ esac
 
 <br>
 
-### 예제.5
+## 예제.5
 
 {% highlight bash linenos %}
 #!/bin/sh
@@ -126,7 +125,7 @@ esac
 
 <br>
 
-### 예제.6
+## 예제.6
 
 {% highlight bash linenos %}
 #!/bin/sh
@@ -146,7 +145,7 @@ exit 0
 
 <br>
 
-### 예제.7
+## 예제.7
 
 {% highlight bash linenos %}
 read val

@@ -1,13 +1,12 @@
 ---
 layout: article
-title: BashShell 글자속성 및 색상 지정
+title: Linux Shell Prompt 글자속성 변경 및 색상지정
 tags: [Linux, Bash]
 key: 20200721_shell_prompt
 ---
 
 {% include googlead.html %}
 
-## Linux Shell Prompt 글자속성 변경 및 색상지정
 ---
 
 
@@ -16,7 +15,7 @@ key: 20200721_shell_prompt
 
 <br>
 
-### 1. Text Attributes
+## 1. Text Attributes
 
 | ANSI CODE | Meaning |
 |:--------:|:--------:|
@@ -28,7 +27,7 @@ key: 20200721_shell_prompt
 
 <br>
 
-### 2. [ COLORS 색상표 ]
+## 2. [ COLORS 색상표 ]
 
 | Bold off | color | Bold on | color |
 |-|-|-|-|
@@ -43,7 +42,7 @@ key: 20200721_shell_prompt
 
 <br>
 
-### 3. Foreground, Background 색상표
+## 3. Foreground, Background 색상표
 
 | Color | Foreground | Background |
 |:--:|:--:|:--:|
@@ -58,7 +57,7 @@ key: 20200721_shell_prompt
 
 <br>
 
-### 4. 사용방법
+## 4. 사용방법
 
 ``` bash
 echo -e "\033[40;37;7m Hello World\033[0m"
@@ -84,7 +83,7 @@ echo -e "\e[0;37;47m LightGray\e[0m 0;37m \t\e[1;37;40m White      \e[0m 1;37m"
 
 <br>
 
-### 5. 적용
+## 5. 적용
 
 > `.bash_profile` 파일에 아래와 같이 변수를 지정하여 설정할 수 있습니다.
 

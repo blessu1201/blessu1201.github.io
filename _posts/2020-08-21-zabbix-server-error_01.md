@@ -1,13 +1,11 @@
 ---
 layout: article
-title: Zabbix Server error
+title: Zabbix error Too many connections
 tags: [Linux, zabbix]
 key: 20200821_zabbix_server_error_01
 ---
 
 {% include googlead.html %}
-
-## Zabbix Server Error : Too many connections
 
 ---
 
@@ -16,7 +14,7 @@ key: 20200821_zabbix_server_error_01
 
 <br>
 
-### 1. LOG 확인
+## 1. LOG 확인
 
 > log를 확인해보니, DB connection 오류가 많이 보인다.  
 > process를 죽이고 다시 시작을 해도 다시 stop 되는 상황이 발생했다.
@@ -43,7 +41,7 @@ zabbix_server [14700]: [file:'log.c',line:245] lock failed: [22] Invalid argumen
 
 <br>
 
-### 2. database max_connections 확인
+## 2. database max_connections 확인
 
 > 구글링으로 검색해보니, max_connections을 500으로 설정을 하라고 한다.  
 > 변경에 앞서 설정을 확인해보니 값이 151로 설정이 되어있다.
@@ -61,7 +59,7 @@ MariaDB [(none)]>  show variables like "max_connections";
 
 <br>
 
-### 3. max_connections 값 변경
+## 3. max_connections 값 변경
 
 > 권장값에 따라 `151`{:.info} ==> `500`{:.info} 으로 변경하였다.  
 > 일시적으로 늘리려면 아래와 같이 설정 해주면 된다.
@@ -83,7 +81,7 @@ max_connections = 500
 
 <br>
 
-### 4. 서비스 재시작
+## 4. 서비스 재시작
 
 > 설정 적용을 위해 DB를 재시작 한후, zabbix-server 를 다시 올려주었다.  
 > 정상적으로 작동하는 것을 확인 할 수 있었다.

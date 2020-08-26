@@ -1,18 +1,17 @@
 ---
 layout: article
-title: Linux 서버 시간설정하기
+title: Linux 서버 시스템시간, H/W시간 확인 및 설정
 tags: [Linux]
 key: 20200701_linux_time
 ---
 
 {% include googlead.html %}
 
-## 리눅스 현재시스템 시간, H/W시간 확인 및 설정하기
-***
+---
 
 <br>
 
-### 1. 시스템 시간 확인
+## 1. 시스템 시간 확인
 
 ```
 $ date
@@ -20,7 +19,7 @@ $ date
 
 <br>
 
-### 2. H/W 시간 확인
+## 2. H/W 시간 확인
 
 ```
 $ hwclock --show
@@ -28,7 +27,7 @@ $ hwclock --show
 
 <br>
 
-### 3. 현재 시스템 시간을 타임서버로 부터 동기화
+## 3. 현재 시스템 시간을 타임서버로 부터 동기화
 
 ```
 $ rdate -s time.bora.net
@@ -43,7 +42,7 @@ $ sudo ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
 
 <br>
 
-### 4. 수동으로 시간설정하기
+## 4. 수동으로 시간설정하기
 
 ```
 # date -s '2020-07-01 18:47:30'
@@ -51,7 +50,7 @@ $ sudo ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
 
 <br>
 
-### 5. 타임서버시간을 H/W clock에 설정하기
+## 5. 타임서버시간을 H/W clock에 설정하기
 
 ```
 # rdate -s time.bora.net && /sbin/clock -w

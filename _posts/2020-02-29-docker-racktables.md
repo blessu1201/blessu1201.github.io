@@ -1,13 +1,11 @@
 ---
 layout: article
-title: Docker에서 racktables 운영하기
+title: Docker에서 racktables 설치운영하기
 tags: [Docker]
 key: 20200229_docker_racktables
 ---
 
 {% include googlead.html %}
-
-## Docker-Racktables 활용
 
 ---
 > 현재 사내에서 `racktables`{:.info} 을 사용하고 있는데요.  
@@ -19,7 +17,7 @@ key: 20200229_docker_racktables
 
 <br>
 
-### 1. Dockfile 로 부터 Image Build.
+## 1. Dockfile 로 부터 Image Build.
 
 > Dockfile 위치에서 image를 build 합니다.
 
@@ -29,7 +27,7 @@ $ docker build -t racktables-test .
 
 <br>
 
-### 2. Build 된 Image 확인
+## 2. Build 된 Image 확인
 
 > 정상적으로 작업이 끝나면 하기 명령어로 Image를 확인합니다.
 
@@ -42,7 +40,7 @@ docker.io/centos    centos6             d0957ffdf8a2        11 months ago       
 
 <br>
 
-### 3. Build 된 이미지로 부터 Container 실행
+## 3. Build 된 이미지로 부터 Container 실행
 
 > 저는 외부에서 접근시 7777포트를 사용합니다.  
 > (사용하고자 하는 포트를 입력하시면 됩니다.)
@@ -53,7 +51,7 @@ $ docker run -d -p 7777:80 --name racktables c0f598aece7e
 
 <br>
 
-### 4. Container 확인
+## 4. Container 확인
 
 > Container가 정상으로 올라오면 아래와 같이 확인이 됩니다.
 
@@ -66,7 +64,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 <br>
 
-### 5. Browser에서 접속
+## 5. Browser에서 접속
 
 > 브라우저 주소창에서 ip-address 에는 현재 서버의 ip를 입력.
 
@@ -75,13 +73,13 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 <br>
 
-### 6. 설치 진행
+## 6. 설치 진행
 
 > 브라우저에서 설치를 진행합니다.(총 7단계로 진행이 됩니다.)
 
 <br>
 
-### 7. Brower에서 설치진행
+## 7. Brower에서 설치진행
 
 > 설치 진행 중 하기와 같은 메세지가 출력이되면 8번 container 접속파트를 참고하세요.
 
@@ -90,7 +88,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 <br>
 
-### 8. Container 접속하여, 파일 속성 변경
+## 8. Container 접속하여, 파일 속성 변경
 
 > 아래와같이 container에 접속 후 파일의 속성을 변경한 후 다음단계로 진행합니다.
 
@@ -103,7 +101,7 @@ $ docker exec -it 26e140d4411d /bin/bash
 
 <br>
 
-### 9. Docker에서 Data 복구 및 백업 방법
+## 9. Docker에서 Data 복구 및 백업 방법
 
 > 장애가 발생했다는 가정하에서 평소 백업해 두었던 sql 파일로 복구진행을 하면 됩니다.  
 > 추후 Docker를 사용하여 계속 사용할 것을 생각하여 복구, 백업 모두 기록해 놓았습니다.
@@ -122,7 +120,7 @@ $ docker exec CONTAINER /usr/bin/mysqldump -u root --password=$PASSWORD DATABASE
 
 <br>
 
-### 10. Data 복구 ERROR 발생시 Trouble Shooting
+## 10. Data 복구 ERROR 발생시 Trouble Shooting
 
 > 하기와 같은 에러가 발생하게 되면,
 
@@ -141,7 +139,7 @@ mysql> set global net_buffer_length=1000000;
 
 <br>
 
-### 11. Docker MySQL 복구
+## 11. Docker MySQL 복구
 
 > 9단계에서 실패한 복구 과정을 다시 실행하면 복구가 잘되는 걸 확인할 수 있습니다.
 
@@ -151,6 +149,6 @@ $ cat racktables_db.sql | docker exec -i 26e140d4411d /usr/bin/mysql -u root --p
 
 <br>
 
-### 12. Browser 에서 접속 및 확인
+## 12. Browser 에서 접속 및 확인
 
 > 로그인시 계정과 패스워드도 함께 복구가 되므로 기존사용하던 계정, 패스워드가 있을경우 기존계정을 입력하시면 됩니다.

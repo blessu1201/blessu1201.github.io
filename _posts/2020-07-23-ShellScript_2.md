@@ -7,7 +7,6 @@ key: 20200723_shell_script_02
 
 {% include googlead.html %}
 
-## 리눅스 ShellScript(2)
 ---
 
 - 출처 : <https://linuxhint.com/30_bash_script_examples/>
@@ -18,7 +17,7 @@ key: 20200723_shell_script_02
 
 <br>
 
-### 1.  스크립트 생성 및 실행 (Create and Execute First BASH Program)
+## 1.  ShellScript 생성 및 실행
 
 > echo 명령으로 Hello World 를 출력해 봅시다.
 
@@ -49,7 +48,7 @@ Hello World
 
 <br>
 
-### 2. echo 명령 옵션 (Use of echo command)
+## 2. echo 명령 옵션 (Use of echo command)
 
 ```bash
 $ vi echo_example.sh
@@ -75,7 +74,7 @@ Removing         backslash       characters
 
 <br>
 
-### 3. 주석 (use of comment)
+## 3. 주석 (use of comment)
 
 > 주석을 입력하는 방법에는 아래 3가지 방법이 있습니다.
 
