@@ -1,7 +1,6 @@
 ---
 layout: article
 titles: Links
-key: page-links
 ---
 
 ## Free Webtoon
