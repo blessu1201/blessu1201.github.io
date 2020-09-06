@@ -1,6 +1,7 @@
 ---
 layout: article
-titles: Links
+titles:
+  en      : &EN       Links
 ---
 
 ## Free Webtoon
