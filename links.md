@@ -1,7 +1,6 @@
 ---
 layout: article
-titles:
-  en      : &EN       Links
+title: Links
 ---
 
 ## Zabbix Manual
@@ -9,7 +8,7 @@ titles:
 - [Zabbix Manual(Kor)](http://manual.oplab.co.kr/doku.php/start/){: target="_blank"}
 - [Zabbix Manual(Eng)](https://www.zabbix.com/documentation/current/manual/){: target="_blank"}
 
-## Server World
+## Server World 서버관련
 
 - [Zabbix Manual(Kor)](https://www.server-world.info/en/){: target="_blank"}
 
