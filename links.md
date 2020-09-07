@@ -10,7 +10,7 @@ title: Links
 
 ## Server World 서버관련
 
-- [Zabbix Manual(Kor)](https://www.server-world.info/en/){: target="_blank"}
+- [ServerWorld)](https://www.server-world.info/en/){: target="_blank"}
 
 ## Free Webtoon
 
