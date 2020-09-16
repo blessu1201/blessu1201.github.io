@@ -14,8 +14,8 @@ title: Links
 
 ## Free Webtoon
 
-- [툰코](https://tkor.city/){: target="_blank"}
 - [나이스링크](https://nicelink13.com/){: target="_blank"}
+- [올넷](https://twitter.com/allnettoon/){: target="_blank"}
 
 ## Torrent Site 모음
 
@@ -24,7 +24,6 @@ title: Links
 - [토렌트아이](https://2.torrenti.co.kr/){: target="_blank"}
 - [토렌트라이크](https://torrentlike.com/){: target="_blank"}
 - [토렌트다이아](https://torrentdia.com/){: target="_blank"}
-- [토렌트조조](https://torrentzozo.com/){: target="_blank"}
 - [토렌트봄](https://torrent.movie/){: target="_blank"}
 - [pirate-bay](https://www.pirateproxy-bay.com/){: target="_blank"}
 
