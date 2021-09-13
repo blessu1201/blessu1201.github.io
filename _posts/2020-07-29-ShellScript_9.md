@@ -50,7 +50,7 @@ myVal2=$( expr 30 - 10 )
 
 <br>
 
-## 예제.2 - Using ‘expr’ command
+## 예제.2 - Using ‘let’ command
 
 >21번째 줄에 $1 이 있으므로 인수를 1개 적어줘야 합니다. 없으면 에러가 발생합니다.
 
