@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Sohyang Best Song
-tags: [Sohyang]
+tags: [Music]
 key: 20230224-Sohyang_song
 ---
 
@@ -9,31 +9,31 @@ key: 20230224-Sohyang_song
 
 ---
 
-1. Brigde over troubled water
+**1.Brigde over troubled water**
 
 <div>{%- include extensions/youtube.html id='xKThKxWOaWI' -%}</div>
 
-2. Lean on me
+**2.Lean on me**
 
-<div>{%- include extensions/youtube.html id='GvsgCllcNPE' -%}</div>
+<div>{%- include extensions/soundcloud.html id='209035928' -%}</div>
 
-3. Mona Lisa
+**3.Mona Lisa**
 
-<div>{%- include extensions/youtube.html id='M6Mv-Wn54tA' -%}</div>
+<div>{%- include extensions/soundcloud.html id='324732765' -%}</div>
 
-4. You Raise me up
+**4.You Raise me up**
 
-<div>{%- include extensions/youtube.html id='te_L9ofhUt8' -%}</div>
+<div>{%- include extensions/soundcloud.html id='444653967' -%}</div>
 
-5. I have nothing
+**5.I have nothing**
 
-<div>{%- include extensions/youtube.html id='CFtRUSPxcas' -%}</div>
+<div>{%- include extensions/soundcloud.html id='832293946' -%}</div>
 
-6. Everyone
+**6.Everyone**
 
-<div>{%- include extensions/youtube.html id='H5e7MPre7iY' -%}</div>
+<div>{%- include extensions/soundcloud.html id='764669026' -%}</div>
 
-7. O holy night
+**7.O holy night**
 
 <div>{%- include extensions/youtube.html id='YwgF3Gylu-0' -%}</div>
 
