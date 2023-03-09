@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Linux GeoIP 설치(CentOS 6)
-tags: [Linux]
+tags: [Linux, GeoIP]
 key: 20200716_geoip_centos6
 ---
 

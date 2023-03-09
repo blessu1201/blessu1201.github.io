@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Markdown Syntax
-tags: [Markdown]
+tags: [Markdown, arkdown Syntax]
 key: 20200227_markdown_syntax
 ---
 

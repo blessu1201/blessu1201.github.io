@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Linux GeoIP 설치(CentOS 7)
-tags: [Linux]
+tags: [Linux, GeoIP]
 key: 202007176_geoip_centos7
 ---
 

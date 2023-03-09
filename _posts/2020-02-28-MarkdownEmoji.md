@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Markdown Emoji
-tags: [Markdown]
+tags: [Markdown, Markdown Emoji]
 key: 20200228_markdown_emoji
 ---
 

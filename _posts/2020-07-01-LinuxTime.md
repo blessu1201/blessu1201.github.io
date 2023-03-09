@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Linux 서버 시스템시간, H/W시간 확인 및 설정
-tags: [Linux]
+tags: [Linux, linux set time]
 key: 20200701_linux_time
 ---
 
