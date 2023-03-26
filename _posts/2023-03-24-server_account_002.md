@@ -9,8 +9,6 @@ key: 20230324-linux_password_complexity
 
 ---
 
-<img src='http://drive.google.com/uc?export=view&id=1ApCe1lsvgZpOFGSMyLqAe0qd6xp3d0_g' /><br>
-
 > CentOS 6 이상 버전에서는 system-auth 설정을 통해 복잡성 설정이 가능합니다.
 > 하기 내용을 참고하셔서 각 파일의 설정으로 계정을 보호하시기 바랍니다.
 
