@@ -18,14 +18,14 @@ key: 20230324-linux_account_unlock
 **1. 계정상태 확인(Check account status)**
 
 ```bash
-pam_tally2 -u account_name
+pam_tally2 -u account_id
 ```
 
 
 **2. 계정 잠금 해제(unlock account)**
 
 ```bash
-pam_tally2 -u account_name --reset
+pam_tally2 -u account_id --reset
 ```
 
 
@@ -36,7 +36,7 @@ pam_tally2 -u account_name --reset
 > This is a command to unlock the account. You can use it by applying it to the account you need.
 
 ```bash
-chage -E -1 -M 99999 account_name
-chage -E -1 -M 99999 account_name
-chage -E -1 -I 0 -m 0 -M 99999 account_name
+chage -E -1 -M 99999 account_id
+chage -E -1 -M 99999 account_id
+chage -E -1 -I 0 -m 0 -M 99999 account_id
 ```

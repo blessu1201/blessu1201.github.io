@@ -12,7 +12,7 @@ title: Links
 
 - [ServerWorld](https://www.server-world.info/en/){: target="_blank"}
 
-## 교육사이트
+## 유용한 사이트
 
 - [통계](http://www.estat.me/estat/eStat/){: target="_blank"}
 - [비주얼리제이션](https://public.tableau.com/ko-kr/s/){: target="_blank"}
