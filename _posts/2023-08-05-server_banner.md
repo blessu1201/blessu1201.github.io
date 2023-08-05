@@ -9,7 +9,7 @@ key: 20230805-linux_banner
 
 ---
 
-## 1.배너문구 설정하기
+## 1. 배너문구 설정하기
 
 > 리눅스 보안 사항 중 경고(warning)메세지를 설정해야 하는 사항이 있습니다.
 > 아래 문구를 `/etc/motd`{:.error}, `/etc/issue`{:.error}, `/etc/issue.net`{:.error} 에 등록하여 사용하시면 됩니다.
@@ -49,7 +49,7 @@ law enforcement agencies.
 =============================================================================
 ```
 
-## 2.motd 자동변경 disable 설정
+## 2. motd 자동변경 disable 설정
 
 > 아래 명령어는 AWS EC2에서 배너를 수정해도 원복(default 값으로)되는 상황이 발생하게 되는데,
 > 하기 명령어를 수행하시면 수정된 내용이 변경되지 않습니다.
@@ -58,7 +58,7 @@ law enforcement agencies.
 sudo update-motd --disable
 ```
 
-## 3.sshd_config 수정하기
+## 3. sshd_config 수정하기
 
 > sshd_config 의 Banner 주석을 해제해 줍니다.
 
