@@ -52,7 +52,7 @@ law enforcement agencies.
 ## 2. motd 자동변경 disable 설정
 
 > 아래 명령어는 AWS EC2에서 배너를 수정해도 원복(default 값으로)되는 상황이 발생하게 되는데,
-> 하기 명령어를 수행하시면 수정된 내용이 변경되지 않습니다.
+> 하기 명령어를 수행하면 수정된 내용이 변경되지 않습니다.
 
 ```bash
 sudo update-motd --disable
@@ -67,4 +67,6 @@ sudo update-motd --disable
 # no default banner path
 #Banner none
 Banner /etc/issue.net # 주석해제
+
+systemctl restart sshd # 설정 변경 후 재시작 하셔야 됩니다.
 ```
