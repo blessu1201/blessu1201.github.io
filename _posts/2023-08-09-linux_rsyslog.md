@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 리눅스 rsyslog를 활용하여 message 로그 수집 / Linux rsyslog collect log
-tags: [linux, linux rsyslog]
+tags: [linux, rsyslog]
 key: 20230809-linux_rsyslog
 ---
 

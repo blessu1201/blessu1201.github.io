@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 리눅스 openssl을 활용한 파일 암,복호화 / Linux using openssl for file encryption
-tags: [linux, linux openssl]
+tags: [linux, openssl]
 key: 20230809-linux_openssl_file_encrypt
 ---
 

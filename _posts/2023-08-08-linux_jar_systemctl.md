@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 리눅스 jar 파일 시스템에 등록하기 / Linux jar file systemctl register
-tags: [linux, linux jar systemctl]
+tags: [linux, jar systemctl]
 key: 20230808-linux_jar_systemctl
 ---
 

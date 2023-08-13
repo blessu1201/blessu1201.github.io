@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 리눅스 보안 배너 경고문구 (banner) / Linux banner
-tags: [linux, linux banner]
+tags: [linux, banner]
 key: 20230805-linux_banner
 ---
 
