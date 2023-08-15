@@ -11,7 +11,7 @@ key: 20230811-linux_swap_memory
 
 > 리눅스에서 Swap 메모리를 설정하는 방법입니다.
 
-## 1. swap memory의 생성
+## 1. swap file의 생성
 
 > Swap의 메모리의 어느정도로 설정할지 결정 후
 > dd 명령어를 사용하여 아래와 같이 swapfile 을 만들어 줍니다.
@@ -38,7 +38,7 @@ $ sudo fallocate -l 2GB /swap/swapfile # 방법 2
 $ sudo chmod 600 /swapfile
 ```
 
-## 3. swapfile 활성화
+## 3. swap영역의 지정 및 활성화
 
 > 아래 명령어를 통해 swapfile을 통한 swap memory를 활성화 합니다.
 
