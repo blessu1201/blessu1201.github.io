@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 리눅스 서버 및 윈도우 외부 공인IP 확인방법 / Linux, windows public ip check
+title: 리눅스 서버 및 윈도우 내 아이피(IP) 확인방법 / Linux, windows public ip check
 tags: [linux, windows, public ip check]
 key: 20230817-linux_windows_public_ip_check 
 ---
