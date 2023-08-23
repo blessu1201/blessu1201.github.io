@@ -18,7 +18,7 @@ key: 20230817-linux_windows_public_ip_check
 
 ## 1. 내아이피 확인(외부 공인)
 
-> 리눅스, 윈도우 내 컴퓨터의 외부 공인 IP 확인
+> 리눅스, 윈도우(cmd실행 후) 내 컴퓨터의 외부 공인 IP 확인
 
 ```bash
 $ curl ifconfig.me
