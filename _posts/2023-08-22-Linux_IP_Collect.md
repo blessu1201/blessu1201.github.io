@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 서버관리_01 / Server IP Collector
-tags: [Linux Interface IP Collect]
+tags: [Linux Interface IP Collect, Shellscript]
 key: 20230822-linux_server_manage_01 
 ---
 
