@@ -1,8 +1,8 @@
 ---
 layout: article
 title: Sohyang Best Song
-tags: [Music, Sohyang, Brigde over troubled water, Lean on me, Mona Lisa, You Raise me up, I have nothing, Everyone, O holy night ]
-key: 20230224-Sohyang_song
+tags: [Music, Sohyang ]
+key: 20230224-Sohyang_pop_song
 ---
 
 {% include googlead.html %}

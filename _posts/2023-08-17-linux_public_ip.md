@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 리눅스 서버 및 윈도우 내 아이피(IP) 확인방법 / Linux, windows public ip check
-tags: [linux, windows, public ip check]
+tags: [Linux, Windows, Public ip check]
 key: 20230817-linux_windows_public_ip_check 
 ---
 
@@ -35,7 +35,7 @@ $ ip addr
 
 ## 3. 윈도우 내부 IP 확인
 
-> cmd 명령어에서 하기 명령어 입력 
+> cmd 창에서 하기 명령어 입력 
 
 ```bash
 $ ipconfig

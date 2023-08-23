@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Zabbix Disk Monitoring 설정하기
-tags: [Linux, zabbix]
+tags: [Linux, Zabbix]
 key: 20200826_zabbix_disk_monitoring
 ---
 

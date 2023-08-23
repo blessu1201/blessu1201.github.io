@@ -249,7 +249,7 @@ Argument: ShellScript
 ## 예제.4 - Finding odd and even number using three expressions
 
 {% highlight bash linenos %}
-#!/bin/sh
+#!/bin/bash
 for (( n=1; n<=5; n++ ))
 do
 if (( $n%2==0 ))

@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 리눅스 잠긴 계정 해제 / unlock linux locked account
-tags: [linux, account unlock,]
+tags: [Linux, Account unlock,]
 key: 20230324-linux_account_unlock
 ---
 

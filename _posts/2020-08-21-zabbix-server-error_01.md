@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Zabbix error Too many connections
-tags: [Linux, zabbix]
+tags: [Linux, Zabbix]
 key: 20200821_zabbix_server_error_01
 ---
 

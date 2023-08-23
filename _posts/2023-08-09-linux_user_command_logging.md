@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 리눅스 user command logging / Linux user command logging
-tags: [linux, user command]
+tags: [Linux, User command]
 key: 20230809-linux_user_command
 ---
 

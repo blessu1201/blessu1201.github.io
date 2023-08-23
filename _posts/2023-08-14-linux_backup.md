@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 리눅스 부팅전 상태 백업 명령어 / Linux info backup before reboot
-tags: [linux, linux_info]
+tags: [Linux, Linux_info]
 key: 20230814-linux_info_backup 
 ---
 

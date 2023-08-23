@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 리눅스 계정 보안(패스워드 복잡성 설정하기) / Linux password complexity
-tags: [linux, password complexity]
+tags: [Linux, Password complexity]
 key: 20230324-linux_password_complexity
 ---
 

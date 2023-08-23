@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 리눅스 스왑메모리 생성 / Linux make swap memory
-tags: [linux, swap]
+tags: [Linux, Swap]
 key: 20230811-linux_swap_memory
 ---
 

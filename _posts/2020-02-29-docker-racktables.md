@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Docker에서 racktables 설치운영하기
-tags: [Docker, racktables]
+tags: [Docker, Racktables]
 key: 20200229_docker_racktables
 ---
 

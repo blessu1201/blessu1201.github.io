@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 리눅스 nohup 명령어 / Linux nohup
-tags: [linux, nohup]
+tags: [Linux, Nohup]
 key: 20230812-linux nohup
 ---
 
