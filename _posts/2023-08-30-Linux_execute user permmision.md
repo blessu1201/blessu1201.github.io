@@ -13,10 +13,20 @@ key: 20230830-linux_server_manage_03
 
 ## 허가된 사용자만 스크립트 실행 가능하게 하기
 
-
 > 명령어: id, whoami, echo  
 > 키워드: 실행 사용자, 권한, root  
 > 사용처: 어떤 스크립트를 지정한 사용자 이외는 실행 금지하고 싶을 때  
+
+> 실행 예제  
+
+```
+$ whoami
+user1
+$ ./id-script.sh
+[ERROR] batch1 사용자로 실행하세요
+```
+
+> 스크립트 
 
  ```bash
 #!/bin/bash
