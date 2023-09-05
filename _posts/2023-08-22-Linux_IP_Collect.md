@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 서버관리_01 / 서버 네트워크 인터페이스와 IP 주소 목록 얻기
-tags: [Linux, ShellScript]
+tags: [Linux, ifconfig, awk, ShellScript]
 key: 20230822-linux_server_manage_01 
 ---
 

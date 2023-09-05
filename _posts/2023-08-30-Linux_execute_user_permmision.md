@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 서버관리_03 / 허가된 사용자만 스크립트 실행 가능하게 하기
-tags: [Linux]
+tags: [Linux, id, whoami, ShellScript]
 key: 20230830-linux_server_manage_03 
 ---
 

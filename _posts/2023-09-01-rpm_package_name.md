@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 서버관리_05 / 파일명으로 설치된 RPM 패키지명을 확인하기
-tags: [Linux, ShellScript]
+tags: [Linux, rpm, ShellScript]
 key: 20230831-linux_server_manage_05
 ---
 

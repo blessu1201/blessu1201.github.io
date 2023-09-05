@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 서버관리_02 / 서버에 작성된 사용자 계정 목록 얻기(Server Get User List)
-tags: [Linux, Get User List, Shellscript]
+tags: [Linux, grep, cut, Shellscript]
 key: 20230823-linux_server_manage_02 
 ---
 
