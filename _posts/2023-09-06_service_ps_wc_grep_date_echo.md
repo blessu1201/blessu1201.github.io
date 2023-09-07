@@ -12,12 +12,12 @@ key: 20230907-linux_server_manage_10
 > 명령어: service, ps, wc, grep, date, echo  
 > 키워드: 프로세스, 감시, 재실행, 자동화  
 > 사용처: 웹 서버 운용 시 프로세스가 다운하면 재실행해서 자동으로 장애 대응을 하고 싶을 때   
-
+ 
 > 실행 예제  
 
 ```bash
 $ ./process-restart.sh
-[2023/05/30 10:30:15] 프로세스 /usr/sbin/httpd 찾지 못했습니다.
+[2023/05/30 10:30:15] /usr/sbin/httpd 찾지 못했습니다.
 [2023/05/30 10:30:15] 프로세스 /usr/sbin/httpd 실행
 Starting httpd: [ OK ]
 ```
