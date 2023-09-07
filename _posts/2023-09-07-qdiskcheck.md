@@ -54,16 +54,6 @@ done < "$tmpfile"
 rm -f "$tmpfile" # ------------------------------------------------------ 8
 ```
 
-[1](#){:.button.button--primary.button--rounded.button--xs}
-[2](#){:.button.button--primary.button--rounded.button--xs}
-[3](#){:.button.button--primary.button--rounded.button--xs}
-[4](#){:.button.button--primary.button--rounded.button--xs}
-[5](#){:.button.button--primary.button--rounded.button--xs}
-[6](#){:.button.button--primary.button--rounded.button--xs}
-[7](#){:.button.button--primary.button--rounded.button--xs}
-[8](#){:.button.button--primary.button--rounded.button--xs}
-
-
 ### **해설**
 
 이 스크립트는 서버가 마운트한 각각의 디스크 사용률을 감시해서 지정한 값보다 사용률이 크면 경고합니다. 여기서는 **df 명령어**로 디스크 빈 용량을 조사해서 셸 변수 used_limit로 지정한 허용값 퍼센트 보다 사용률이 크면 alert.sh 라는 스크립트를 실행해서 경고를 발생시킵니다.
