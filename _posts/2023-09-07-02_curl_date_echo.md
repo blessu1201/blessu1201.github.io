@@ -5,10 +5,6 @@ tags: [Linux, curl, date, echo, ShellScript]
 key: 20230907-linux_server_manage_12
 ---
 
-{% include googlead.html %}
-
----
-
 - 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어
 
 ## 웹 접근 감시하기

@@ -5,10 +5,6 @@ tags: [Music, Sohyang ]
 key: 20230224-Sohyang_pop_song
 ---
 
-{% include googlead.html %}
-
----
-
 **1.Brigde over troubled water**
 
 <div>{%- include extensions/youtube.html id='xKThKxWOaWI' -%}</div>

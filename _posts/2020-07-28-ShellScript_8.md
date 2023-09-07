@@ -5,10 +5,6 @@ tags: [Linux, ShellScript]
 key: 20200728_shell_script_08
 ---
 
-{% include googlead.html %}
-
----
-
 > `String` (문자열)에 관한 내용입니다.
 
 <br>

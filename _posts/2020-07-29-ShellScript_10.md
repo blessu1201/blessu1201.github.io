@@ -5,10 +5,6 @@ tags: [Linux, ShellScript]
 key: 20200729_shell_script_10
 ---
 
-{% include googlead.html %}
-
----
-
 > 'function'(함수) 사용방법에 대해 알아보겠습니다.
 
 <br>

@@ -5,10 +5,6 @@ tags: [Linux, ShellScript]
 key: 20200723_shell_script_02
 ---
 
-{% include googlead.html %}
-
----
-
 - 출처 : <https://linuxhint.com/30_bash_script_examples/>
 
 >리눅스 쉘스크립트예제를 통해서 기본적인 문법을 익혀보도록 하겠습니다.  

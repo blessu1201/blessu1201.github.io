@@ -5,10 +5,6 @@ tags: [Linux, ShellScript]
 key: 20200724_shell_script_03
 ---
 
-{% include googlead.html %}
-
----
-
 > 반복문  `while`{:.info}, `for`{:.info} 의 문법을 살펴보겠습니다.
 
 <br>

@@ -5,10 +5,6 @@ tags: [Linux, ShellScript]
 key: 20200728_shell_script_07
 ---
 
-{% include googlead.html %}
-
----
-
 > `argument` 명령줄에서 인수를 처리하는 방법입니다.<br>
 
 인수는 $0에서 시작합니다.  

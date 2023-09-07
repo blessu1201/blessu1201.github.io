@@ -5,10 +5,6 @@ tags: [Linux, Rsyslog]
 key: 20230809-linux_rsyslog
 ---
 
-{% include googlead.html %}
-
----
-
 ## 1. 로그를 수집하는 서버
 
 > 로그서버 한개를 대표로 놓고 다른서버의 로그를 수집하는 설정방법 입니다. 

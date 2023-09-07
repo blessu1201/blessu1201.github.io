@@ -5,10 +5,6 @@ tags: [Linux, ShellScript]
 key: 20200725_shell_script_04
 ---
 
-{% include googlead.html %}
-
----
-
 > `read`{:.info} 를 사용하여 사용자가 입력을 할 수 있습니다.
 
 

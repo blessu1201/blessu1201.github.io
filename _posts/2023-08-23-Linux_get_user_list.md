@@ -5,11 +5,6 @@ tags: [Linux, grep, cut, Shellscript]
 key: 20230823-linux_server_manage_02 
 ---
 
-{% include googlead.html %}
-
----
-
-
 - 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어
 
 ## 서버에 작성된 사용자 계정 목록 얻기

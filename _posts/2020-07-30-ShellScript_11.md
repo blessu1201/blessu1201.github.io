@@ -5,10 +5,6 @@ tags: [Linux, ShellScript]
 key: 20200730_shell_script_11
 ---
 
-{% include googlead.html %}
-
----
-
 > 데이터 파일을 만든 후 ShellScript에서 사용하는 방법을 알아보겠습니다.
 
 

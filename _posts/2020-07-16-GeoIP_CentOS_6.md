@@ -5,10 +5,6 @@ tags: [Linux, GeoIP]
 key: 20200716_geoip_centos6
 ---
 
-{% include googlead.html %}
-
----
-
 > 서버 운영시 중국등에서 잦은 해킹시도로 인해, 보안을 강화하고자 GeoIP를  
 > 서버에 설치 및 설정한 내용을 정리하였습니다.
 

@@ -5,8 +5,6 @@ tags: [Markdown, Markdown Emoji]
 key: 20200228_markdown_emoji
 ---
 
-{% include googlead.html %}
-
 ## 1.People
 
 | :bowtie: `:bowtie:` | :smile: `:smile:` | :laughing: `:laughing:` |

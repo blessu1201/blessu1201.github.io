@@ -5,10 +5,6 @@ tags: [Linux, Linux_info]
 key: 20230814-linux_info_backup 
 ---
 
-{% include googlead.html %}
-
----
-
 ## 리눅스 부팅전 서버 정보 백업 스크립트.
 
 > 리눅스서버를 부팅하기전 서버의 정보를 백업하는 스크립트 입니다.

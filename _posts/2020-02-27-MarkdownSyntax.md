@@ -5,8 +5,6 @@ tags: [Markdown, Markdown Syntax]
 key: 20200227_markdown_syntax
 ---
 
-{% include googlead.html %}
-
 ## Markdown 문법정리
 > Markdown의 문법을 정리합니다.
 

@@ -5,10 +5,6 @@ tags: [Linux, GeoIP]
 key: 202007176_geoip_centos7
 ---
 
-{% include googlead.html %}
-
----
-
 > CentOs7 에서 GeoIP를 활용하여 국가IP차단 하는 방법. 서버 보안설정시 참고하세요.
 
 <br>

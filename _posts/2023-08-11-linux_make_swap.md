@@ -5,10 +5,6 @@ tags: [Linux, Swap]
 key: 20230811-linux_swap_memory
 ---
 
-{% include googlead.html %}
-
----
-
 > 리눅스에서 Swap 메모리를 설정하는 방법입니다.
 
 ## 1. swap file의 생성

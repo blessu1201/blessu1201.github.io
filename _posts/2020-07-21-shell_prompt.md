@@ -5,11 +5,6 @@ tags: [Linux, Bash]
 key: 20200721_shell_prompt
 ---
 
-{% include googlead.html %}
-
----
-
-
 >Linux Shell-Prompt를 자신이 원하는 셋팅을 하여 가독성을 높일 수 있습니다.<br>
 >기호에 맞게 바꿔서 사용해보세요.
 

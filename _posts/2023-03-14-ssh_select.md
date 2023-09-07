@@ -5,10 +5,6 @@ tags: [Linux, Select, Ssh, Shellscript, Bash]
 key: 20230314-select_to_ssh
 ---
 
-{% include googlead.html %}
-
----
-
 <img src='http://drive.google.com/uc?export=view&id=1F1dcZmQvGuLSXP4WzsdDehD1v7LbJXIv' /><br>
 
 > select 문을 활용하면 자주 접속하는 서버의 IP리스트를 만들어 

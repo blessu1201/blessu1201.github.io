@@ -5,11 +5,6 @@ tags: [Linux, ShellScript]
 key: 20200721_shell_script_01
 ---
 
-{% include googlead.html %}
-
----
-
-
 > Linux Shell Script의 기본적인 내용을 정리합니다.
 
 <br>

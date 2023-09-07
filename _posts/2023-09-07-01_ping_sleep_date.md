@@ -5,10 +5,6 @@ tags: [Linux, ping, sleep, date, ShellScript]
 key: 20230907-linux_server_manage_11
 ---
 
-{% include googlead.html %}
-
----
-
 - 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어
 
 ## 서버 ping 감시하기

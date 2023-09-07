@@ -5,10 +5,6 @@ tags: [Linux, Zabbix]
 key: 20200821_zabbix_server_error_01
 ---
 
-{% include googlead.html %}
-
----
-
 > zabbix 운영 중에 server가 갑자기 멈췄다.(하루동안 아무도 몰랐다는게 함정. ㄷㄷ)  
 > 프로세스는 살아있었지만 정상적인 일을 하지못하여 아무런 값을 받아오지 못하고 있었다.
 

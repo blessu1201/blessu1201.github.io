@@ -5,10 +5,6 @@ tags: [Linux, User command]
 key: 20230809-linux_user_command
 ---
 
-{% include googlead.html %}
-
----
-
 ## 1. user command history 로깅 설정
 
 > 각 계정의 사용자가 어떤 명령어를 실행했는지 이력을 남기는 방법입니다.

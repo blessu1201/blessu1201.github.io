@@ -5,10 +5,6 @@ tags: [Linux, rpm, ShellScript]
 key: 20230831-linux_server_manage_05
 ---
 
-{% include googlead.html %}
-
----
-
 - 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어
 
 ## 파일명으로 설치된 RPM 패키지명을 확인하기

@@ -5,10 +5,6 @@ tags: [Linux, ShellScript]
 key: 20200725_shell_script_05
 ---
 
-{% include googlead.html %}
-
----
-
 > `if` 문의 몇가지 예제를 통해 사용방법을 알아보도록 하겠습니다.
 
 <br>

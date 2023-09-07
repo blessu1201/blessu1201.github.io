@@ -5,10 +5,6 @@ tags: [Linux, Windows, Public ip check]
 key: 20230817-linux_windows_public_ip_check 
 ---
 
-{% include googlead.html %}
-
----
-
 ## 리눅스, 윈도우에서 현재 사용 중인 외부공인 IP 확인 방법
 
 > 리눅스 서버를 사용하거나, 또는 내가 지금 사용하고 있는 컴퓨터의 외부 공인 IP를 확인해야할 상황이 종종 발생합니다.

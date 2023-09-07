@@ -5,10 +5,6 @@ tags: [Linux, linux set time]
 key: 20200701_linux_time
 ---
 
-{% include googlead.html %}
-
----
-
 <br>
 
 ## 1. 시스템 시간 확인

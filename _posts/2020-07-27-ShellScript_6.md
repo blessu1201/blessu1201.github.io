@@ -5,10 +5,6 @@ tags: [Linux, ShellScript]
 key: 20200727_shell_script_06
 ---
 
-{% include googlead.html %}
-
----
-
 > `case` 문을 알아보겠습니다.
 
 <br>

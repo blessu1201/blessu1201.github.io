@@ -5,10 +5,6 @@ tags: [Linux, Banner]
 key: 20230805-linux_banner
 ---
 
-{% include googlead.html %}
-
----
-
 ## 1. 배너문구 설정하기
 
 > 리눅스 보안 사항 중 경고(warning)메세지를 설정해야 하는 사항이 있습니다.

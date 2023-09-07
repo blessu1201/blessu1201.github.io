@@ -5,10 +5,6 @@ tags: [Linux, Jar systemctl]
 key: 20230808-linux_jar_systemctl
 ---
 
-{% include googlead.html %}
-
----
-
 ## 1. Vi 에디터를 사용하여 어플리케이션 등록파일 생성
 
 > 하기 myapp 은 예시 입니다. 상황에 맞게 이름을 변경하여 등록합니다.

@@ -5,9 +5,6 @@ tags: [Docker, Racktables]
 key: 20200229_docker_racktables
 ---
 
-{% include googlead.html %}
-
----
 > 현재 사내에서 `racktables`{:.info} 을 사용하고 있는데요.  
 > `Docker`{:.info}를 사용하면 장애발생 시 빠르게 복구할 수 있는 장점이 있습니다.
 

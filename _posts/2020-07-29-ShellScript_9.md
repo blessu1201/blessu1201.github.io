@@ -5,10 +5,6 @@ tags: [Linux, ShellScript]
 key: 20200729_shell_script_09
 ---
 
-{% include googlead.html %}
-
----
-
 > 산술연산 방법에 대해 알아보겠습니다.
 
 <br>

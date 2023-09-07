@@ -5,10 +5,6 @@ tags: [Linux, Nohup]
 key: 20230812-linux nohup
 ---
 
-{% include googlead.html %}
-
----
-
 ## 1. nohup 명령어를 통해 데몬 프로세스 구동
 
 > 리눅스에서 백그라운드로 데몬을 실행시키는 nohup 명령어입니다.

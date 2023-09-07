@@ -5,9 +5,6 @@ tags: [Linux, Zabbix]
 key: 20200826_zabbix_disk_monitoring
 ---
 
-{% include googlead.html %}
-
----
 > zabbix에서 disk-performence를 모니터링 하는 방법입니다.
 
 - 참고사이트 : <https://github.com/grundic/zabbix-disk-performance>
