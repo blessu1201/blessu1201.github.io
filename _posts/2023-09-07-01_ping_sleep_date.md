@@ -30,25 +30,25 @@ $ ./ping_alert.sh 192.168.2.1
 #!/bin/sh
 
 # ping 실행 결과 스테이터스, 0이면 성공이므로 1로 초기화
-result=1 # --- 1
+result=1 # ------------------------------------------------------ 1
 
 # 대상 서버가 명령행 인수로 지정되지 않으면 에러 종료
-if [ -z "$1" ]; then # if문 --- 2
+if [ -z "$1" ]; then # if문 ------------------------------------- 2
   echo "대상 호스트를 지정하세요." >&2
   exit 1
 fi
 
 # ping 명령어를 3회 실행, 성공하면 result를 0으로
-i=0 # --- 3
+i=0 # ---------------------------------------------------------- 3
 while [ $i -lt 3 ]
 do
   # ping 명령어 실행, 종료 스테이스만 필요하므로
   # /dev/null에 리다이렉트
-  ping -c 1 "$1" > /dev/null # --- 4
+  ping -c 1 "$1" > /dev/null # --------------------------------- 4
 
   # ping 명령어 종료 스테이터스 판별, 성공하면 result=0으로 반복문 탈출
   # 실패하면 3초 대기 후 재실행
-  if [ $? -eq 0 ]; then # --- 5
+  if [ $? -eq 0 ]; then # -------------------------------------- 5
     result=0
     break
   else
@@ -58,10 +58,10 @@ do
 done
 
 # 현재 시각을 [2023/03/01 13:15:44] 형태로 조합
-date_str=$(date '+%Y/%m/%d %H:%M:%S') # --- 6
+date_str=$(date '+%Y/%m/%d %H:%M:%S') # ----------------------- 6
 
 # ping 실행 결과를 $result로 판별해서 표시
-if [ $result -eq 0 ]; then # if문 --- 7
+if [ $result -eq 0 ]; then # if문 ----------------------------- 7
   echo "[$date_str] Ping OK: $1"
 else
   echo "[$date_str] Ping NG: $1"
@@ -82,17 +82,17 @@ ping 명령어는 대상 서버를 지정해서 **ICMP**라는 프로토콜로 �
 
 그런데 셸 스크립트에서 ping 명령어로 대상 호스트를 감시하려면 주의가 필요합니다. 예를 들어 호스트는 정상이더라도 네트워크 상태가 이상해서 가끔 응답이 안 올 수도 있습니다. 한 번 에러가 발생한 것으로 이상 상태로 판단해 경고를 띄우는 것은 바람직하지 못합니다. **몇 번 반복했을 때 한 번도 응답이 오지 않으면 이상**이라고 판별하는 것이 적절합니다. 예제에서도 1, 2회 실패는 무시하고 3회 연속 실패일 때만 상태 이상이라고 판단하고 가정합니다.
 
-예제 [1](#){:.button.button--primary.button--circle} 에서 ping 명령어 실행 결과 스테이터스를 저장하는 셸 변수 result를 정의합니다. 예제에서는 성공하면 0이 되므로 여기에서는 1로 초기화합니다.
+예제 [1](#){:.button.button--primary.button--rounded.button--xs} 에서 ping 명령어 실행 결과 스테이터스를 저장하는 셸 변수 result를 정의합니다. 예제에서는 성공하면 0이 되므로 여기에서는 1로 초기화합니다.
 
-[2](#){:.button.button--primary.button--circle} 에서 **test 명령어 -z 연산자**를 이용해서 명령행 인수에 대한 호스트가 지정되었는지 확인합니다. **$1**은 명령행 인수 첫 번째 값이 들어 있는 특수 변수입니다. -z는 빈문자이이면 참이 되므로 [1](#){:.button.button--primary.button--circle} 의 if문이 참이면 인수 지정이 없습니다 .따라서 "대상 호스트를 지정하세요." 라는 에러를 출력하고 exit 1로 종료합니다.
+[2](#){:.button.button--primary.button--rounded.button--xs} 에서 **test 명령어 -z 연산자**를 이용해서 명령행 인수에 대한 호스트가 지정되었는지 확인합니다. **$1**은 명령행 인수 첫 번째 값이 들어 있는 특수 변수입니다. -z는 빈문자이이면 참이 되므로 [1](#){:.button.button--primary.button--rounded.button--xs} 의 if문이 참이면 인수 지정이 없습니다 .따라서 "대상 호스트를 지정하세요." 라는 에러를 출력하고 exit 1로 종료합니다.
 
-[3](#){:.button.button--primary.button--circle} 은 ping 명령어를 실행하는 while문입니다. 셸 변수 i는 반복 카운터로 0으로 초기화합니다.
+[3](#){:.button.button--primary.button--rounded.button--xs} 은 ping 명령어를 실행하는 while문입니다. 셸 변수 i는 반복 카운터로 0으로 초기화합니다.
 
-[4](#){:.button.button--primary.button--circle}에서 ping 명령어 **-c 옵션**을 이용해서 1회만 ping을 실행합니다. [5](#){:.button.button--primary.button--circle}에서 종료 스테이터스가 셸 특수 변수 $?에 들어 있으므로 if문으로 0인지 판별합니다. 종료 스테이터스가 0이면 ping 명령어는 성공이므로 셸 변수 result를 0(성공)으로 지정하고, break로 while문을 빠져 나옵니다. 한편 ping 명령어 종료 스테이터스가 0이 아니면(즉 ping 명령어 실패, Echo Reply가 돌아오지 않음) **sleep 명령어**로 3초간 기다리고 다시 ping을 반복합니다.
+[4](#){:.button.button--primary.button--rounded.button--xs}에서 ping 명령어 **-c 옵션**을 이용해서 1회만 ping을 실행합니다. [5](#){:.button.button--primary.button--rounded.button--xs}에서 종료 스테이터스가 셸 특수 변수 $?에 들어 있으므로 if문으로 0인지 판별합니다. 종료 스테이터스가 0이면 ping 명령어는 성공이므로 셸 변수 result를 0(성공)으로 지정하고, break로 while문을 빠져 나옵니다. 한편 ping 명령어 종료 스테이터스가 0이 아니면(즉 ping 명령어 실패, Echo Reply가 돌아오지 않음) **sleep 명령어**로 3초간 기다리고 다시 ping을 반복합니다.
 
-[6](#){:.button.button--primary.button--circle}에서 **date 명령어**로 현재 시각을 "2023/09/07 15:45:18" 같은 형식으로 조합합니다. 이런 감시 스크립트는 문제 발생 시간을 나중에 확인하게 되므로 OK/NG를 판별한 시간을 함께 기록하는 것이 중요합니다. 따라서 이 시각을 나중에 출력 시 사용합니다. 
+[6](#){:.button.button--primary.button--rounded.button--xs}에서 **date 명령어**로 현재 시각을 "2023/09/07 15:45:18" 같은 형식으로 조합합니다. 이런 감시 스크립트는 문제 발생 시간을 나중에 확인하게 되므로 OK/NG를 판별한 시간을 함께 기록하는 것이 중요합니다. 따라서 이 시각을 나중에 출력 시 사용합니다. 
 
-마지막으로 [7](#){:.button.button--primary.button--circle}에서 ping 명령어 결과를 출력합니다. 정상인지 비정상인지는 셸 변수 result를 써서 0이면 정상, 1이면 상태 이상이라고 판별합니다.
+마지막으로 [7](#){:.button.button--primary.button--rounded.button--xs}에서 ping 명령어 결과를 출력합니다. 정상인지 비정상인지는 셸 변수 result를 써서 0이면 정상, 1이면 상태 이상이라고 판별합니다.
 
 이렇게 하면 ping 명령어로 대상 호스트 감시가 가능합니다. 정기적으로 실행하도록 cron 등에 등록해서 실패하면 경고 메일을 보내는 스크립트를 실행하게 하는 등 여러분의 호나경에 맞게 수정하기 바랍니다.
 
