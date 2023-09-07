@@ -2,7 +2,7 @@
 layout: article
 title: 서버관리_10 / 프로세스를 감시해서 다운 시 자동으로 재실행하기
 tags: [Linux, service, ps, wc, grep, date, echo, ShellScript]
-key: 20230906-linux_server_manage_10
+key: 20230907-linux_server_manage_10
 ---
 
 - 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어
