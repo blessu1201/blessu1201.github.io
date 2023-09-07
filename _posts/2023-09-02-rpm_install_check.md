@@ -2,7 +2,7 @@
 layout: article
 title: 서버관리_06 / RPM 패키지명이 적힌 목록 파일에서 각각의 패키지가 설치, 갱신된 날짜를 확인하기
 tags: [Linux, rpm, ShellScript]
-key: 20230904-linux_server_manage_06
+key: 20230902-linux_server_manage_06
 ---
 
 {% include googlead.html %}
