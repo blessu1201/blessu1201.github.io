@@ -93,6 +93,9 @@ mermaid: true # false (default), true
 ## Chart
 chart: true # false (default), true
 
+## Future, published
+future: true
+published: true
 
 ## => Paginate
 ##############################

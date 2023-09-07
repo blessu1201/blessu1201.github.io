@@ -9,7 +9,7 @@ key: 20230907-linux_server_manage_10
 
 ## 프로세스를 감시해서 다운 시 자동으로 재실행하기
 
-> 명령어: service, ps, wc, grep, date, echo,
+> 명령어: service, ps, wc, grep, date, echo  
 > 키워드: 프로세스, 감시, 재실행, 자동화  
 > 사용처: 웹 서버 운용 시 프로세스가 다운하면 재실행해서 자동으로 장애 대응을 하고 싶을 때   
 
