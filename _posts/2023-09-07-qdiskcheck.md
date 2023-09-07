@@ -75,12 +75,12 @@ rm -f "$tmpfile" # ------------------------------------------------------ 8
 
 ```
 $ df
-Filesystem      1K-blocks      Used  Available  Use%  Mounted on
-/dev/vda3       100893076   2195932	  93571976	  3%	/
-tmpfs		           510208		      0	    510208		0%	/dev/shm
-/dev/vda1          247919		  51510	    183609		22%	/boot
+Filesystem      1K-blocks       Used        Available      Use%    Mounted on
+/dev/vda3       100893076    2195932         93571976        3%    /
+tmpfs              510208          0           510208        0%    /dev/shm
+/dev/vda1          247919      51510           183609       22%    /boot
 nfsdisk001.example.com:/export/home	
-                 34600237	  8869759	  22270454	  28%	/mnt/nfs
+                 34600237    8869759         22270454       28%    /mnt/nfs
 ```
 
 출력은 왼쪽에서부터 파일시스템, 디스크 전체 용량, 디스크 사용량, 디스크 빈 용량, 디스크 사용률(%), 마운트 포인트입니다. 그리고 df 명령어에는 다음과 같은 옵션이 있습니다.
@@ -89,8 +89,7 @@ nfsdisk001.example.com:/export/home
 
 |옵션|의미|
 |:---|:---|
-|-h|사람이 읽기 쉬운 형식(human-readable)으로 크기 표시
-    2기가 바이트면 2G로 표시|
+|-h|사람이 읽기 쉬운 형식(human-readable)으로 크기 표시 2기가 바이트면 2G로 표시|
 |-k|1024바이트(1킬로바이트) 단위로 크기 표시|
 |-i|i 노드 정보 표시|
 |-p|POSIX 출력 형식 사용. 파일 시스템명이 길어도 한 줄로 표시|
