@@ -2,7 +2,7 @@
 layout: article
 title: 서버관리_13 / 디스크 용량 감시하기
 tags: [Linux, df, awk, read, echo, rm, ShellScript]
-key: 20230908-linux_server_manage_13
+key: 20230909-linux_server_manage_13
 ---
 
 - 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어
