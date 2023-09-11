@@ -1,13 +1,13 @@
 ---
 layout: article
-title: 서버관리_01 / 서버 네트워크 인터페이스와 IP 주소 목록 얻기
+title: 서버관리_01 서버 네트워크 인터페이스와 IP 주소 목록 얻기
 tags: [Linux, ifconfig, awk, ShellScript]
 key: 20230822-linux_server_manage_01 
 ---
 
 - 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어
 
-## 서버 네트워크 인터페이스와 IP 주소 목록 얻기
+# 서버 네트워크 인터페이스와 IP 주소 목록 얻기
 
 > 명령어: ifconfig, awk  
 > 키워드: NIC, IP주소, 네트워크 인터페이스  
@@ -38,7 +38,7 @@ awk '/^[a-z]/ {print "[" $1 "]"}         # ---- 2
 /inet / {split($2,arr,":");} {print $2}' # ---- 3
 ```
 
-### **해설**
+## **해설**
 
 이 스크립트는 서버 네트워크 인터페이스와 거기에 할당된 IP 주소를 표시합니다. IP 주소 취득은 **ifconfig 명령어**로 하고 그 출력을 awk 명령어로 가공합니다. 이때 이 서버에는 네트워크 인터페이스로 eth0와 eth1이 있고 인터페이스는 둘 다 유효(UP)하지만 IP 주소는 eth0에만 설정되어 있다고 가정합니다.
 
@@ -89,7 +89,7 @@ inet 10.211.55.18  netmask 255.255.0.0  broadcast 172.17.255.255
 LANG=C /sbin/ifconfig | awk '/inet / {split($2,arr,":"); print arr[2]}'
 ```
 
-### **주의사항**
+## **주의사항**
 
 - 이 스크립트는 IPv4 주소만 대응하고 IPv6 주소는 무시합니다.
 - Mac/FreeBSD의 ifconfig 명령어는 조금 다릅니다. IP 주소 표시 부분이 inet 10.211.55.21로 리눅스와 달리 addr:문자열이 없습니다.

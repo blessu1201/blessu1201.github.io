@@ -1,13 +1,13 @@
 ---
 layout: article
-title: 서버관리_15 / CPU 사용률 감시하기
+title: 서버관리_15 CPU 사용률 감시하기
 tags: [Linux, mpstat, tail, awk, echo, date, iostat, ShellScript]
 key: 20230911-linux_server_manage_15
 ---
 
 - 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어
 
-## CPU 사용률 감시하기
+# CPU 사용률 감시하기
 
 > 명령어: mpstat, tail, awk, echo, date, iostat   
 > 키워드: CPU, 부하, idle, 이용률, 감시   
@@ -46,7 +46,7 @@ if [ "$is_alert" -eq 1 ]; then # --------------------------- 4
 fi
 ```
 
-### **해설**
+## **해설**
 
 이 스크립트는 최근 5초간 CPU 사용률을 조사해서 CPU 부하를 감시합니다. 여기서 CPU 부하란 CPU 아이들값인 %idle(CPU가 미사용 상태였던 시간 비율)을 계측합니다.
 
@@ -93,7 +93,7 @@ $ echo "1.1 < 2.5" | bc
 
 마지막으로 `6`{:.info}에서 경고 표시를 하고 CPU %idle값을 출력합니다. 이런 스크립트를 cron에 등록해서 정기적으로 서버 CPU 부하 상태를 감시할 수 있습니다.
 
-### FreeBSD/Mac의 경우
+## FreeBSD/Mac의 경우
 
 FreeBSD 및 Mac은 mpstat 명령어가 없으므로 **iostat 명령어**를 이용합니다. iostat 명령어 출력 예는 다음과 같습니다.
 
@@ -135,7 +135,7 @@ cpu_idle=$$(iostat 1 6 | awk 'NR >= 4 {sum += $(NF-3)} END{print sum/5.0}')
 
 iostat 명령어로 CPU %idle 평균값을 계산살 때 6번 출력하고 첫 줄은 무시합니다. 그리고 Mac은 뒤에서부터 4번째 컬럼값을 추출하려면 마지막 컬럼을 나타내는 awk 변수 NF에서 3을 뺍니다.
 
-### **주의사항**
+## **주의사항**
 
 - 리눅스는 설치 옵션에 따라 mpstat 명령어가 기본 설치되지 않을 수도 있습니다. 명령어를 찾지 못하면 mpstat 명령어가 포함된 sysstat 패키지를 설치하기 바랍니다.
 
