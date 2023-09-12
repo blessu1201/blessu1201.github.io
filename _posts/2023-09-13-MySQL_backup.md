@@ -45,7 +45,7 @@ fi
 today=$(date '+%Y%m%d') # --------------------------------- 4
 
 # mysqldump 명령어로 데이터베이스 백업을 실행
-$MYSQLDUMP -h "${DBHOST}" -u "${$DBUSER}" -p"${DBPASS}" "${DBNAME}" > "${BACKUP_DIR}/${DBNAME}-${today}.dump" # ----------------------------------- 5
+$MYSQLDUMP -h "${DBHOST}" -u "${$DBUSER}" -p"${DBPASS}" "${DBNAME}" > "${BACKUP_DIR}/${DBNAME}-${today}.dump" # -- 5
 
 # mysqldump 명령어 종료 스테이터스 $?로 성공, 실패 확인
 if [ $? -eq 0 ]; then # ----------------------------------- 6
