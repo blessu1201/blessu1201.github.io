@@ -81,6 +81,7 @@ rm -f "$resulttmp"
 `3`{:.info}은 MySQL 서버에 mysql 명령어로 "SHOW SLAVE STATUS" 명령을 전달합니다. mysql 명령어에 지정하는 옵션은 다음과 같습니다.
 
 - 스크립트에서 사용하는 mysql 명령어 옵션
+
 |옵션|설명|
 |:---|:---|
 |-h|MySQL 서버 호스트명|
