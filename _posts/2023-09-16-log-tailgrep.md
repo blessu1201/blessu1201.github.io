@@ -129,6 +129,4 @@ less 명령어는 파일을 인수로 실행해서 지정한 텍스트 파일 �
 [pxac2fsd.dat] File Not Found
 Waiting for data... (interrupt to abort)
 ```
-Waiting for data... 라고 표시된 모드가 되면 less 명령어는 tail 명령어 -f 옵션과 마찬가지로 파일에 추가된 내용을 읽습니다.
-
-less 명령어의 F 모드에서 빠져나오려면 `Ctrl`{:.warning} + `C`{:.warning} 키를 누릅니다. less 명령어 종료는 q이므로 F 모드에서 그대로 종료하려면 `Ctrl`{:.warning} + `C`{:.warning} → `q`{:.warning} 순서대로 누릅니다.
+Waiting for data... 라고 표시된 모드가 되면 less 명령어는 tail 명령어 -f 옵션과 마찬가지로 파일에 추가된 내용을 읽습니다. less 명령어의 F 모드에서 빠져나오려면 `Ctrl`{:.warning} + `C`{:.warning} 키를 누릅니다. less 명령어 종료는 q이므로 F 모드에서 그대로 종료하려면 `Ctrl`{:.warning} + `C`{:.warning} → `q`{:.warning} 순서대로 누릅니다.
