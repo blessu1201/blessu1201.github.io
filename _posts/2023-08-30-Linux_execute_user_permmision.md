@@ -54,7 +54,6 @@ fi
 [2](#){:.button.button--primary.button--rounded.button--xs}에서 현재 스크립트를 실행한 사용자가 허가된 사용자인지 확인합니다. **id 명령어**는 현재 사용자 정보를 표시하는 명령어입니다. id 명령어를 인수 없이 실행하면 사용자ID, 그룹ID, 소속 그룹을 표시합니다.
 
 - id 명령어를 인수 없이 실행한 예
-
 ```
 $ id
 uid=500(user1) gid=500(user1) groups=500(user1)
@@ -70,7 +69,6 @@ uid=500(user1) gid=500(user1) groups=500(user1)
 현재 사용자명을 취득하려면 id 명령어 이외에도 **whoami 명령어**를 사용하는 예와 환경변수 **$USER**를 사용하는 방법도 있습니다. 어느 쪽이든 결과는 같습니다.
 
 - 현재 사용자명 취득 방법
-
 ```
 $ whoami
 user1

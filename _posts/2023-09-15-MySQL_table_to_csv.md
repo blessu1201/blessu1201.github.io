@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 서버관리_19 / MySQL 테이블을 CSV로 출력하기
+title: 서버관리_19 MySQL 테이블을 CSV로 출력하기
 tags: [Linux, mysql, date, tr, ShellScript]
 key: 20230915-linux_server_manage_19
 ---

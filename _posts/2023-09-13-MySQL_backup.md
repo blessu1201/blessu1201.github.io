@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 서버관리_17 / MySQL 데이터베이스 백업하기
+title: 서버관리_17 MySQL 데이터베이스 백업하기
 tags: [Linux, mysqldump, date, gzip, find, xargs, ShellScript]
 key: 20230908-linux_server_manage_17
 ---

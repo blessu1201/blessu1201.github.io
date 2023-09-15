@@ -86,8 +86,7 @@ rpm -q httpd zsh xz git --queryformat '%{INSTALLTIME:date} : %{NAME}\n'
 이렇듯 서버 구축 및 운용 시 작업 실수를 줄일 수 있게 됩니다.
 
 - 설치 실수 했을 때 표시 예
-
-```bash
+```
 $ ./rpm-lastdate.sh pkg.lst
 2021/04/19 11:14:11 : httpd
 package zsh is not installed

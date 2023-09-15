@@ -54,7 +54,7 @@ daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
 bin:x:2:2:bin:/bin:/usr/sbin/nologin
 sys:x:3:3:sys:/dev:/usr/sbin/nologin
 sync:x:4:65534:sync:/bin:/bin/sync
-...
+...(생략)
 ```
 
 **/etc/passwd** 파일내용은 :(콜론) 으로 나뉘는데 각 항목은 아래와 같습니다.
@@ -84,7 +84,6 @@ sync:x:4:65534:sync:/bin:/bin/sync
 현대의 유닉스에서는 보안 관점에서 /etc/passwd 파일에는 암호를 기록하지 않고 대신에 리눅스라면 /etc/shadow, FreeBSD라면 /etc/master.passwd에 암호화한 암호를 기록합니다. 이런 파일은 root만 볼 수 있으므로 root가 되어서 파일 내용을 보면 다음과 같습니다.
 
 - 암호화된 암호가 적혀 있음.
-
 ```
 # cat /etc/shadow
 root:$6$syp8C9Kv4Y2MkPXf$Q2iRWpMfw9hNcEyPT5bp8vkq2cKAasuNFb0E/ryMuzPFLjhwN2XuOV6ONB3WAhGfi3eWEVZcBqCk38puOJeSM1:19474:0:99999:7:::
@@ -102,7 +101,6 @@ daemon:*:15628:0:99999:7:::
 
 - Mac에도 /etc/passwd 파일이 존재하지만 일반 로그인 사용자는 디렉터리 서비스로 따로 관리하고 있어 이런 /etc/passwd 파일에는 일반 로그인에 사용하는 계정이 존재하지 않습니다. 하지만 다른 시스템 계정은 /etc/passwd에 존재하므로 예제 실행에 문제는 없습니다.
 - 콜론이 구분자인 텍스트 파일에서 일부 컬럼을 추출하려면 **awk 명령어** 구분자를 지정하는 **-F 옵션**을 사용해서 다음처럼 작성합니다.
-
 ```
 awk -F: '{print $1}'
 ```

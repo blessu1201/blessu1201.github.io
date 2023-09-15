@@ -103,7 +103,6 @@ fi
 ## **주의사항**
 
 - FreeBSD는 curl 명령어가 기본 설치되지 않습니다. FreeBSD 표준 fetch 명령어로는 HTTP 스테이터스 코드를 취득할 수 없으므로 ports로 curl 명령어를 설치하기 발랍니다.
-
 ```
 # cd /usr/ports/ftp/curl
 # make install

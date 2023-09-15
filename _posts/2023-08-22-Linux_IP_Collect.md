@@ -94,8 +94,7 @@ LANG=C /sbin/ifconfig | awk '/inet / {split($2,arr,":"); print arr[2]}'
 - 이 스크립트는 IPv4 주소만 대응하고 IPv6 주소는 무시합니다.
 - Mac/FreeBSD의 ifconfig 명령어는 조금 다릅니다. IP 주소 표시 부분이 inet 10.211.55.21로 리눅스와 달리 addr:문자열이 없습니다.
 
-> Mac/FreeBSD ifconfig 명령어
-
+- Mac/FreeBSD ifconfig 명령어
 ```
 $ ifconfig
 em0: flags=8843<UP,BROADCAT,RUNNING,SIMPLEX,MULTICAST> metric 0 mtu 1500
@@ -104,9 +103,7 @@ em0: flags=8843<UP,BROADCAT,RUNNING,SIMPLEX,MULTICAST> metric 0 mtu 1500
         inet 10.211.55.21 netmask 0xffffff00 broadcast 10.211.55.255
               :(생략)
 ```
-
 따라서 Mac이나 FreeBSD에서는 : 구분자로 추출하지 않아도 되므로 다음처럼 조금 더 간결한 스크립트가 됩니다.
-
 ```bash
 LANG=C /usr/sbin/ifconfig |\ awk '/^[a-z]/ {print "[" $1 "]"} /inet / {print $2}'
 ```

@@ -89,7 +89,6 @@ fi
 ## **주의사항**
 
 - 이 예제는 리눅스(CentOS)로 아파치 httpd를 rpm으로 설치했을 때 제공된 실행 스크립트로 재실행합니다. FreeBSD나 Mac에서 아파치 httpd 실행 스크립트가 제공되지 않으면 apachectl 명령어로 직접 실행하면 됩니다. Mac에는 /usr/sbin에 apachectl 명령어가 있으므로 "2" 를 다음처럼 수정합니다.
-
 ```bash
 start="/usr/sbin/apachectl start"
 ```

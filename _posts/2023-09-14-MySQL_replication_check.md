@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 서버관리_18 / MySQL 레플리케이션 감시하기
+title: 서버관리_18 MySQL 레플리케이션 감시하기
 tags: [Linux, mysql, awk, grep, date, ShellScript]
 key: 20230914-linux_server_manage_18
 ---
@@ -92,7 +92,6 @@ rm -f "$resulttmp"
 **-e 옵션**을 사용하면 셸 명령행에서 직접 MySQL 서버에 명령을 실행할 수 있습니다. -e 옵션을 이용해서 `3`{:.info}에서 실행할 **SHOW SLAVE STATUS**는 레플리케이션 구성 슬레이브 서버의 레플리케이션 상태를 표시하는 명령어입니다. 출력 예는 다음과 같습니다.
 
 - SHOW SLAVE STATUS
-
 ```
 Slave_IO_State: Waiting for master to send event
 Master_Host: 192.168.11.5
@@ -119,7 +118,6 @@ Last_SQL_Error:
 `6`{:.info}의 결과가 거짓이면 레플리케이션 상태에 문제가 있다고 판단합니다. 예를 들어 마스터 서버의 바이너리 로그를 찾지 못했다면 Slave_IO_Running은 No가 되고 Last_IO_Error에는 아래와 같이 에러 메시지가 표시됩니다.
 
 - 레플리케이션 이상 발생 시 SHOW STATUS
-
 ```
 Slave_IO_running: No
 Slave_SQL_Running: Yes
