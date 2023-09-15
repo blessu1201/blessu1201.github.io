@@ -54,7 +54,6 @@ done
 이 스크립트는 계속 추가되는 로그 파일에 문자열 검색을 해서 특정 문자열이 포함된 로그가 출력되면 그 내용을 실시간으로 표시합니다. 어떤 시스템 점검 작업 중에 다른 터미널창에서 표시되는 로그를 확인하는 툴로 사용한다고 가정합니다.
 
 - 스크립트 이용 예
-
 <img src='http://drive.google.com/uc?export=view&id=18bsMbitKEPcZuLp3g8s_fAJ66gJu0THG' /><br>
 
 여기서 점검 대상 애플리케이션은 application.log 로그 파일에 대량의 로그를 기록한다고 합시다. 이때 에러 메시지가 다음과 같다고 가정합니다.
@@ -112,7 +111,6 @@ done
 - 중요한 작업 시에는 이런 스크립트가 에러를 놓칠 수도 있으므로 메인 작업창 하나, 예제와 같은 스크립트로 가공한 로그 확인 창 하나, 실제 로그를 tail -F로 계속 표시하는 창 하나 이렇게 3개를 열어두고 작업하는 것이 좋습니다.
 
 - 창 3개를 열어서 사용
-
 <img src='http://drive.google.com/uc?export=view&id=1sr3wBk7cSc81Jq3LoeDQ0d7QAsHtirk2' /><br>
 
 ## less 명령어 이용
