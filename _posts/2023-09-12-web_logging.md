@@ -5,9 +5,7 @@ tags: [Linux, curl, cmp, echo, date, ShellScript]
 key: 20230908-linux_server_manage_16
 ---
 
-- 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어
-
-# 웹 페이지 변경 감시하기
+- 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어  
 
 > 명령어: curl, cmp, echo, date  
 > 키워드: URL, 파일 변경, 감시  

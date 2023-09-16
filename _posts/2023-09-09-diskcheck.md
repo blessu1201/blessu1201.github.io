@@ -5,9 +5,7 @@ tags: [Linux, df, awk, read, echo, rm, ShellScript]
 key: 20230909-linux_server_manage_13
 ---
 
-- 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어
-
-# 디스크 용량 감시하기
+- 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어  
 
 > 명령어: df, awk, read, echo, rm  
 > 키워드: 디스크, 사용량, 사용률, 용량    

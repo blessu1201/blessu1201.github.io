@@ -5,9 +5,7 @@ tags: [Linux, mysqldump, date, gzip, find, xargs, ShellScript]
 key: 20230908-linux_server_manage_17
 ---
 
-- 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어
-
-# MySQL 데이터베이스 백업하기
+- 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어  
 
 > 명령어: mysqldump, date, gzip, find, xargs  
 > 키워드: MySQL, 데이터베이스, 백업, 덤프 파일  

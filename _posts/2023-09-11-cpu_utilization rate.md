@@ -5,9 +5,7 @@ tags: [Linux, mpstat, tail, awk, echo, date, iostat, ShellScript]
 key: 20230911-linux_server_manage_15
 ---
 
-- 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어
-
-# CPU 사용률 감시하기
+- 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어  
 
 > 명령어: mpstat, tail, awk, echo, date, iostat   
 > 키워드: CPU, 부하, idle, 이용률, 감시   

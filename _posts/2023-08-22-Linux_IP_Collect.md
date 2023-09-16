@@ -5,9 +5,7 @@ tags: [Linux, ifconfig, awk, ShellScript]
 key: 20230822-linux_server_manage_01 
 ---
 
-- 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어
-
-# 서버 네트워크 인터페이스와 IP 주소 목록 얻기
+- 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어  
 
 > 명령어: ifconfig, awk  
 > 키워드: NIC, IP주소, 네트워크 인터페이스  

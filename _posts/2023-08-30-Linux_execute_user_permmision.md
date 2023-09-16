@@ -5,9 +5,7 @@ tags: [Linux, id, whoami, ShellScript]
 key: 20230830-linux_server_manage_03 
 ---
 
-- 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어
-
-# 허가된 사용자만 스크립트 실행 가능하게 하기
+- 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어  
 
 > 명령어: id, whoami, echo  
 > 키워드: 실행 사용자, 권한, root  

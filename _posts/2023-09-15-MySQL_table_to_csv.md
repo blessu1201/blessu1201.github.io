@@ -5,9 +5,7 @@ tags: [Linux, mysql, date, tr, ShellScript]
 key: 20230915-linux_server_manage_19
 ---
 
-- 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어
-
-# MySQL 테이블을 CSV로 출력하기
+- 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어  
 
 > 명령어: mysql, date, tr  
 > 키워드: MySQL, 레플리케이션, 감시  

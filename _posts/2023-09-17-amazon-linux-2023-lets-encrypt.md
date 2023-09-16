@@ -5,8 +5,6 @@ tags: [Linux, Amazon-linux-2023, aws-lightsail, let's encrypt, wordpress, SSL]
 key: 20230917-Amazon-linux-2023-lets-encrypt
 ---
 
-# Amazon Linux 2023에서 Let's Encrypt SSL 설정 하기
-
 > Amazon Web Service의 light-sail에 워드프레스를 설치한 후 SSL을 설정하는 과정입니다.
 >
 > Let's Encrypt를 사용하였습니다. [홈페이지](https://letsencrypt.org/)

@@ -5,9 +5,7 @@ tags: [Linux, curl, date, echo, ShellScript]
 key: 20230908-linux_server_manage_12
 ---
 
-- 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어
-
-# 웹 접근 감시하기
+- 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어  
 
 > 명령어: curl, date, echo  
 > 키워드: 웹 감시, 서비스 감시, HTTP 스테이터스 코드   
