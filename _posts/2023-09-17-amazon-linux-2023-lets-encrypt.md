@@ -52,12 +52,12 @@ Successfully installed ConfigArgParse-1.5.3 PyOpenSS-23.1.1 acme-2.6.0 certbot-2
 
 ## 2. CA가 서명한 인증서 작성
 
-아파치 httpd 서버를 중지하고 CA가 서명한 인증서 `privkey.pem`{:.success} ,`cert.pem`{:.success}, `chain.pem`{:.success}를 만들기 위해
-아래와 같이 명령어를 입력 후 순차적으로 값을 입력합니다.
+먼저 구동 중인 아파치 httpd 서버를 중지하고 CA가 서명한 인증서 `privkey.pem`{:.success} ,`cert.pem`{:.success}, `chain.pem`{:.success}를 만들기 위해 아래와 같이 명령어를 입력 후 순차적으로 값을 입력합니다.
 
 ```
 # systemctl stop httpd
-^
+```
+```
 # certbot certonly --standalone
 Saving debug log to /var/log/letsencrypt/letsencrypt.log
 Enter email address (used for urgent renewal and security notices)
@@ -158,7 +158,7 @@ SSLCertificateChainFile /etc/letsencrypt/live/www.sample.com/chain.pem
 ## 5. Crontab 스케줄 등록(자동갱신)
 
 crontab에 스케줄을 등록합니다. let's encryt의 경우 최대 3개월까지 사용 가능하며, 이 후 갱신을 해줘야 합니다.  
-매 3개월마다 수동으로 갱신하려면 번거롭기 때문에 crontab에 등록하여 서버거 자동갱신을 할 수 있도록 합니다.
+매 3개월마다 수동으로 갱신하려면 번거롭기 때문에 crontab에 등록하여 서버가 자동갱신을 할 수 있도록 합니다.
 
 crontab 설치
 ```
