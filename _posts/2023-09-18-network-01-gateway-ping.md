@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 네트워크_01 / 디폴트 게이트웨이에 ping이 통하는지 확인하기(리눅스)
+title: 네트워크_01 디폴트 게이트웨이에 ping이 통하는지 확인하기(리눅스)
 tags: [Linux, route, awk, ping, ShellScript]
 key: 20230918-linux_network_01
 ---
