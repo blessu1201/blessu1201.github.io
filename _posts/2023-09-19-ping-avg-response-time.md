@@ -54,7 +54,7 @@ rm -f ping.$$
 **ping 명령어**는 **ICMP 패킷**을 보내는 명령어입니다. 실행하면 ICMP echo request 패킷을 상대방에게 보내고 응답으로 ICMP echo reply가 돌아옵니다.
 
 - ping 명령어와 ICMP 패킷
-<img src='http://drive.google.com/uc?export=view&id=1razPaCtxO9NfrcyeEL_uNghMUJaFE5zy' /><br>
+<img src='http://drive.google.com/uc?export=view&id=1178Ndkhs7AFfa2g8U2u7Qli2SQEM7q31' /><br>
 
 ICMP 패킷 응답 시간을 측정해서 네트워크 상태를 조사할 수 있습니다. 예를 들어 정기적으로 ping 명령어를 실행하다가 갑자기 응답 시간이 길어지면 해당 호스트 대상으로 네트워크가 혼잡하거나 도중에 네트워크 기기가 어떤 이상이 생겼을 수도 있습니다.
 
