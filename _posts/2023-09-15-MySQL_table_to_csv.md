@@ -57,6 +57,9 @@ today=$(date '+%Y%m%d') # --------------------------------------- 6
 $MYSQL -h "${DBHOST}" -u "${DBUSER}" -p"${DBPASS}" -D "${DBNAME}" -N < "$sqlfile" | tr "\t" "," > "${csv_outputdir}"/data-${today}.csv # ---7
 ```
 
+&nbsp;
+&nbsp;
+
 ## **해설**
 
 이 스크립트는 **MySQL** 서버에 select문을 실행해서 그 결과를 CSV 파일로 출력합니다. MySQL 서버가 원격 호스트에서 기동 중이더라도 이 스크립트를 실행한 머신에 직접 CSV 파일을 작성할 수 있습니다. 그리고 여기서 실행하는 SQL문은 셸 변수 sqlfile로 지정한 텍스트 파일에 작성되어 있다고 가정합니다.
@@ -94,6 +97,9 @@ SELECT id, score FROM userinfo ORDER BY id;
 `7`{:.info}에서 mysql 명령어에 SQL문이 적힌 파일을 입력 리다이렉트로 넘깁니다. 이렇게 하면 출력 결과 컬럼의 구분자가 탭이 됩니다. 따라서 파이프로 연결한 **tr 명령어**로 탭을 ,(쉽표)로 변환합니다. tr "\t" "," 부분입니다. 이것으로 SELECT한 결과를 CSV 형식으로 얻게 되므로 리다이렉트해서 CSV 파일로 출력합니다.
 
 MySQL의 SELECT 결과를 셸 스크립트에서 CSV 파일로 저장할 수 있습니다. cron에 등록해서 정기적으로 리포트를 작성하도록 합시다.
+
+&nbsp;
+&nbsp;
 
 ## **주의사항**
 
