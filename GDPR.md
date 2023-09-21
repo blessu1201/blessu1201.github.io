@@ -4,20 +4,3 @@ title: GDPR
 ---
 
 ## General Data Protection Regulation
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
