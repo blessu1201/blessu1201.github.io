@@ -54,3 +54,7 @@ header:
       en      : &EN       Links
     url: /links.html
 
+  - titles:
+      # @start locale config
+      en      : &EN       GDPR
+    url: /gdpr.html
