@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 네트워크_12 IP 주소에 따른 처리 분기를 case문으로 작성하기
+title: 네트워크_12 로컬 셸 스크립트 파일을 원격 호스트에서 그대로 실행하기
 tags: [Linux, cat, ssh, hostname, ping, ShellScript]
 key: 20230929-linux_network_12
 ---
