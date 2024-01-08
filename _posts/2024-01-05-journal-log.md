@@ -44,11 +44,12 @@ journalctl --vacuum-time=2weeks
 journalctl --vacuum-size=100M
 ```
 
-`참고사이트` <https://wiki.archlinux.org/title/Systemd/Journal#Journal_size_limit>
+`참고사이트`  
+<https://wiki.archlinux.org/title/Systemd/Journal#Journal_size_limit>
 
 
-우아한형제들 기술 블로그
+`우아한형제들 기술 블로그`  
 주소: https://techblog.woowahan.com/
 
-스마일서브 기술 블로그
+`스마일서브 기술 블로그`  
 주소: http://idchowto.com/
