@@ -14,7 +14,7 @@ key: 20240105-linux-journal-log
 시스템의 특성을 파악하여 적정한 수준으로 변경하시면 됩니다.
 
 
-## 저널 네임스페이스에 따른 단위당 크기 제한
+## Journal namespace 에 따른 단위당 크기 제한
 
 하기 경로의 `journald.conf` 파일을 수정하여 영구적으로 변경 할 수 있습니다.
 
@@ -28,7 +28,7 @@ SystemMaxUse=1000M
 systemctl restart systemd-journald
 ```
 
-## 저널 파일을 수동으로 정리
+## Journal 파일을 수동으로 정리
 
 수동으로 기간을 정해서 정리하려면 하기와 같이 command를 입력하면 됩니다.
 
@@ -44,12 +44,4 @@ journalctl --vacuum-time=2weeks
 journalctl --vacuum-size=100M
 ```
 
-`참고사이트`  
-<https://wiki.archlinux.org/title/Systemd/Journal#Journal_size_limit>
-
-
-`우아한형제들 기술 블로그`  
-주소: https://techblog.woowahan.com/
-
-`스마일서브 기술 블로그`  
-주소: http://idchowto.com/
+[참고사이트](https://wiki.archlinux.org/title/Systemd/Journal#Journal_size_limit){: target="_blank"}
