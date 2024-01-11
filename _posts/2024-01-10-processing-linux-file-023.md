@@ -1,6 +1,6 @@
 ---
 layout: article
-title: 절대 경로, 상대 경로 관계없이 같은 동작하기(cd, dirname)
+title: 파일처리_01 절대 경로, 상대 경로 관계없이 같은 동작하기(cd, dirname)
 tags: [Linux, ShellScript, cd, dirname]
 key: 20240110-Processing Linux files
 ---
@@ -58,7 +58,9 @@ cd "$(dirname "$0")" #---- 1
 /home/user1/myapp/dirname.sh: line 4: ./end.sh: No such file or directory
 ```
 
-이처럼 직접 실행할 땐 정상이었지만 cron에 등록해서 배치 처리할 때 제대로 동작하지 않는 상황은 심심치 않게 벌어집니다. 이것은 cron 실행 시 현재 디렉터리가 **cron 실행 사용자의 홈 디렉터리**가 되기 때문입니다. 즉, cron에서 dirname.sh가 실행되면 현재 디렉터리는 /home/user1 로 되어 여기서 ./start.sh를 지정하면 /home/user1/start.sh 파일을 찾게 됩니다. 스크립트 내부에서 다른 셸 스크립트를 실행하는 프로그램은 아래처럼 외부 스크립트 파일을 전체 경로로 지정하는 방법도 사용합니다.
+이처럼 직접 실행할 땐 정상이었지만 cron에 등록해서 배치 처리할 때 제대로 동작하지 않는 상황은 심심치 않게 벌어집니다. 이것은 cron 실행 시 현재 디렉터리가 **cron 실행 사용자의 홈 디렉터리**가 되기 때문입니다. 
+
+즉, cron에서 dirname.sh가 실행되면 현재 디렉터리는 /home/user1 로 되어 여기서 ./start.sh를 지정하면 /home/user1/start.sh 파일을 찾게 됩니다. 스크립트 내부에서 다른 셸 스크립트를 실행하는 프로그램은 아래처럼 외부 스크립트 파일을 전체 경로로 지정하는 방법도 사용합니다.
 
 - [파일2] 반드시 전체 경로로 지정하는 방법도 있지만 이식성이 낮다.
 
