@@ -68,13 +68,13 @@ $MYSQL -h "${DBHOST}" -u "${DBUSER}" -p"${DBPASS}" -D "${DBNAME}" -N < "$sqlfile
 
 - 매번 데이터베이스에 접속하는 리포트 배포 방법
 
-<img src='http://drive.google.com/uc?export=view&id=1Bx0n4fj37dgv80eTxxc_nymGyNflphPs' /><br>
+<img src='http://drive.google.com/thumbnail?id=1Bx0n4fj37dgv80eTxxc_nymGyNflphPs&sz=w1000' /><br>
 
 일별 데이터로 하루에 한 번 배치 처리하여 CSV 파일을 만들고, 그 파일을 사용자가 내려받게 한다면 리포트를 내려받을 때 생기는 데이터베이스 서버 부하를 크게 줄일 수 있습니다. 예제에서는 그런 경우를 가정합니다.
 
 - 매번 데이터베이스를 접속하지 않아도 되는 리포트 배포 방법
 
-<img src='http://drive.google.com/uc?export=view&id=1fmyDF6WOe1c81dSXdYqxqsV2MrY_m3kH' /><br>
+<img src='http://drive.google.com/thumbnail?id=1fmyDF6WOe1c81dSXdYqxqsV2MrY_m3kH&sz=w1000' /><br>
 
 셸 변수 sqlfile로 지정한 예제에서 이용하는 SQL문은 다음과 같습니다. 이 SQL은 상황에 맞게 수정해서 사용하기 바랍니다.
 

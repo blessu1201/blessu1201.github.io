@@ -55,7 +55,7 @@ done
 이 스크립트는 계속 추가되는 로그 파일에 문자열 검색을 해서 특정 문자열이 포함된 로그가 출력되면 그 내용을 실시간으로 표시합니다. 어떤 시스템 점검 작업 중에 다른 터미널창에서 표시되는 로그를 확인하는 툴로 사용한다고 가정합니다.
 
 - 스크립트 이용 예
-<img src='http://drive.google.com/uc?export=view&id=18bsMbitKEPcZuLp3g8s_fAJ66gJu0THG' /><br>
+<img src='http://drive.google.com/thumbnail?id=18bsMbitKEPcZuLp3g8s_fAJ66gJu0THG&sz=w1000' /><br>
 
 여기서 점검 대상 애플리케이션은 application.log 로그 파일에 대량의 로그를 기록한다고 합시다. 이때 에러 메시지가 다음과 같다고 가정합니다.
 
@@ -89,7 +89,7 @@ done
 
 로그 로테이션이란 애플리케이션 로그 파일이 너무 덩치가 커지지 않도록 어떤 단위로 로그 파일은 분할해서 바꾸는 기능입니다. 로테이션할 때 파일명 끝에 숫자값을 붙이는 형식이 일반적입니다.
 
-<img src='http://drive.google.com/uc?export=view&id=1uirUmuDzHCAM7WfrIqLuTu96cEAMEKxU' /><br>
+<img src='http://drive.google.com/thumbnail?id=1uirUmuDzHCAM7WfrIqLuTu96cEAMEKxU&sz=w1000' /><br>
 
 이때 application.log가 다음날이 되면 application.log.1로 파일명이 변경되고 신규 파일 application.log가 작성됩니다. 즉 매일, 애플리케이션 로그 출력이 새로운 파일로 전환됩니다.
 
@@ -115,7 +115,7 @@ done
 - 중요한 작업 시에는 이런 스크립트가 에러를 놓칠 수도 있으므로 메인 작업창 하나, 예제와 같은 스크립트로 가공한 로그 확인 창 하나, 실제 로그를 tail -F로 계속 표시하는 창 하나 이렇게 3개를 열어두고 작업하는 것이 좋습니다.
 
 - 창 3개를 열어서 사용
-<img src='http://drive.google.com/uc?export=view&id=1sr3wBk7cSc81Jq3LoeDQ0d7QAsHtirk2' /><br>
+<img src='http://drive.google.com/thumbnail?id=1sr3wBk7cSc81Jq3LoeDQ0d7QAsHtirk2&sz=w1000' /><br>
 
 ## less 명령어 이용
 

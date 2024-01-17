@@ -5,7 +5,7 @@ tags: [Linux, Account unlock,]
 key: 20230324-linux_account_unlock
 ---
 
-<img src='http://drive.google.com/uc?export=view&id=1ApCe1lsvgZpOFGSMyLqAe0qd6xp3d0_g' /><br>
+<img src='http://drive.google.com/thumbnail?id=1ApCe1lsvgZpOFGSMyLqAe0qd6xp3d0_g&sz=w1000' /><br>
 
 > 리눅스 서버운영시 사용자의 계정이 비밀번호 입력 초과 또는 오랫동안 미사용으로 인해 잠겨있는 상태를 해제하는 명령어 입니다. 
 

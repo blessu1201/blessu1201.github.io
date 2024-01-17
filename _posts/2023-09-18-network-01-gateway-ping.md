@@ -48,7 +48,7 @@ fi
 우선 **디폴트 게이트웨이**는 네트워크 접근 경로에서 외부 네트워크의 출입구가 되는 기기입니다. 이것은 일반적으로 라우터가 됩니다.
 
 - 디폴트 게이트웨이
-<img src='http://drive.google.com/uc?export=view&id=1OYuvdnUzvQLpsXCoPFWgSyd1xzyQkoIE' /><br>
+<img src='http://drive.google.com/thumbnail?id=1OYuvdnUzvQLpsXCoPFWgSyd1xzyQkoIE&sz=w1000' /><br>
 
 그림에서 192.168.1.10과 192.168.1.20이 통신할 때는 같은 세그먼트 내부이므로 디폴트 게이트웨이를 사용하지 않습니다.
 

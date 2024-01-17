@@ -57,7 +57,7 @@ fi
 
  - 백엔드 서버에서 발생한 장애도 포함해서 확인하고 싶음
  
-<img src='http://drive.google.com/uc?export=view&id=1E9iI8CniZRsHicixDE3Dy8rxg4t7jPsZ' /><br>
+<img src='http://drive.google.com/thumbnail?id=1E9iI8CniZRsHicixDE3Dy8rxg4t7jPsZ&sz=w1000' /><br>
 
 만약 포트 감시만 하면 웹 서버는 정상적으로 TCP 포트 80번으로 접속할 수 있어 데이터베이스 장애 발생을 놓치게 됩니다. HTTP 스테이터스 코드까지 감시하면 웹 서버는 HTTP 스테이터스 코드 500(Internal Server Error) 등을 돌려주므로 애플리케이션이 제대로 동작하지 않는다는 걸 알 수 있습니다.
 

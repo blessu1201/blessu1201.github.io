@@ -135,7 +135,7 @@ Last_SQL_Error:
 
 ## **데이터베이스와 레플리케이션**
 
-<img src='http://drive.google.com/uc?export=view&id=1AwR6TD2AXoSbDm2DOG8igELtGCpOTXHo' /><br>
+<img src='http://drive.google.com/thumbnail?id=1AwR6TD2AXoSbDm2DOG8igELtGCpOTXHo&sz=w1000' /><br>
 
 레플리케이션이란 데이터베이스 서버에서 이용하는 시스템 구성으로 그림처럼 마스터 서버에서 슬레이브 서버에 데이터를 복제합니다. 이러면 시스템 가용성이 높아지고 데이터베이스 서버 부하도 줄게 됩니다.
 

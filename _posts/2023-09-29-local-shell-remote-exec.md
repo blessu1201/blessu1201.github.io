@@ -67,7 +67,7 @@ fi
 이 스크립트는 여러 서버를 순차적으로 로그인해서 특정 서버(스크립트 2의 셸 변수 checkserver로 정의한 192.168.2.35)와 통신이 정상적인지 확인합니다.
 
 - 여러 서버에서 특정서버로 통신 가능한지 확인
-<img src='http://drive.google.com/uc?export=view&id=1tG4YWn-2gfJqoE31ckDZmMS8QLrL1gMa' /><br>
+<img src='http://drive.google.com/thumbnail?id=1tG4YWn-2gfJqoE31ckDZmMS8QLrL1gMa&sz=w1000' /><br>
 
 script-remote.sh 스크립트를 실행해서 로컬에 있는 확인용 스크립트 파일(check.sh)을 ssh 로그인한 서버에서 직접 실행시키는 것이 포인트입니다. 이런 스크립트 사용법은 이런 경우에 활용 가능합니다.
 
