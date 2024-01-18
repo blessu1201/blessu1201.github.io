@@ -55,12 +55,18 @@ Google issue tracker: <https://issuetracker.google.com/issues/319531488?pli=1>
     #converter textarea {
       display: block;
       white-space: wrap;
+      background-color: #eee;
+      color: #000;
       border: 1px solid #888;
       border-radius: 5px;
       margin-bottom: 10px;
       padding: 5px 5px;
       width: 100%;
       height: 60px;
+    }
+
+    #converter input{
+
     }
 
     #converter label {
