@@ -44,7 +44,7 @@ Google issue tracker: <https://issuetracker.google.com/issues/319531488?pli=1>
 구글 드라이브 이미지를 외부에서 접속하기 위해선 해당 파일이나, 파일이 속한 폴더는 공유 버튼을 눌러서 링크가 있는 모든 사용자로 변경하셔야 합니다.
 {:.warning}
 
-## google drive 외부사이트에서 링크 시 주소 자동 변환하기
+## (Google Drive)구글 드라이브 외부 접속 이미지 URL 생성(자동변환기-2024변경)
 
   <style>
     #converter {
