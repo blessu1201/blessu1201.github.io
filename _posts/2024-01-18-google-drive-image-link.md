@@ -1,15 +1,15 @@
 ---
 layout: article
-title: Github pages 에서 변경된 google drive image 링크 주소 사용방법
+title: 구글 드라이브 외부 접속 가능한 이미지 URL 생성하기(2024년 변경)
 tags: [github, google-drive, image-link]
 key: 20240118-github-blog-google-drive-image-link
 ---
 
-## Google-drive image 외부 링크시 구글의 url 변경
+## Google-drive 외부 접속 image 구글의 url 변경
 
-깃허브 블로그 포스팅하던 중 갑자기 구글 드라이브에 업로드 되어있는 사진들이 갑자기 보이지 않게 되었습니다.  
+얼마전 깃허브 블로그 포스팅하던 중 갑자기 구글 드라이브에 업로드 되어있는 사진들이 갑자기 보이지 않게 되었습니다.  
 예전에 갑자기 외부링크 권한이 변경된 적이 있어, 드라이브에 외부링크 권한이 변경되었는지 확인하였으나,  
-이상을 발견하지 못했고, 한참을 구글링하다가 비슷한 문제가 발생한 어느 외국인에게 도움을 요청하여 해결하였습니다.  
+이상을 발견하지 못했고, 한참을 구글링하여 비슷한 문제가 발생한 어느 외국인에게 도움을 요청하여 해결하였습니다.  
 하기 이슈트래커를 통해서도 아래와 같이 url 형식이 변경된 것을 확인 하실 수 있습니다.  
 
 Google issue tracker: <https://issuetracker.google.com/issues/319531488?pli=1>
@@ -40,6 +40,9 @@ Google issue tracker: <https://issuetracker.google.com/issues/319531488?pli=1>
 필요하신 분들은 즐겨찾기 하셔서 사용하시기 바랍니다.  
 
 참고자료: <https://www.somanet.xyz/2017/06/blog-post_21.html>
+
+구글 드라이브 이미지를 외부에서 접속하기 위해선 해당 파일이나, 파일이 속한 폴더는 공유 버튼을 눌러서 링크가 있는 모든 사용자로 변경하셔야 합니다.
+{:.warning}
 
 ## google drive 외부사이트에서 링크 시 주소 자동 변환하기
 
