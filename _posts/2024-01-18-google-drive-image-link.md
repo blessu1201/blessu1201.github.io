@@ -87,6 +87,15 @@ Google issue tracker: <https://issuetracker.google.com/issues/319531488?pli=1>
       padding: 5px 5px;
     }
 
+    #btn-convert:active {
+      width: 100%;
+      color: #fff
+      border: 1px solid #fffd55;
+      border-radius: 5px;
+      background-color: #183f78;
+      padding: 5px 5px;
+    }
+
     #convert-result {
       margin-top: 20px;
     }
@@ -97,6 +106,12 @@ Google issue tracker: <https://issuetracker.google.com/issues/319531488?pli=1>
       background-color: #147A2E;
       padding: 5px 5px;
     }
+
+    #btn-save-result-cb:active, #btn-save-result-img-tag-cb:active {
+      border: 1px solid #fffd55;
+      border-radius: 5px;
+      background-color: #0c471b;
+      padding: 5px 5px
   </style>
 
 <body>
