@@ -139,7 +139,7 @@ Google issue tracker: <https://issuetracker.google.com/issues/319531488?pli=1>
       <b>Preview image</b>
       </p>
     <p align="center">
-      <img id="preview" alt="image preview" src='https://www.google.com/drive/static/images/drive/logo-drive.png' class="img-thumbnail" style="max-width: 200px"/><br>
+      <img id="preview" alt="image preview" src='https://www.google.com/drive/static/images/drive/logo-drive.png' class="img-thumbnail" style="max-width: 100%"/><br>
     </p>
 
   </div>
@@ -164,7 +164,7 @@ Google issue tracker: <https://issuetracker.google.com/issues/319531488?pli=1>
         "<img src='" +
         prefix + gdId + size +
         "' /><br>");
-      $("#preview").attr("src", prefix + gdId);
+      $("#preview").attr("src", prefix + gdId + size);
     });
 
     var clipboard = new Clipboard('.btn');
