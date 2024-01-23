@@ -1,8 +1,8 @@
 ---
 layout: article
-title: 파일처리_13 파일들을 다른 디렉터리에 동기화해서 백업처리하기
+title: 파일처리_12 파일들을 다른 디렉터리에 동기화해서 백업처리하기
 tags: [Linux, ShellScript, rsync]
-key: 20240121-Linux-file-date
+key: 20240122-Linux-file-date
 ---
 
 - 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어
