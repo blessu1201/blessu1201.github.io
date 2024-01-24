@@ -5,6 +5,7 @@ tags: [Linux, Shellscript, tar, ssh, cat]
 key: 20240123-linux-tar
 ---
 
+- 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어
 
 > 명령어: tar, ssh, cat  
 > 키워드: tar 아카이브, 원격 호스트, 중간 파일   
