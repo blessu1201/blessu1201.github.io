@@ -42,18 +42,15 @@ find $logdir -name "*.log" -print | xargs grep "ERROR" /dev/null  # --- 1
 이 스크립트는 수 많은 파일이 존재하는 디렉터리 /var/log/myapp에 대해 "ERROR" 라는 문자열을 포함한 파일을 grep 명령어로 검색합니다. 여기서 디렉터리 /var/log/myapp에는 단순히 grep 명령어를 실행하면 에러가 발생할 만큼 많은 로그 파일이 존재한다고 가정합니다.
 
 - 파일이 너무 많으면 에러 발생
-
 ```
 $ grep 'ERROR' *.log
 -bash: /bin/grep: Argument list too long
 ```
-
 여기서 "Argument list too long"(OS에 따라 메시지는 다소 다릅니다)이라는 에러가 발생한 원인은 *(애스터리스크)가 셸에 따라 확장될 때 무척 긴 문자열이 되므로 명령행 인수가 시스템이 다룰 수 있는 한계를 넘었기 때문입니다.
- 
+
 유닉스에서는 명령행 인수 상한값이 **ARG_MAX** 상수로 정해져 있습니다. 따라서 많은 파일이 있을 때 *로 파일 목록을 넘기면 ARG_MAX 이상의 문자열 길이가 되어서 에러가 발생합니다. ARG_MAX 값은 리눅스라면 **getconf** 명령어로 확인할 수 있습니다.
 
 - 명령행 인수의 상한값 확인
-
 ```
 $ getconf ARG_MAX
 2621440

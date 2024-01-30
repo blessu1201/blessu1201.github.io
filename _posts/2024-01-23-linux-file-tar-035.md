@@ -61,7 +61,6 @@ tar cvf - myapplog | cat > /backup/myapplog.tar
 ## **주의사항**
 
 - 이 예제와는 반대로 현재 호스트에서 원격 호스트에 맞는 tar 파일의 아카이브를 직접 해제하려면 다음처럼 tar 명령어로 -(하이픈)을 서서 표준 입력에서 해제하면 됩니다.
-
 ```
 ssh ${username}@${server} "cat /backup/myapplog.tar" | tar xvf -
 ```

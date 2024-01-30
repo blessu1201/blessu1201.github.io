@@ -62,7 +62,6 @@ find <대상 경로> <리스트> | xargs <실행할 명령어>
 ## **주의사항**
 
 - 갑자기 파일을 삭제하는 스크립트를 작성하는 것은 위험하므로 우선 확인부터 합니다. 구체적으로는 다음처럼 xargs로 실행하는 명령어를 ls로 확인해보면 좋습니다.
-
 ```
 find $logdir -name "*.log" -mtime +364 -print | xargs ls
 ```
@@ -71,7 +70,6 @@ find $logdir -name "*.log" -mtime +364 -print | xargs ls
 
 - 테스트용의 오래된 파일은 touch 명령어 -t 옵션으로 작성할 수 있습니다.
 - 파일명에 공백문자(스페이스)가 있으면 이 예제에서는 에러가 발생합니다. 그럴 때는 문자열 구분자로 공백이 아닌 널 문자를 사용한다고 보는 xargs 명령어의 -0(제로) 옵션을 사용합니다. 이때 find 명령어도 구분자를 널 문자로 출력하도록 print0 옵션을 사용합니다.
-
 ```
 find $logdir -name "*.log" -mtime +364 print0 | xargs -0 rm -fv
 ```
