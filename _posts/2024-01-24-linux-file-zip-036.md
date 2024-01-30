@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 파일처리_14 중요한 파일을 암호 걸어서 zip으로 아카이브하기
-tags: [Linux, Shellscript, tar, ssh, cat]
+tags: [Linux, ShellScript, tar, ssh, cat]
 key: 20240124-linux-zip
 ---
 

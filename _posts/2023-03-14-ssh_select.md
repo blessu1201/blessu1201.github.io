@@ -1,7 +1,7 @@
 ---
 layout: article
 title: select 문을 활용한 ssh 접속 script / ssh connection script using select
-tags: [Linux, Select, Ssh, Shellscript, Bash]
+tags: [Linux, Select, Ssh, ShellScript, Bash]
 key: 20230314-select_to_ssh
 ---
 

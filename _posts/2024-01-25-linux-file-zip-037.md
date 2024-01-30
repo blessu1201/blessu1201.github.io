@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 파일처리_15 gzip 명령어로 압축률 높이기
-tags: [Linux, Shellscript, gzip, bzip2, xz]
+tags: [Linux, ShellScript, gzip, bzip2, xz]
 key: 20240125-linux-gzip-bzip2-xz
 ---
 

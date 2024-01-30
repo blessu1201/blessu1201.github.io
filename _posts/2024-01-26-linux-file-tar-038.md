@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 파일처리_16 tar 아카이브할 때 일부 파일이나 디렉터리 제외하기
-tags: [Linux, Shellscript, tar]
+tags: [Linux, ShellScript, tar]
 key: 20240126-linux-tar
 ---
 

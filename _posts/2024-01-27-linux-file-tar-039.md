@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 파일처리_17 tar 아카이브에 파일 추가하기
-tags: [Linux, Shellscript, tar, date]
+tags: [Linux, ShellScript, tar, date]
 key: 20240127-linux-tar
 ---
 

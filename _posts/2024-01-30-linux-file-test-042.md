@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 파일처리_20 처리 시작 전에 실행 권한을 확인해서 정상 동작이 가능한지 확인 후 실행하기
-tags: [Linux, Shellscript, test, "[" ]
+tags: [Linux, ShellScript, test, "[" ]
 key: 20240130-linux-test
 ---
 

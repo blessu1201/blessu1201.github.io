@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 파일처리_13 로컬 디렉터리에 파일을 만들지 않고 직접 원격 호스트에 아카이브하기
-tags: [Linux, Shellscript, tar, ssh, cat]
+tags: [Linux, ShellScript, tar, ssh, cat]
 key: 20240123-linux-tar
 ---
 

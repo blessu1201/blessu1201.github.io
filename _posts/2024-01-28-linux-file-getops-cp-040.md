@@ -1,7 +1,7 @@
 ---
 layout: article
 title: 파일처리_18 파일 퍼미션과 타임 스탬프 등 원래 파일 속성을 유지한 채 파일 복사하기
-tags: [Linux, Shellscript, getopts, cp]
+tags: [Linux, ShellScript, getopts, cp]
 key: 20240128-linux-getopts-cp
 ---
 
