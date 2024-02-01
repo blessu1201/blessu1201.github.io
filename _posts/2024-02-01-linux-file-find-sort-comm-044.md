@@ -18,11 +18,11 @@ key: 20240201-linux-find-sort-comm
 ```
 $ ./find-comm.sh
 ./dav.conf
-			./default.conf
-            ./info.conf
-            ./mpm.conf
-		./ssl.conf
-        	./userdir.conf
+                ./default.conf
+                ./info.conf
+                ./mpm.conf
+      ./ssl.conf
+                ./userdir.conf
 ./vhosts.conf
 ```
 
