@@ -71,12 +71,12 @@ fi
 
 |표기|의미|
 |:--|:---|
-|변수1 `-eq`{:.warning} 변수2|변수1과 변수2가 같으면 참|
-|변수1 `-ne`{:.warning} 변수2|변수1과 변수2가 다르면 참|
-|변수1 `-lt`{:.warning} 변수2|변수1이 변수2 미만이면 참|
-|변수1 `-le`{:.warning} 변수2|변수1이 변수2 이하이면 참|
-|변수1 `-gt`{:.warning} 변수2|변수1이 변수2 초과면 참|
-|변수1 `-ge`{:.warning} 변수2|변수1이 변수2 이상이면 참|
+|변수1 `-eq`{:.success} 변수2|변수1과 변수2가 같으면 참|
+|변수1 `-ne`{:.success} 변수2|변수1과 변수2가 다르면 참|
+|변수1 `-lt`{:.success} 변수2|변수1이 변수2 미만이면 참|
+|변수1 `-le`{:.success} 변수2|변수1이 변수2 이하이면 참|
+|변수1 `-gt`{:.success} 변수2|변수1이 변수2 초과면 참|
+|변수1 `-ge`{:.success} 변수2|변수1이 변수2 이상이면 참|
 
 lt는 "less than", le는 "less than or equal to", gt는 "greater than", ge는 "greater than or equal to"입니다.
 
