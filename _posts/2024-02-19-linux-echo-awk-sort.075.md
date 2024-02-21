@@ -68,7 +68,7 @@ done < $csvfile
 
 아래 CSV파일(data.csv)의 형식은 "ID번호, 이름, 점수"입니다.
 
-- 파일1 CSV파일(data.csv)
+- `파일1`{:.success} CSV파일(data.csv)
 
 ```
 0001,Kim,45

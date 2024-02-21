@@ -68,7 +68,7 @@ done < "$csvfile"
 
 이 스크립트는 ID 목록 파일을 명령행 인수로 지정해서 **CSV 파일**에서 일치하는 ID 컬럼값을 취득합니다. 대상 CSV 파일은 다음처럼 "ID번호, 이름, 점수" 형식이라고 가정합니다.
 
-- 파일1 CSV 파일(data.csv)
+- `파일1`{:.success} CSV 파일(data.csv)
 
 ```
 <data.csv 파일 내용>
@@ -81,7 +81,7 @@ done < "$csvfile"
 
 ID 목록 파일은 추출하고 싶은 ID가 적힌 텍스트 파일입니다.
 
-- 파일2 추출하고 싶은 ID 목록 파일(id.lst)
+- `파일2`{:.success} 추출하고 싶은 ID 목록 파일(id.lst)
 
 ```
 <id.lst> 파일 내용
