@@ -46,15 +46,14 @@ done
 
 - 부하 평균치 로그 파일
 
-```
- 22:33:46 up 6 days, 23:51, 2 users, load average: 1.15, 1.48, 1.57
- 22:33:56 up 6 days, 23:51, 2 users, load average: 1.28, 1.50, 1.57
- 22:34:06 up 6 days, 23:51, 2 users, load average: 1.47, 1.53, 1.58
- 22:34:16 up 6 days, 23:52, 2 users, load average: 1.48, 1.53, 1.58
- 22:34:26 up 6 days, 23:52, 2 users, load average: 1.41, 1.51, 1.57
- 22:34:36 up 6 days, 23:52, 2 users, load average: 1.94, 1.63, 1.61
-
-```
+  ```
+  22:33:46 up 6 days, 23:51, 2 users, load average: 1.15, 1.48, 1.57
+  22:33:56 up 6 days, 23:51, 2 users, load average: 1.28, 1.50, 1.57
+  22:34:06 up 6 days, 23:51, 2 users, load average: 1.47, 1.53, 1.58
+  22:34:16 up 6 days, 23:52, 2 users, load average: 1.48, 1.53, 1.58
+  22:34:26 up 6 days, 23:52, 2 users, load average: 1.41, 1.51, 1.57
+  22:34:36 up 6 days, 23:52, 2 users, load average: 1.94, 1.63, 1.61
+  ```
 
 한편, uptime 명령어로 출력한 부하 평균치(load average)는 왼쪽에서부터 과거 1분간, 5분간, 15분간 평균치입니다. 부하 평균치는 서버에서 대기 상태인 작업 수를 나타내는 숫자입니다. 이 값이 크면 대기 상태인 작업이 많은 즉, CPU나 디스크 등 리소스가 부족해서 서버 부하가 높은 상태라고 판단할 수 있습니다. 따라서 서버 부하 측정을 위해 예제와 같은 스크립트로 자료를 수집하는 경우가 많습니다.
 
@@ -72,13 +71,13 @@ done
 
 - 기존 파일이 존재하면 빈 파일이 되지 않음
 
-```
-$ cat uptime.log
-22:33:46 up 6 days, 23:51, 2 users, load average: 1.15, 1.48, 1.57
-$ touch uptime.log
-$ cat uptime.log
-22:33:46 up 6 days, 23:51, 2 users, load average: 1.15, 1.48, 1.57
-```
+  ```
+  $ cat uptime.log
+  22:33:46 up 6 days, 23:51, 2 users, load average: 1.15, 1.48, 1.57
+  $ touch uptime.log
+  $ cat uptime.log
+  22:33:46 up 6 days, 23:51, 2 users, load average: 1.15, 1.48, 1.57
+  ```
 
 ### 빈 파일을 만드는 다른 방법
 

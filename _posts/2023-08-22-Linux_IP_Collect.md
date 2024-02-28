@@ -44,21 +44,21 @@ awk '/^[a-z]/ {print "[" $1 "]"}         # ---- 2
 
 - ifconfig 명령어를 인수 없이 실행하기
 
-```
-eth0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
-        inet 10.211.55.18  netmask 255.255.0.0  broadcast 172.17.255.255
-        ether 02:42:ef:e8:25:45  txqueuelen 0  (Ethernet)
-        RX packets 0  bytes 0 (0.0 B)
-        RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 0  bytes 0 (0.0 B)
-        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+      ```
+      eth0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+            inet 10.211.55.18  netmask 255.255.0.0  broadcast 172.17.255.255
+            ether 02:42:ef:e8:25:45  txqueuelen 0  (Ethernet)
+            RX packets 0  bytes 0 (0.0 B)
+            RX errors 0  dropped 0  overruns 0  frame 0
+            TX packets 0  bytes 0 (0.0 B)
+            TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
-eth1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
-      :(생략)
+      eth1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+            :(생략)
 
-lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
-      :(생략)
-```
+      lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+            :(생략)
+      ```
 
 ifconfig 명령어는 서버 관리에 자주 사용하는 명령어인데 출력하는 내용이 많아서 다루기가 조금 번거롭습니다. 네트워크 설정 확인이라면 예제처럼 간단히 서버 네트워크 인터페이스와 IP 주소만 표시하고 싶을 때도 있을 것입니다.
 

@@ -57,7 +57,7 @@ fi
 
  - 백엔드 서버에서 발생한 장애도 포함해서 확인하고 싶음
  
-<img src='http://drive.google.com/thumbnail?id=1E9iI8CniZRsHicixDE3Dy8rxg4t7jPsZ&sz=w1000' /><br>
+    <img src='http://drive.google.com/thumbnail?id=1E9iI8CniZRsHicixDE3Dy8rxg4t7jPsZ&sz=w1000' /><br>
 
 만약 포트 감시만 하면 웹 서버는 정상적으로 TCP 포트 80번으로 접속할 수 있어 데이터베이스 장애 발생을 놓치게 됩니다. HTTP 스테이터스 코드까지 감시하면 웹 서버는 HTTP 스테이터스 코드 500(Internal Server Error) 등을 돌려주므로 애플리케이션이 제대로 동작하지 않는다는 걸 알 수 있습니다.
 
@@ -71,11 +71,11 @@ fi
 
 - 스크립트에서 사용하는 curl 명령어 옵션
 
-|명령어|설명|
-|:----|:---|
-|-s|slient 모드(침묵 모드). 처리 중 내용을 표시하지 않음|
-|-o|취득한 파일 저장 경로 지정|
-|-w|명령어 완료 후 출력할 표시 형식 지정|
+  |명령어|설명|
+  |:----|:---|
+  |-s|slient 모드(침묵 모드). 처리 중 내용을 표시하지 않음|
+  |-o|취득한 파일 저장 경로 지정|
+  |-w|명령어 완료 후 출력할 표시 형식 지정|
 
 [3](#){:.button.button--primary.button--rounded.button--xs}은 curl 명령어 자체의 종료 스테이터스 $?도 셸 변수 curlresult에 대입합니다. 이것은 어떤 네트워크 장애나 URL 지정 실수로 curl 명령어가 실패했을 때 확인하기 위함입니다. curl 명령어 종료 스테이터스는 [4](#){:.button.button--primary.button--rounded.button--xs}의 if문에서 확인해서 curl 명령어에 실패했으면 HTTP 접속 에러라고 에러 메시지를 표시하고 alert.sh를 실행합니다.
 
@@ -83,14 +83,14 @@ fi
 
 - 확인해야 할 비정상 HTTP 스테이터스 코드
 
-|코드|일반적표시|설명|
-|:---|:--------|:---|
-|400|Bad Request|리퀘스트 문제 발생. 존재하지 않늠 메소드 등|
-|403|Forbidden|접근 거부. 서버 설정에 따른 접속 거부 등|
-|404|Not Found|파일이 존재하지 않을 때|
-|500|Internal Server Error|서버 내부 에러. CGI 에러 등|
-|502|Bad Gateway|프록시 서버 등 상위 서버에서 잘못된 응답이 왔을 때|
-|503|Service Unavailable|서버가 바쁘거나 처리를 받을 수 없을 때|
+  |코드|일반적표시|설명|
+  |:---|:--------|:---|
+  |400|Bad Request|리퀘스트 문제 발생. 존재하지 않늠 메소드 등|
+  |403|Forbidden|접근 거부. 서버 설정에 따른 접속 거부 등|
+  |404|Not Found|파일이 존재하지 않을 때|
+  |500|Internal Server Error|서버 내부 에러. CGI 에러 등|
+  |502|Bad Gateway|프록시 서버 등 상위 서버에서 잘못된 응답이 왔을 때|
+  |503|Service Unavailable|서버가 바쁘거나 처리를 받을 수 없을 때|
 
 예를 들어 503(Service Unavailable)은 서버가 고부하 상태일 때 자주 보게 도비니다. 500(Internal Server Error)은 프로그램에 어떤 버그가 있어서 정상적으로 응답할 수 없을 때도 발생합니다.
 

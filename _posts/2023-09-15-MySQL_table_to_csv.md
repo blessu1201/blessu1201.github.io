@@ -68,13 +68,13 @@ $MYSQL -h "${DBHOST}" -u "${DBUSER}" -p"${DBPASS}" -D "${DBNAME}" -N < "$sqlfile
 
 - 매번 데이터베이스에 접속하는 리포트 배포 방법
 
-<img src='http://drive.google.com/thumbnail?id=1Bx0n4fj37dgv80eTxxc_nymGyNflphPs&sz=w1000' /><br>
+  <img src='http://drive.google.com/thumbnail?id=1Bx0n4fj37dgv80eTxxc_nymGyNflphPs&sz=w1000' /><br>
 
 일별 데이터로 하루에 한 번 배치 처리하여 CSV 파일을 만들고, 그 파일을 사용자가 내려받게 한다면 리포트를 내려받을 때 생기는 데이터베이스 서버 부하를 크게 줄일 수 있습니다. 예제에서는 그런 경우를 가정합니다.
 
 - 매번 데이터베이스를 접속하지 않아도 되는 리포트 배포 방법
 
-<img src='http://drive.google.com/thumbnail?id=1fmyDF6WOe1c81dSXdYqxqsV2MrY_m3kH&sz=w1000' /><br>
+  <img src='http://drive.google.com/thumbnail?id=1fmyDF6WOe1c81dSXdYqxqsV2MrY_m3kH&sz=w1000' /><br>
 
 셸 변수 sqlfile로 지정한 예제에서 이용하는 SQL문은 다음과 같습니다. 이 SQL은 상황에 맞게 수정해서 사용하기 바랍니다.
 
@@ -82,17 +82,23 @@ $MYSQL -h "${DBHOST}" -u "${DBUSER}" -p"${DBPASS}" -D "${DBNAME}" -N < "$sqlfile
 SELECT id, score FROM userinfo ORDER BY id;
 ```
 
-에제를 봅시다. `1`{:.info}에서 정의한 설정으로 데이터베이스에 정상적으로 접속 가능하고, `2`{:.info}처럼 **mysql 명령어**가 설치되어 있다고 가정합니다. `3`{:.info}은 CSV 파일 출력용 디렉터리(셸 변수 csv_outputdir)와 실행할 SQL문을 기록해둔 파일(셸 변수 sqlfile)을 정의합니다. 이어서 `4`{:.info}와 `5`{:.info}는 이것들이 존재하는지 확인합니다. 만약 존재하지 않으면 에러로 보고 스크립트를 종료합니다. `6`{:.info}은 date 명령어를 이용해서 오늘 날짜는 YYYYMMDD 포맷으로 조합합니다. 이 날짜는 CSV 파일명에서 사용합니다. `7`{:.info}에서 mysql 명령어를 이용해서 CSV 파일을 출력합니다. 명령행이 길어지므로 \로 줄바꿈을 합니다. mysql 명령어 옵션은 다음과 같습니다.
+에제를 봅시다. 
+`1`{:.info}에서 정의한 설정으로 데이터베이스에 정상적으로 접속 가능하고,  
+`2`{:.info}처럼 **mysql 명령어**가 설치되어 있다고 가정합니다.  
+`3`{:.info}은 CSV 파일 출력용 디렉터리(셸 변수 csv_outputdir)와 실행할 SQL문을 기록해둔 파일(셸 변수 sqlfile)을 정의합니다.  
+이어서 `4`{:.info}와 `5`{:.info}는 이것들이 존재하는지 확인합니다. 만약 존재하지 않으면 에러로 보고 스크립트를 종료합니다.  
+`6`{:.info}은 date 명령어를 이용해서 오늘 날짜는 YYYYMMDD 포맷으로 조합합니다. 이 날짜는 CSV 파일명에서 사용합니다.  
+`7`{:.info}에서 mysql 명령어를 이용해서 CSV 파일을 출력합니다. 명령행이 길어지므로 \로 줄바꿈을 합니다. mysql 명령어 옵션은 다음과 같습니다.
 
 - 스크립트에서 사용하는 mysql 명령어 옵션
 
-|옵션|설명|
-|:---|:---|
-|-h|MySQL 서버 호스트명|
-|-u|MySQL 서버 접속 사용자명|
-|-p|MySQL 서버 접속 암호|
-|-D|접속할 데이터베이스명|
-|-N|컬럼명을 표시하지 않음|
+  |옵션|설명|
+  |:---|:---|
+  |-h|MySQL 서버 호스트명|
+  |-u|MySQL 서버 접속 사용자명|
+  |-p|MySQL 서버 접속 암호|
+  |-D|접속할 데이터베이스명|
+  |-N|컬럼명을 표시하지 않음|
 
 `7`{:.info}에서 mysql 명령어에 SQL문이 적힌 파일을 입력 리다이렉트로 넘깁니다. 이렇게 하면 출력 결과 컬럼의 구분자가 탭이 됩니다. 따라서 파이프로 연결한 **tr 명령어**로 탭을 ,(쉽표)로 변환합니다. tr "\t" "," 부분입니다. 이것으로 SELECT한 결과를 CSV 형식으로 얻게 되므로 리다이렉트해서 CSV 파일로 출력합니다.
 

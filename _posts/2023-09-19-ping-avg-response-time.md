@@ -62,18 +62,18 @@ ping 명령어 출력은 OS에 따라 다소 다르지만 다음과 같습니다
 
 - ping 명령어 출력 예
 
-```
-$ ping -c 4 192.168.2.1
-PING 192.168.2.1 (192.168.2.1) 56(84) bytes of data.
-64 bytes from 192.168.2.1: icmp_seq=1 ttl=64 time=0.374 ms
-64 bytes from 192.168.2.1: icmp_seq=2 ttl=64 time=0.405 ms
-64 bytes from 192.168.2.1: icmp_seq=3 ttl=64 time=0.345 ms
-64 bytes from 192.168.2.1: icmp_seq=4 ttl=64 time=0.469 ms
+    ```
+    $ ping -c 4 192.168.2.1
+    PING 192.168.2.1 (192.168.2.1) 56(84) bytes of data.
+    64 bytes from 192.168.2.1: icmp_seq=1 ttl=64 time=0.374 ms
+    64 bytes from 192.168.2.1: icmp_seq=2 ttl=64 time=0.405 ms
+    64 bytes from 192.168.2.1: icmp_seq=3 ttl=64 time=0.345 ms
+    64 bytes from 192.168.2.1: icmp_seq=4 ttl=64 time=0.469 ms
 
---- 192.168.2.1 ping statistics ---
-4 packets transmitted, 4 received, 0% packet loss, time 3000ms
-rtt min/avg/max/mdev = 0.345/0.398/0.469/0.048 ms
-```
+    --- 192.168.2.1 ping statistics ---
+    4 packets transmitted, 4 received, 0% packet loss, time 3000ms
+    rtt min/avg/max/mdev = 0.345/0.398/0.469/0.048 ms
+    ```
 
 마지막 줄을 보면 rtt(round trip time, 패킷 왕복에 걸린 시간)의 avg가 ping 명령어 자체의 평균 응답 시간입니다. 이제부터 명령어 출력에서 평균값을 구하는 예로 스크립트에서 값을 계산해 봅시다.
 

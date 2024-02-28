@@ -51,31 +51,32 @@ tar cvf ${last_YYYYMM}.tar ${logdir}/access.log-${last_YYYYMM}*  #---- 3
 
 - 로그 파일 확인
 
-```
-/var/log/myapp/access.log-20210224
-/var/log/myapp/access.log-20210225
-/var/log/myapp/access.log-20210226
-/var/log/myapp/access.log-20210227
-/var/log/myapp/access.log-20210228
-(생략)
-```
-지난달 날짜 표기를 얻고 싶다면 리눅스에서는 **date 명령어 -d 옵션**으로 한 달 전을 뜻하는 "1 month ago"를 지정하면 편리합니다. 하지만 이 옵션을 사용할 때는 주의해야 할 사항이 있습니다.
+    ```
+    /var/log/myapp/access.log-20210224
+    /var/log/myapp/access.log-20210225
+    /var/log/myapp/access.log-20210226
+    /var/log/myapp/access.log-20210227
+    /var/log/myapp/access.log-20210228
+    (생략)
+    ```
+
+    지난달 날짜 표기를 얻고 싶다면 리눅스에서는 **date 명령어 -d 옵션**으로 한 달 전을 뜻하는 "1 month ago"를 지정하면 편리합니다. 하지만 이 옵션을 사용할 때는 주의해야 할 사항이 있습니다.
 
 - date 명령어 "1 month ago" 실패 예
 
-```
-$ date "+%Y/%m/%d %H:%M:%S"
-2013/03/30 00:00:05  #---------- 오늘 날짜
+    ```
+    $ date "+%Y/%m/%d %H:%M:%S"
+    2013/03/30 00:00:05  #---------- 오늘 날짜
 
-$ date "+%Y/%m/%d %H:%M:%S" -d "1 month ago"
-2013/03/02 00:00:06  #---------- 2월 28일이 아님
-```
+    $ date "+%Y/%m/%d %H:%M:%S" -d "1 month ago"
+    2013/03/02 00:00:06  #---------- 2월 28일이 아님
+    ```
 
-이 결과처럼 3월 30일에는 date -d "1 month ago"를 실행해도 2월 말인 2월 28일이 되지 않습니다. 이것은 리눅스 date 명령어로 "1 month ago"를 지정하면 "지난달의 같은 날"을 취득하기 때문입니다.
+    이 결과처럼 3월 30일에는 date -d "1 month ago"를 실행해도 2월 말인 2월 28일이 되지 않습니다. 이것은 리눅스 date 명령어로 "1 month ago"를 지정하면 "지난달의 같은 날"을 취득하기 때문입니다.
 
 - 결과가 3월 2일이 되는 구조
 
-<img src='http://drive.google.com/thumbnail?id=1lw8XSVWw-YmTwkqD5LMaSbh_J0eGrQb-&sz=w1000' /><br>
+    <img src='http://drive.google.com/thumbnail?id=1lw8XSVWw-YmTwkqD5LMaSbh_J0eGrQb-&sz=w1000' /><br>
 
 이 예제에서는 오늘이 3월 30일이므로 "2월 30일"을 취득하려고 하지만 그런 날은 존재하지 않으므로 2월 28일에서 계산하면 2일 뒤 즉, 3월 2일이 됩니다.
 
@@ -98,11 +99,11 @@ tar cvf 201302.tar /var/log/myapp/access.log-201302*
 
 - FreeBSD나 Mac에서 지난달을 취득하려면 스크립트 `2`{:.info}에서 -d '1 month ago' 대신에 -v 옵션을 사용합니다.
 
-```
-last_YYYYMM=$(date -v-1m "+%Y/%m")
-```
+    ```
+    last_YYYYMM=$(date -v-1m "+%Y/%m")
+    ```
 
--v-1m은 '-v 옵션에 -1m 지정'을 의미합니다.
+    -v-1m은 '-v 옵션에 -1m 지정'을 의미합니다.
 
 - FreeBSD나 Mac에서 -v-1m으로 지정한 "1개월 전"은 리눅스 "1 month ago"와는 달리 지난달 말일이 됩니다. 따라서 15일로 날짜를 바꿀 필요가 없습니다.
 

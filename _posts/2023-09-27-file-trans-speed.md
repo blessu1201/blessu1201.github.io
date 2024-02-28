@@ -74,12 +74,12 @@ rm -f "$tmpdata" "$timefile"
 
 - 임시 파일 작성에 사용하는 옵션
 
-|옵션|설명|
-|:---|:---|
-|if=/dev/zero|입력으로 /dev/zero 라는 널 문자를 읽을 수 있는 스페셜 디바이스 지정|
-|of="$filename"|셸 변수 filename으로 정의된 파일명을 출력으로 지정|
-|count=$filesize|셸 변수 filesize로 지정한 횟수만큼 복사|
-|bs=1024|복사할 블록 크기, 1024바이트(1킬로바이트)|
+    |옵션|설명|
+    |:---|:---|
+    |if=/dev/zero|입력으로 /dev/zero 라는 널 문자를 읽을 수 있는 스페셜 디바이스 지정|
+    |of="$filename"|셸 변수 filename으로 정의된 파일명을 출력으로 지정|
+    |count=$filesize|셸 변수 filesize로 지정한 횟수만큼 복사|
+    |bs=1024|복사할 블록 크기, 1024바이트(1킬로바이트)|
 
 여기서 **널 문자**(ASCII 코드로 0x00)로 채운 1024(KB) x 1024(회) = 1MB 임시 파일이 만들어 집니다.
 
@@ -123,24 +123,26 @@ time -p ftp -n "$server" << __EOT__ 2> "$timefile"
 - wget 명령어나 curl 명령어 같은 도구는 명령어 종료 시 전송 속도가 표시됩니다. 따라서 내려받기 속도를 알고 싶으면 이런 도구를 사용해도 됩니다.
 
 - wget 명령어 내려받기
-```
-$ wget "ftp://park:xxxxxx@192.168.2.5/tmpdata.tmp"
-... 생략 ...
-2021-04-07 10:31:11 (2.9 MB/s) - "tmpdata.tmp" saved [44442068]
-```
+
+    ```
+    $ wget "ftp://park:xxxxxx@192.168.2.5/tmpdata.tmp"
+    ... 생략 ...
+    2021-04-07 10:31:11 (2.9 MB/s) - "tmpdata.tmp" saved [44442068]
+    ```
 
 - curl 명령어 내려받기
-```
-$ curl -u "user1:xxxxx: -o "ftp://192.168.2.5/tmpdata.tmp"
-% Total	% Received	% Xferd Average Dload	Speed Upload	Time Total	Time Spent	Time Left	Current Speed
-100	2238	0	2238	0	0	23034	0	--:--:--	--:--:--	--:--:--	23072
-```
 
-이때 FTP ID와 암호는 다음처럼 지정합니다.
-```
-# wget 명령어
-wget "ftp://<사용자명>:<암호>@<호스트명>/<파일경로>"
+    ```
+    $ curl -u "user1:xxxxx: -o "ftp://192.168.2.5/tmpdata.tmp"
+    % Total	% Received	% Xferd Average Dload	Speed Upload	Time Total	Time Spent	Time Left	Current Speed
+    100	2238	0	2238	0	0	23034	0	--:--:--	--:--:--	--:--:--	23072
+    ```
 
-# curl 명령어
-curl -u "<사용자명>:<암호>" -O "ftp://<호스트명>/<파일경로>"
-```
+    이때 FTP ID와 암호는 다음처럼 지정합니다.
+    ```
+    # wget 명령어
+    wget "ftp://<사용자명>:<암호>@<호스트명>/<파일경로>"
+
+    # curl 명령어
+    curl -u "<사용자명>:<암호>" -O "ftp://<호스트명>/<파일경로>"
+    ```

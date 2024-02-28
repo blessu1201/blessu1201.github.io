@@ -64,13 +64,13 @@ paste -d, "$1" $tmpfile  #--------------------------------------- 6
 
 - 한 글자만 달라도 해시값은 크게 달라짐
 
-```
-$ echo -n "ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFG" | md5sum
-bd3b9bbc014d8f8ebc284d5d590bdb1a -
+    ```
+    $ echo -n "ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFG" | md5sum
+    bd3b9bbc014d8f8ebc284d5d590bdb1a -
 
-$ echo -n "AACDEFGABCDEFGABCDEFGABCDEFGABCDEFG" | md5sum
-70709a03675c0677ca0a1ce9aea53f75 -
-```
+    $ echo -n "AACDEFGABCDEFGABCDEFGABCDEFGABCDEFG" | md5sum
+    70709a03675c0677ca0a1ce9aea53f75 -
+    ```
 
 MD5 해시값을 얻어 **md5sum 명령어**로 출력한 예입니다. 여기서 "ABCDEFG"가 5번 반복된 문자열 해시값을 우선 구한 다음, 두 번째 B를 A로 바꾼 문자열 해시값을 구합니다. **echo 명령어**에서 줄바꿈을 하지 않는 **-n** 옵션을 써서 문자열로만 해시값을 구합니다. 한 글자만 바뀌었지만 출력된 해시값은 크게 다릅니다. 이렇듯 해시값을 비교하면 메시지가 변경되었는지 깨지지 않았는지 판정할 수 있습니다. 하지만 출력된 해시값에서 역으로 원래 입력값을 구하는 것은 어렵습니다.
 
@@ -78,7 +78,8 @@ MD5 해시값을 얻어 **md5sum 명령어**로 출력한 예입니다. 여기�
 
 `2`{:.info}는 **IFS**에 줄바꿈을 대입해서 셸 구분자로 줄바꿈만 설정합니다. 셸은 스페이스 기호를 기본 구분자로 사용하므로 그냥 사용하면 스크립트에서 파일을 읽을 때 단어 앞머리 등에 스페이스가 있다면 구분자로 인식해서 제대로 된 해시값을 얻지 못합니다. 따라서 구분자를 미리 변경해둡니다.  
 IFS 설정방법은 아래 링크에서 설명했으니 참조하기 바랍니다.  
-IFS 참고: <https://blessu1201.github.io/2024/02/05/linux-file-ls-case-048.html>
+
+`IFS 참고:`{:.success} <https://blessu1201.github.io/2024/02/05/linux-file-ls-case-048.html>
 
 `3`{:.info}에서는 while문을 사용해 read 명령어로 지정한 입력 파일에서 한 줄씩을 셸 변수 line에 읽어들입니다. `4`{:.info}에서 while문 전체에 입력 리다이렉트하므로 명령행 인수로 지정한 파일에서 읽기 처리를 합니다. 그리고 `3`{:.info}의 **read 명령어**에서 백슬래시(\)가 있는 문자를 그대로 다룰 수 있도록 **-r 옵션**을 사용합니다. -r 옵션이 없으면 "abcd\nefgh"라는 문자열에 있는 \n 을 줄바꿈 문자로 인식하게 됩니다. `5`{:.info}는 해시값을 계산한 처리 부분입니다. md5sum 명령어에 파이프로 연결한 echo 명령어를 사용해 값을 입력합니다. md5sum 명령어 출력에는 파일명이 따라오므로(예제에서는 표준 입력이므로) **awk 명령어**로 첫 번째 컬럼값만 추출합니다. 그 결과를 임시 파일 $tmpfile에 출력합니다. 
 

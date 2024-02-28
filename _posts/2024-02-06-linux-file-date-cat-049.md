@@ -46,7 +46,7 @@ rm -f $tmpfile
 
 - 임시 파일이 중복되면 문제가 발생함
 
-<img src='http://drive.google.com/thumbnail?id=10z_mb7DxRlC8MtGv7sKkXjTSYbv2aN0m&sz=w1000' /><br>
+    <img src='http://drive.google.com/thumbnail?id=10z_mb7DxRlC8MtGv7sKkXjTSYbv2aN0m&sz=w1000' /><br>
 
 이런 일이 생기지 않게 하려면 같은 셸 스크립트를 실행하더라도 각각 프로세스가 다른 이름으로 임시 파일을 만들어야 합니다. 예제에도 있듯 **확장자를 .$$로 하는 방법이 자주 쓰입니다.**
 

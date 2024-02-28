@@ -44,41 +44,41 @@ touch -c $timestamp lock.tmp  # ---------------------- 2
 
 - 유닉스 파일 타임스탬프
 
-|종류|설명|
-|:---|:---|
-|atime|최종 접근시각(access time)|
-|mtime|최종 수정시각(modify time)|
-|ctime|최종 상태변경시각(change time)|
+  |종류|설명|
+  |:---|:---|
+  |atime|최종 접근시각(access time)|
+  |mtime|최종 수정시각(modify time)|
+  |ctime|최종 상태변경시각(change time)|
 
 이런 타임스탬프는 다음처럼 stat 명령어로 자세히 살펴볼 수 있습니다.
 
 - stat 명령어로 타임스탬프 확인하기(리눅스)
 
-```
-$ stat touch.sh
-  File: 'touch.sh'
-  Size: 261		Blocks: 8		IO Block: 4096 regular file
-Device: fc03h/64515d Inode: 3276911 Links: 1
-Access: (0775/-rwxrwxr-x) Uid: (1003/ user1) Gid: (1003/ user1)
-Access: 2013-04-10 11:15:13.000000000 +0900
-Modify: 2011-07-17 18:52:26.000000000 +0900
-Change: 2013-11-11 22:58:16.461418708 +0900
-```
+  ```
+  $ stat touch.sh
+    File: 'touch.sh'
+    Size: 261		Blocks: 8		IO Block: 4096 regular file
+  Device: fc03h/64515d Inode: 3276911 Links: 1
+  Access: (0775/-rwxrwxr-x) Uid: (1003/ user1) Gid: (1003/ user1)
+  Access: 2013-04-10 11:15:13.000000000 +0900
+  Modify: 2011-07-17 18:52:26.000000000 +0900
+  Change: 2013-11-11 22:58:16.461418708 +0900
+  ```
 
-stat 명령어를 보기 쉽도록 FreeBSD나 Mac은 **-x 옵션**을 제공합니다.
+  stat 명령어를 보기 쉽도록 FreeBSD나 Mac은 **-x 옵션**을 제공합니다.
 
-```
-$ stat -x touch.sh
-  File: 'touch.sh'
-  Size: 309		FileType: Regular File
-  Mode: (0777/-rwxrwxrwx) Uid: (501/TechnicalBook) Gid: (20/ staff)
-Device: 1,2 Inode: 11630161 Links: 1
-Access: Thu May 22 18:21:10 2014
-Modify: Fri Dec 13 15:03:04 2013
-Change: Thu May 22 18:21:10 2014
-```
+  ```
+  $ stat -x touch.sh
+    File: 'touch.sh'
+    Size: 309		FileType: Regular File
+    Mode: (0777/-rwxrwxrwx) Uid: (501/TechnicalBook) Gid: (20/ staff)
+  Device: 1,2 Inode: 11630161 Links: 1
+  Access: Thu May 22 18:21:10 2014
+  Modify: Fri Dec 13 15:03:04 2013
+  Change: Thu May 22 18:21:10 2014
+  ```
 
-stat 명령어 실행 예에서 마지막 세줄, 즉 Access/Modify/Change는 각각 atime/mtime/ctime이 됩니다. 실제 프로그램에서는 파일 타임스탬프 중에서 최종 수정 시각 (mtime)을 보고 판단하는 일이 많을 겁니다.
+  stat 명령어 실행 예에서 마지막 세줄, 즉 Access/Modify/Change는 각각 atime/mtime/ctime이 됩니다. 실제 프로그램에서는 파일 타임스탬프 중에서 최종 수정 시각 (mtime)을 보고 판단하는 일이 많을 겁니다.
 
 `1`{:.info}에서 사용한 touch 명령어는 **-t 옵션**으로 시각을 지정하면 파일 atime과 mtime을 갱신합니다(-a 옵션 또는 -m 옵션을 쓰면 atime이나 mtime 한쪽만 변경할 수도 있습니다). -t 옵션은 갱신할 시각[년월일시분.초]를 [YYYYMMDDhhmm.SS]로 지정합니다. 즉 `1`{:.info}은 "2013년 11월 19일 1시 23분 45초"를 지정해서 파일 타임스탬프 atime과 mtime을 갱신합니다.
 

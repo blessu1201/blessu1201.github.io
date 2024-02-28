@@ -85,18 +85,18 @@ cp -pr myapp "$backup_dir"
 
 - root가 소유한 파일을 일반 사용자가 -a 옵션으로 복사한 경우
 
-```
-$ ls -l
-total 0
--rw-r--r--1 root root 0 Dec 6 22:55 test.txt
+    ```
+    $ ls -l
+    total 0
+    -rw-r--r--1 root root 0 Dec 6 22:55 test.txt
 
-$ cp -a test.txt my.txt
-$ ls -l
-total 0
--rw-r--r--1 user1 user1 0 Dec 6 22:55 my.txt # -- notice
--rw-r--r--1 root root 0 Dec 6 22:55 test.txt
-```
+    $ cp -a test.txt my.txt
+    $ ls -l
+    total 0
+    -rw-r--r--1 user1 user1 0 Dec 6 22:55 my.txt # -- notice
+    -rw-r--r--1 root root 0 Dec 6 22:55 test.txt
+    ```
 
-`notice`{:.info} a옵션 cp명령어로 복사했지만 my.txt 소유자는 root가 아닌 user1
+    `notice`{:.info} a옵션 cp명령어로 복사했지만 my.txt 소유자는 root가 아닌 user1
 
 - 마찬가지로 파일 그룹 속성이 자신이 속하지 않은 그룹일 때 root 권한이 아니라면 그룹 속성을 그대로 복사할 수 없습니다.

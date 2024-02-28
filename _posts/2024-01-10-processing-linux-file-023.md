@@ -42,21 +42,21 @@ cd "$(dirname "$0")" #---- 1
 
 - `파일1`{:.success} 현재 디렉터리가 어디인지 고려 없이 사용한 예
 
-```
-#!/bin/sh
+    ```
+    #!/bin/sh
 
-./start.sh
-./end.sh
-```
+    ./start.sh
+    ./end.sh
+    ```
 
 스크립트를 작성할 때는 셸 스크립트 파일이 저장된 디렉터리를 현재 디렉터리로 작업하는 일이 많으므로 위의 스크립트는 정상적으로 동작합니다. 하지만 스크립트를 완성해서 cron에 등록해서 정기적으로 실행한다면 이 스크립트는 다음처럼 에러를 발생할지도 모릅니다.
 
 - cron등록 실행결과
 
-```
-/home/user1/myapp/dirname.sh: line 3: ./start.sh: No such file or directory
-/home/user1/myapp/dirname.sh: line 4: ./end.sh: No such file or directory
-```
+    ```
+    /home/user1/myapp/dirname.sh: line 3: ./start.sh: No such file or directory
+    /home/user1/myapp/dirname.sh: line 4: ./end.sh: No such file or directory
+    ```
 
 이처럼 직접 실행할 땐 정상이었지만 cron에 등록해서 배치 처리할 때 제대로 동작하지 않는 상황은 심심치 않게 벌어집니다. 이것은 cron 실행 시 현재 디렉터리가 **cron 실행 사용자의 홈 디렉터리**가 되기 때문입니다. 
 
@@ -64,12 +64,12 @@ cd "$(dirname "$0")" #---- 1
 
 - `파일2`{:.success} 반드시 전체 경로로 지정하는 방법도 있지만 이식성이 낮다.
 
-```
-#!/bin/sh
- 
-/home/user1/myapp/start.sh
-/home/user1/myapp/end.sh
-```
+    ```
+    #!/bin/sh
+     
+    /home/user1/myapp/start.sh
+    /home/user1/myapp/end.sh
+    ```
 
 하지만 이때 스크립트가 있는 디렉터리(myapp) 이름이 바뀌면 문제가 생기며 이식성도 낮습니다. 따라서 상대 경로를 사용하고 싶기 마련입니다. 이런 문제를 해결하려면 셸 스크립트가 일단 **'자신이 지정된 디렉터리에 cd 명령어로 이동해서 처리를 시작하도록'** 만들면 됩니다.
 
@@ -77,10 +77,10 @@ cd "$(dirname "$0")" #---- 1
 
 - 디렉터리 부분을 추출하는 dirname 명령어
 
-```
-$ dirname "/home/user1/myapp/dirname.sh"
-/home/user1/myapp
-```
+    ```
+    $ dirname "/home/user1/myapp/dirname.sh"
+    /home/user1/myapp
+    ```
 
 한편, $()은 **명령어 치환** 표기로 명령어 출력을 그대로 스크립트에서 이용할 수 있습니다. 즉 `1`{:.info}은 'dirname "$0" 출력 결과 디렉터리에 cd 명령어로 이동한다' 라는 의미입니다. 이 예제에서라면 /home/user1/myapp 디렉터리에 cd 명령어로 이동합니다.
 
@@ -95,8 +95,8 @@ $ dirname "/home/user1/myapp/dirname.sh"
 
 - dirname 명령어를 쓰지 않아도 다음처럼 작성할 수 있습니다.
 
-```
-cd "${0%/*}"
-```
+    ```
+    cd "${0%/*}"
+    ```
 
-이것은 셸 **파라미터 확장**을 이용한 예입니다. ${parameter%word}라고 하면 변수 parameter 값에서 word에 후방 일치하는 부분을 삭제한 값을 취득할 수 있습니다. 즉 word로 /*가 지정되었으므로 '변수 $0 뒤에서부터 "/임의의 문자열"을 삭제한 값' 즉, 디렉터리 부분만 얻을 수 있습니다. dirname 명령어라는 외부 명령어를 쓰지 않아도 셸 기능만으로 구현 가능하므로 이쪽을 선호하는 사람도 있습니다.
+    이것은 셸 **파라미터 확장**을 이용한 예입니다. ${parameter%word}라고 하면 변수 parameter 값에서 word에 후방 일치하는 부분을 삭제한 값을 취득할 수 있습니다. 즉 word로 /*가 지정되었으므로 '변수 $0 뒤에서부터 "/임의의 문자열"을 삭제한 값' 즉, 디렉터리 부분만 얻을 수 있습니다. dirname 명령어라는 외부 명령어를 쓰지 않아도 셸 기능만으로 구현 가능하므로 이쪽을 선호하는 사람도 있습니다.
