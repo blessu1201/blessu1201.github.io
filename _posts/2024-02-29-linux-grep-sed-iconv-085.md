@@ -103,7 +103,7 @@ HTML charset 지정을 알아봅시다. HTML은 파일 **문자 코드**를 meta
 
 `4`{:.info}마지막 파이프 처리에 있는 **sed 명령어**는 charset=xxxx에서 xxxx 문자열을 추출하는 처리입니다. 여기서 charset 등호 기호 뒤에 추출할 문자 코드가 들어 있으므로 이걸 charset=\([-_a-zA-Z0-9]*\) 라는 패턴을 지정합니다. 문자 코드는 EUC-KR처럼 기본적으로 알파벳, 하이픈, 언더바, 숫자로만 구성되므로 이걸 문자 클래스로 [-_a-zA-Z0-9] 처럼 표현합니다.
 
--- 그림(문자코드를 특정하는 문자 클래스)
+<img src='http://drive.google.com/thumbnail?id=15mmkTJ6Xgvh2YBS-F7PqV_oATHpdO25F&sz=w1000' /><br>
 
 이때 하이픈은 범위 지정에서도 사용하므로 문자 클래스에서 하이픈 그 자체를 지정할 때는 제일 처음 또는 마지막에 적어야 합니다.
 
