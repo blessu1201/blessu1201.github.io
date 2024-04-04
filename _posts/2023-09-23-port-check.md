@@ -33,7 +33,7 @@ faillog="fail-port.log"
 # 확인할 포트는 80, 2222, 8080
 for port in 80 2222 8080 # ------------------------- 1
 do
-  nc -w 5 -z $ipaddr port # ------------------------ 2
+  nc -w 5 -z $ipaddr $port # ------------------------ 2
 
   if [$? -ne 0 ]; then
     echo "Failed at port: $port" >> "$faillog" # --- 3
