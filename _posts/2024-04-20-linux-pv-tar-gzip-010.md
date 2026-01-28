@@ -2,7 +2,7 @@
 layout: article
 title: 사용자 인터페이스_10 파일 압축 시 실행 상태를 표시하는 진행바 표시하기
 tags: [Linux, ShellScript, pv, tar, gzip]
-key: 20240411-linux-pv-tar-gzip
+key: 20240411-linux-pv-tar,gzip
 ---
 
 - 출처 : 유닉스 리눅스 쉘스크립트 예제사전_한빛미디어
