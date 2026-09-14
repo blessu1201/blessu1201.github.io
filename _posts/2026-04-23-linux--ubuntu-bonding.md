@@ -2,7 +2,7 @@
 layout: article
 title: 우분투 본딩 Ubuntu Netplan을 이용한 네트워크 본딩(Active-Backup) 설정 및 트러블슈팅
 tags: [Linux, Ubuntu, Netplan, Bonding, Network]
-key: 20260423-linux-netplan-bonding
+keys: 20260423-linux-netplan-bonding
 ---
 
 - 출처 : 직접 경험 기반 (Ubuntu 22.04 LTS 환경)
