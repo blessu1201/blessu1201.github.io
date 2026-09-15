@@ -2,7 +2,7 @@
 layout: article
 title: 시스템 관리_01 디스크 여유 공간이 있는데도 'No space left on device' 발생 시 해결하기 (Inode 고갈)
 tags: [Linux, Inode, Disk, Troubleshooting, ShellScript]
-keys: 260914-linux-storage-001
+keys: 260913-linux-storage-001
 ---
 
 - 출처 / 참고: 리눅스 시스템 엔지니어링 & 파일 시스템 트러블슈팅 가이드
