@@ -1,41 +1,45 @@
 ---
 layout: article
-title: 시스템 관리_10 "트래픽이 집중되는 리눅스 서버의 'Too many open files' (ulimit) 오류 해결 방법"
-tags: [Linux, Performance, Troubleshooting, ulimit, Systemd, Nginx]
+title: "부팅 실패를 유발하는 손상된 /etc/fstab 파일 복구 가이드"
+tags: [Linux, Storage, Troubleshooting, Boot, Filesystem, systemd]
 keys: 260922-linux-storage-010
 ---
 
 - 출처 / 참고: 리눅스 파일시스템 마운트 관리 및 스토리지 복구 가이드
-> 명령어: `ulimit -n`, `sysctl -p`, `systemctl daemon-reload`, `lsof -p <PID>`  
-> 키워드: File Descriptor, ulimit, nofile, systemd LimitNOFILE, fs.file-max, Socket Exhaustion  
-> 사용처: 웹 서버(Nginx, Apache), 데이터베이스(MySQL, Redis), Node.js/Java 백엔드 등에서 동시 접속 급증 시 소켓 및 파일 핸들 고갈 장애 해결  
+> 명령어: `mount -o remount,rw /`, `blkid`, `findmnt --verify`, `mount -a`, `journalctl -xb`  
+> 키워드: fstab Corruption, Emergency Mode, Maintenance Shell, Read-Only Filesystem, UUID Mismatch  
+> 사용처: 부팅 중 `Give root password for maintenance` 또는 Emergency Mode 진입 시, 잘못된 UUID/오타로 인한 마운트 실패 복구  
 
 ---
 
 > 실행예제
 
 ```bash
-# 1. 애플리케이션 로그에서 오류 확인 (Nginx/DB/App 공통)
-# [alert] 12345#12345: *67890 socket() failed (24: Too many open files) while connecting to upstream
-# java.io.IOException: Too many open files
+# 1. 부팅 중 긴급 모드(Emergency/Maintenance Shell) 진입 화면 확인
+# You are in emergency mode. After logging in, type "journalctl -xb" to view
+# system logs, "systemctl reboot" to reboot, or "exit" to continue bootup.
+# Give root password for maintenance
+# (or press Control-D to continue): 
 
-# 2. 현재 시스템 전체 파일 디스크립터(FD) 사용량 및 최대 한도 점검
-$ cat /proc/sys/fs/file-nr
-18240   0   65536
-# 출력 설명: [할당된 FD 수] [미사용 할당 FD 수] [시스템 전역 최대 한도] (현재 한도에 근접한 상태)
+# 2. 부팅 실패 원인 로그 확인 (fstab 관련 마운트 실패 추적)
+# journalctl -xb | grep -E "Timed out waiting for device|Failed to mount"
+# Sep 22 14:10:05 srv-node01 systemd[1]: Timed out waiting for device /dev/disk/by-uuid/a1b2c3d4-xxxx.
+# Sep 22 14:10:05 srv-node01 systemd[1]: Dependency failed for /data.
+# Sep 22 14:10:05 srv-node01 systemd[1]: Failed to mount /data.
 
-# 3. 현재 셸 및 사용자 세션의 FD 제한 확인 (Soft / Hard Limit)
-$ ulimit -Sn
-1024
-$ ulimit -Hn
-4096
+# 3. 루트 파일시스템의 쓰기 잠금(Read-Only) 상태 확인
+# mount | grep " / "
+/dev/mapper/vg_system-lv_root on / type ext4 (ro,relatime)
 
-# 4. 대상 프로세스(예: PID 12345)의 실제 런타임 적용 한도 및 현재 열린 FD 개수 확인
-$ cat /proc/12345/limits | grep "Max open files"
-Max open files            1024                 4096                 files
+# 4. 블록 디바이스의 실제 UUID 및 fstab의 등록 내용 대조
+# blkid
+/dev/sda2: UUID="f3a1c840-7e82-491a-b6d3-2e061805aa11" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="98765432-01"
+/dev/mapper/vg_system-lv_root: UUID="11223344-5566-7788-99aa-bbccddeeff00" BLOCK_SIZE="4096" TYPE="ext4"
+/dev/mapper/vg_data-lv_data: UUID="99887766-5544-3322-1100-ffeeddccbbaa" BLOCK_SIZE="4096" TYPE="xfs"
 
-$ ls /proc/12345/fd | wc -l
-1024
+# cat /etc/fstab
+# /dev/mapper/vg_data-lv_data 마운트 구문에 오타 또는 잘못된 UUID가 지정되어 타임아웃 발생 확인
+UUID=99887766-5544-3322-1100-ffeeddccbbaX /data xfs defaults 0 2
 ```
 
 &nbsp;
@@ -46,52 +50,37 @@ $ ls /proc/12345/fd | wc -l
 ```bash
 #!/usr/bin/env bash
 #
-# 고트래픽 환경 대응: 커널 파라미터, PAM limits, systemd 파일 디스크립터(FD) 일괄 상향 스크립트
+# 긴급/복구 모드 환경에서 실행하는 /etc/fstab 점검 및 복구 자동화 스크립트
 #
 
 set -euo pipefail
 
-TARGET_NOFILE=1048576  # 1M (고트래픽 서버 권장 표준 한도)
+echo "=== [1] 루트(/) 파일시스템을 읽기/쓰기(RW) 모드로 재마운트 ==="
+mount -o remount,rw /
 
-echo "=== [1] 시스템 전체 커널 파라미터 (/etc/sysctl.d/99-file-max.conf) 설정 ==="
-cat <<EOF > /etc/sysctl.d/99-file-max.conf
-fs.file-max = 2097152
-fs.nr_open = ${TARGET_NOFILE}
-EOF
+echo "=== [2] 손상 전 원본 /etc/fstab 백업 생성 ==="
+BACKUP_PATH="/etc/fstab.bak.$(date +%Y%m%d_%H%M%S)"
+cp -p /etc/fstab "${BACKUP_PATH}"
+echo "백업 완료: ${BACKUP_PATH}"
 
-sysctl -p /etc/sysctl.d/99-file-max.conf
-
-echo "=== [2] 사용자 및 세션 레벨 제한 설정 (/etc/security/limits.d/99-nofile.conf) ==="
-cat <<EOF > /etc/security/limits.d/99-nofile.conf
-*          soft    nofile    ${TARGET_NOFILE}
-*          hard    nofile    ${TARGET_NOFILE}
-root       soft    nofile    ${TARGET_NOFILE}
-root       hard    nofile    ${TARGET_NOFILE}
-EOF
-
-echo "=== [3] systemd 글로벌 서비스 기본값 설정 (/etc/systemd/system.conf & user.conf) ==="
-# systemd 데몬 관리 서비스 전체에 대한 디폴트 LimitNOFILE 반영
-mkdir -p /etc/systemd/system.conf.d
-cat <<EOF > /etc/systemd/system.conf.d/30-nofile.conf
-[Manager]
-DefaultLimitNOFILE=${TARGET_NOFILE}:${TARGET_NOFILE}
-EOF
-
-systemctl daemon-reexec
-
-echo "=== [4] 특정 서비스(예: nginx) systemd 오버라이드 단독 적용 ==="
-if systemctl is-active --quiet nginx 2>/dev/null; then
-    mkdir -p /etc/systemd/system/nginx.service.d
-    cat <<EOF > /etc/systemd/system/nginx.service.d/override.conf
-[Service]
-LimitNOFILE=${TARGET_NOFILE}
-EOF
-    systemctl daemon-reload
-    systemctl restart nginx
-    echo "Nginx 서비스의 LimitNOFILE이 성공적으로 갱신되었습니다."
+echo "=== [3] 누락/오류 유발 비필수 마운트 포인트 임시 주석 처리 (부팅 보장) ==="
+# 루트(/), 부트(/boot, /boot/efi), 스왑(swap)을 제외한 나머지 외부 볼륨에 부팅 타임아웃 방지 옵션 점검
+# 문제가 발생한 파티션을 즉시 파악하기 위해 findmnt 검증 수행
+if command -v findmnt >/dev/null 2>&1; then
+    echo "--- fstab 문법 및 UUID 매핑 사전 검증 ---"
+    findmnt --verify || true
 fi
 
-echo "=== [완료] 파일 디스크립터 한도 확장 설정이 완료되었습니다. ==="
+echo "=== [4] /etc/fstab 내 부팅 실패 방지 옵션(nofail) 권장 적용 가이드 ==="
+# 부팅 시 필수적이지 않은 데이터/로그 디렉터리는 옵션에 'nofail,x-systemd.device-timeout=10s' 추가 권장
+echo "알림: 시스템 구동과 무관한 볼륨(/data, /backup 등)은 마운트 옵션에 'nofail'을 명시하면 디스크 누락 시에도 정상 부팅됩니다."
+
+echo "=== [5] 수정된 fstab 반영 및 마운트 테스트 (오류 발견 시 즉시 중단) ==="
+# -a: /etc/fstab 전체 마운트 시도, -v: 상세 로그 출력
+mount -a -v
+
+echo "=== [완료] /etc/fstab 문법 검증 완료. 시스템을 정상 리부팅할 수 있습니다. ==="
+echo "명령어: systemctl reboot"
 ```
 
 &nbsp;
@@ -100,34 +89,22 @@ echo "=== [완료] 파일 디스크립터 한도 확장 설정이 완료되었�
 ## 해설
 
 1. **에러 원인 분석:**
-   * 리눅스는 네트워크 소켓, 파일, 파이프, 디렉터리 등을 모두 **파일 디스크립터(FD, File Descriptor)**로 취급합니다.
-   * 트래픽이 폭증할 때 프로세스가 동시에 열어야 하는 TCP 연결 소켓 수가 배정된 FD 제한(`Soft Limit`)을 초과하면 커널은 `EMFILE (24: Too many open files)` 에러를 반환하며 새로운 연결 수립을 거부합니다.
+   * **하드 블로킹(Hard Blocking):** systemd는 기본적으로 `/etc/fstab`에 선언된 모든 파일시스템을 부팅 완료(`local-fs.target`)를 위한 필수 종속성으로 간주합니다.
+   * **타임아웃(Timeout):** 스토리지 디바이스의 UUID 오타, 디스크 제거, LVM 볼륨 비활성화, 파일시스템 파일 형식(ext4, xfs) 불일치 등이 발생하면 90초간 장치를 탐색하다 타임아웃이 발생하고, 시스템은 부팅을 중단한 채 `Emergency Mode`로 떨어집니다.
 
-2. **계층별 적용 체계 및 스크립트 핵심 로직:**
-   * **커널 전역 레벨 (`fs.file-max`, `fs.nr_open`):**
-     * `fs.file-max`: 시스템 전체에서 모든 프로세스가 합산하여 열 수 있는 절대 최대 FD 수입니다.
-     * `fs.nr_open`: 개별 프로세스가 요청할 수 있는 단일 프로세스 최대 상한선입니다. `limits.conf`의 값보다 이 값이 항상 크거나 같아야 적용 오류가 발생하지 않습니다.
-   * **사용자 세션 레벨 (`/etc/security/limits.d/`):**
-     * PAM(`pam_limits.so`)을 통과하는 로그인 셸, SSH 세션, cron 등의 상한선을 제어합니다.
-     * `soft`: 프로세스가 기본으로 사용하는 현재 한도값입니다.
-     * `hard`: root 권한 없이 사용자가 `ulimit -n`으로 올릴 수 있는 최대 상한선입니다.
-   * **데몬/서비스 레벨 (`systemd`):**
-     * 최신 배포판(RHEL 7+, Ubuntu 16.04+)의 백그라운드 서비스(Nginx, MySQL, Redis 등)는 PAM을 거치지 않고 `systemd`에 의해 직접 기동됩니다.
-     * 따라서 `limits.conf`를 수정해도 systemd 유닛에는 적용되지 않으므로, 유닛 파일 내 `LimitNOFILE=` 또는 `DefaultLimitNOFILE=`을 반드시 설정해야 합니다.
-
-&nbsp;
-&nbsp;
+2. **복구 절차 및 핵심 로직:**
+   * **`mount -o remount,rw /`:** 긴급 모드로 진입하면 파일시스템 손상을 막기 위해 루트 디렉터리가 **읽기 전용(Read-Only, `ro`)**으로 마운트됩니다. 이 상태에서는 `/etc/fstab` 수정이 불가능하므로 반드시 읽기/쓰기(`rw`) 모드로 재마운트해야 합니다.
+   * **`blkid` 대조:** 실제 연결된 블록 장치의 UUID 및 파티션 레이블을 확인하여 `/etc/fstab`에 기록된 값과 글자 단위로 비교 검증합니다.
+   * **`mount -a` 검증:** 재부팅 전에 반드시 `mount -a`를 실행해야 합니다. 오류가 있는 상태에서 재부팅하면 다시 긴급 모드로 튕기지만, 셸 상태에서 `mount -a`를 치면 오타가 있는 줄 번호와 실패 원인이 화면에 즉시 출력됩니다.
 
 ## 주의사항
 
-1. **systemd 기반 서비스의 `limits.conf` 무시 현상:**
-   * `systemctl`로 기동하는 서비스는 `/etc/security/limits.conf` 설정을 완전히 무시합니다. 반드시 `systemctl edit <서비스명>`을 통해 `[Service]` 섹션 아래에 `LimitNOFILE=...`을 선언해야 합니다.
+1. **외장/데이터 파티션에 `nofail` 옵션 사용:**
+   * `/` 또는 `/boot`와 같은 필수 영역이 아닌 데이터 볼륨(`/data`, 외장 NAS/SAN 마운트 등)은 옵션에 `nofail`을 반드시 추가해야 합니다.
+   * 예: `UUID=... /data ext4 defaults,nofail,x-systemd.device-timeout=10s 0 2` 형태로 작성하면 스토리지가 끊기더라도 부팅이 중단되지 않습니다.
 
-2. **`fs.nr_open`을 초과하는 ulimit 설정 시 로그인 불가 장애:**
-   * `limits.conf`의 `nofile` 값을 커널의 `fs.nr_open`(기본값 1,048,576)보다 크게 설정하면, SSH 로그인 시 PAM 모듈 오류로 인해 사용자가 시스템에 접속하지 못하는 장애가 발생할 수 있습니다. 상향 시 항상 `fs.nr_open`을 먼저 검토해야 합니다.
+2. **GRUB 복구 파라미터 활용 (루트 암호 분실 시):**
+   * 긴급 모드 진입 시 root 비밀번호를 묻는데 암호를 모르거나 계정이 잠겨있다면, 부팅 시 GRUB 메뉴에서 `e`를 누르고 커널 라인 끝에 `systemd.unit=emergency.target` 또는 `init=/bin/sh`를 추가해 단일 사용자 셸로 진입한 후 위 스크립트 과정을 수행해야 합니다.
 
-3. **애플리케이션 자체 설정과의 동기화:**
-   * Nginx의 경우 OS 한도 외에도 `nginx.conf` 상단의 `worker_rlimit_nofile` 지시어가 별도로 존재합니다. OS 레벨만 늘리고 웹 서버 설정값을 누락하면 동일한 에러가 계속 발생하므로 양쪽 설정을 맞춰주어야 합니다.
-
-4. **리소스 누수(FD Leak) 감별:**
-   * 정상적인 트래픽 증가가 아닌, 애플리케이션 버그로 소켓(`CLOSE_WAIT`)이나 파일 핸들을 닫지 않아 FD가 계속 누적되는 상황일 수도 있습니다. `lsof -p <PID>`를 주기적으로 모니터링하여 특정 유형의 파일/소켓이 비정상적으로 누적되는지 사전 확인해야 합니다.
+3. **덤프(dump) 및 fsck 패스(pass) 순서 번호 점검:**
+   * `/etc/fstab`의 마지막 두 숫자(예: `0 2`) 중 마지막 숫자는 `fsck` 검사 순서입니다. 루트 파일시스템은 반드시 `1`, 일반 파티션은 `2`, 네트워크 드라이브나 스왑은 `0`이어야 하며, 이 값이 잘못 지정되면 검사 실패가 유발될 수 있습니다.

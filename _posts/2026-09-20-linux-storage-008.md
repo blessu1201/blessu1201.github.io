@@ -1,40 +1,39 @@
 ---
 layout: article
-title: 시스템 관리_08 RHEL/CentOS에서 손상되거나 잠긴 RPM 데이터베이스(/var/lib/rpm) 복구 및 정리 방법
-tags: [Linux, RHEL, CentOS, RPM, DNF, YUM, Troubleshooting]
+title: 시스템 관리_08 "/etc/sudoers 파일 권한 오류(world writable) 및 구문 에러 복구 방법"
+tags: [Linux, Sudo, Security, Troubleshooting, Permissions]
 keys: 260920-linux-storage-008
 ---
 
-- 출처 / 참고: 리눅스 패키지 관리 및 RPM 데이터베이스 복구 가이드
-> 명령어: `rpm --rebuilddb`, `rm -f /var/lib/rpm/__db*`, `yum clean all` / `dnf clean all`, `lsof /var/lib/rpm/Packages`  
-> 키워드: RPM Database Corruption, BDB Lock, sqlite, Stale Lock, Packages, rebuilddb  
-> 사용처: yum/dnf 실행 시 응답 없음(무한 대기), `rpmdb open failed` 오류 발생 시, 비정상 종료로 인한 BDB 락 파일 정리 및 데이터베이스 재구축  
+- 출처 / 참고: 리눅스 시스템 보안 및 계정 권한 복구 가이드
+> 명령어: `pkexec chmod 0440 /etc/sudoers`, `visudo -c`, `chmod 440`, `su -`  
+> 키워드: Sudoers World Writable, Syntax Error, Visudo Check, File Permissions, Emergency Recovery  
+> 사용처: 잘못된 chmod 명령으로 sudo 실행 불가 시, /etc/sudoers 문법 오류로 일반 사용자의 root 권한 승격이 차단되었을 때 복구  
 
 ---
 
 > 실행예제
 
 ```bash
-# 1. yum/dnf 또는 rpm 명령 실행 시 락 또는 손상 에러 확인
-$ sudo yum check-update
-Loaded plugins: fastestmirror
-error: db5 error(-30973) from dbenv->open: BDB0087 DB_RUNRECOVERY: Fatal error, run database recovery
-error: cannot open Packages index using db5 -  (-30973)
-error: cannot open Packages database in /var/lib/rpm
-CRITICAL:yum.main:
+# 1. sudo 실행 시 world writable 권한 오류 발생 확인
+$ sudo ls -l /root
+sudo: /etc/sudoers is world writable
+sudo: no valid sudoers sources found, quitting
+sudo: unable to initialize policy plugin
 
-Error: rpmdb open failed
+# 2. 현재 /etc/sudoers 및 /etc/sudoers.d 디렉터리의 권한 상태 확인
+$ ls -l /etc/sudoers /etc/sudoers.d
+-rwxrwxrwx 1 root root 3181 Sep 22 13:45 /etc/sudoers
 
-# 2. RPM 데이터베이스 디렉터리 내 점유 프로세스 확인 (Stale Process 점검)
-$ sudo lsof /var/lib/rpm/*
-COMMAND   PID USER   FD   TYPE DEVICE SIZE/OFF   NODE NAME
-yum     14521 root    6uW  REG  253,0  2129920 131201 /var/lib/rpm/Packages
+/etc/sudoers.d:
+total 4
+-rwxrwxrwx 1 root root  958 Sep 22 13:45 90-cloud-init-users
 
-# 3. RPM 데이터베이스 잠금 파일(__db.*) 및 손상 징후 확인
-$ ls -la /var/lib/rpm/__db*
--rw-r--r--. 1 root root   24576 Sep 22 13:10 /var/lib/rpm/__db.001
--rw-r--r--. 1 root root  229376 Sep 22 13:10 /var/lib/rpm/__db.002
--rw-r--r--. 1 root root 1318912 Sep 22 13:10 /var/lib/rpm/__db.003
+# 3. sudoers 파일 구문(Syntax) 오류 상태 점검 (root 세션 또는 문법 검사 시)
+# 오류 메시지 예시:
+# >>> /etc/sudoers: syntax error near line 28 <<<
+# sudo: parse error in /etc/sudoers near line 28
+# sudo: no valid sudoers sources found, quitting
 ```
 
 &nbsp;
@@ -45,42 +44,44 @@ $ ls -la /var/lib/rpm/__db*
 ```bash
 #!/usr/bin/env bash
 #
-# RHEL/CentOS RPM Database 손상 복구 및 잠금 해제 스크립트
+# /etc/sudoers 권한 복구 및 문법 오류 검증 스크립트 (root 세션 또는 pkexec 환경에서 실행)
 #
 
 set -euo pipefail
 
-echo "=== [1] 실행 중인 중복 yum/dnf/rpm 프로세스 강제 종료 ==="
-pkill -9 -f "yum" || true
-pkill -9 -f "dnf" || true
-pkill -9 -f "rpm" || true
-
-BACKUP_DIR="/var/lib/rpm_backup_$(date +%Y%m%d_%H%M%S)"
-echo "=== [2] 기존 RPM 데이터베이스 안전 백업 생성: ${BACKUP_DIR} ==="
-mkdir -p "${BACKUP_DIR}"
-cp -a /var/lib/rpm/ "${BACKUP_DIR}/"
-
-echo "=== [3] 잠금 파일 및 임시 환경 파일(__db.*) 제거 ==="
-# RHEL 6/7/8(BDB 환경) 잠금 파일 정리
-rm -f /var/lib/rpm/__db*
-# sqlite 기반(RHEL 8/9 일부 환경) 임시 락 및 저널 파일 정리
-rm -f /var/lib/rpm/.rpm.lock /var/lib/rpm/rpmdb.sqlite-wal /var/lib/rpm/rpmdb.sqlite-shm 2>/dev/null || true
-
-echo "=== [4] RPM 데이터베이스 재구축 (rebuilddb) ==="
-rpm --rebuilddb -v
-
-echo "=== [5] 패키지 매니저 캐시 정리 및 인덱스 갱신 ==="
-if command -v dnf >/dev/null 2>&1; then
-    dnf clean all
-    dnf makecache
-elif command -v yum >/dev/null 2>&1; then
-    yum clean all
-    yum makecache
+echo "=== [1] 실행 권한 확인 (Root 권한 필수) ==="
+if [ "$(id -u)" -ne 0 ]; then
+    echo "오류: 이 스크립트는 root 권한으로 실행되어야 합니다."
+    echo "sudo가 작동하지 않는 경우 'su -' 또는 'pkexec bash <스크립트>'를 사용하십시오."
+    exit 1
 fi
 
-echo "=== [6] RPM 데이터베이스 정합성 검증 ==="
-rpm -qa | wc -l >/dev/null
-echo "=== [완료] RPM 데이터베이스가 정상적으로 복구되었습니다. ==="
+echo "=== [2] /etc/sudoers 및 /etc/sudoers.d 권한 및 소유권 원복 ==="
+# 소유자를 root:root로 복원
+chown -R root:root /etc/sudoers /etc/sudoers.d
+
+# sudoers 메인 파일 권한을 0440 (r--r-----)으로 제한
+chmod 0440 /etc/sudoers
+
+# sudoers.d 디렉터리 권한을 0750, 하위 설정 파일들을 0440으로 제한
+if [ -d /etc/sudoers.d ]; then
+    chmod 0750 /etc/sudoers.d
+    find /etc/sudoers.d -type f -exec chmod 0440 {} +
+fi
+
+echo "=== [3] sudoers 파일 문법 검증 (visudo -c) ==="
+if visudo -c; then
+    echo "=== [4] 문법 검사 통과: sudoers 파일이 유효합니다. ==="
+else
+    echo "경고: 문법 검사에 실패했습니다. 즉시 'visudo'를 실행하여 오류 라인을 수정하십시오."
+    exit 2
+fi
+
+echo "=== [5] sudo 명령 테스트 ==="
+sudo -k
+sudo -l -U root
+
+echo "=== [완료] /etc/sudoers 권한 및 구문 복구가 성공적으로 완료되었습니다. ==="
 ```
 
 &nbsp;
@@ -89,23 +90,27 @@ echo "=== [완료] RPM 데이터베이스가 정상적으로 복구되었습니�
 ## 해설
 
 1. **에러 원인 분석:**
-   * 패키지 설치(`yum install` / `dnf update`) 도중 강제 재부팅, 프로세스 비정상 종료(SIGKILL), 혹은 디스크 I/O 병목이 발생하면 Berkeley DB(BDB) 트랜잭션 락(`__db.*`)이 해제되지 못하고 고아 파일(Stale Locks)로 남게 됩니다.
-   * 이로 인해 후속 명령어가 데이터베이스 잠금을 획득하지 못해 무한 대기 상태에 빠지거나, 인덱스 불일치로 `DB_RUNRECOVERY` 또는 `rpmdb open failed` 오류가 발생합니다.
+   * **보안 메커니즘 차단:** `sudo` 유틸리티는 보안상 매우 엄격한 권한 검사를 수행합니다. `/etc/sudoers` 파일이나 `/etc/sudoers.d/` 디렉터리가 소유자 외에 수정 가능한 상태(`world writable`, 예: `777` 또는 `666`)가 되면, 악의적인 사용자의 변조를 방지하기 위해 즉시 모든 sudo 명령 실행을 거부합니다.
+   * **구문(Syntax) 오류:** 일반 텍스트 편집기(`vi`, `nano` 등)로 `/etc/sudoers`를 직접 수정하다가 오타나 포맷 실수가 발생하면 파싱 에러가 발생하여 권한 승격 플러그인 초기화가 실패합니다.
 
 2. **복구 절차 및 핵심 로직:**
-   * **프로세스 정리 및 백업:** 아직 백그라운드에 물려 있는 좀비 패키지 프로세스를 정리한 뒤, 원본 `/var/lib/rpm/` 디렉터리를 백업하여 복구 실패 시 롤백이 가능하도록 보장합니다.
-   * **락 파일 제거 (`rm -f /var/lib/rpm/__db*`):** 패키지 메타데이터 본체(`Packages` 파일 등)는 건드리지 않고 공유 메모리 및 동기화용 락 파일만 제거하여 점유 상태를 해제합니다.
-   * **인덱스 재구축 (`rpm --rebuilddb`):** 기존 `Packages` 파일에 기록된 정보를 바탕으로 손상된 BDB/SQLite 헤더와 인덱스 테이블을 완전히 새로 생성합니다.
-   * **캐시 갱신 (`clean all`):** 손상된 기존 메타데이터 캐시를 완전히 비우고 저장소 리포지토리 정보를 새로 동기화합니다.
+   * **권한 제한 (`chmod 0440`):** `/etc/sudoers`의 표준 권한은 소유자(root)와 그룹(root)만 읽기 가능하고 쓰기가 불가능한 `0440` (`-r--r-----`)이어야 합니다.
+   * **sudo가 막혔을 때의 우회 진입:**
+     1. **`su -`:** root 비밀번호가 설정되어 있다면 root 셸로 직접 전환하여 권한을 수정합니다.
+     2. **`pkexec` 활용:** GUI/Polkit이 설치된 배포판(Ubuntu 데스크톱/일부 서버)에서는 `pkexec chmod 0440 /etc/sudoers`를 통해 PolicyKit 인증으로 권한을 원복할 수 있습니다.
+     3. **단일 사용자 모드 / 복구 모드:** root 암호가 없거나 잠겨있는 경우 재부팅 후 GRUB 메뉴에서 `init=/bin/bash` 또는 복구 모드(Recovery Mode)로 부팅하여 권한을 복구합니다.
+   * **`visudo -c` 문법 검사:** 파일을 직접 덮어쓰기 전에 구문 오류를 사전에 감지하여 시스템 잠금 상태를 방지합니다.
 
 &nbsp;
 &nbsp;
 
 ## 주의사항
 
-1. **`Packages` 원본 파일 보호:**
-   * `/var/lib/rpm/Packages`(또는 RHEL 9/Fedora의 `rpmdb.sqlite`) 파일 자체가 물리적으로 손상(0 byte 등)된 경우 `rpm --rebuilddb`로도 복구가 불가능할 수 있으므로, 반드시 사전 백업을 확인해야 합니다.
-2. **배포판 버전별 데이터베이스 구조 차이:**
-   * RHEL 7/CentOS 7까지는 Berkeley DB(`__db.*`, `Packages`)를 기본 사용하지만, RHEL 8 후반 및 RHEL 9부터는 SQLite 백엔드(`rpmdb.sqlite`)를 기본으로 사용합니다. 스크립트 작성 시 해당 버전 환경을 감안해야 합니다.
-3. **디스크 여유 공간 점검:**
-   * 디스크 풀(`No space left on device`)로 인해 DB 쓰기가 중단되어 손상되는 경우가 흔하므로, 복구 전 반드시 `df -h /var` 명령으로 디스크 용량이 충분한지 점검해야 합니다.
+1. **직접 편집 금지 (`visudo` 사용 필수):**
+   * `/etc/sudoers`를 편집할 때는 절대로 `nano`나 일반 `vim`으로 열지 말고 반드시 `visudo` 명령어를 사용해야 합니다. `visudo`는 저장 시점에 문법 오류를 자동으로 감지하여 오류가 있을 경우 저장을 차단해 줍니다.
+
+2. **`/etc/sudoers.d/` 디렉터리 파일 주의:**
+   * `/etc/sudoers.d/` 내에 생성하는 추가 설정 파일 역시 반드시 소유권 `root:root`, 권한 `0440`을 유지해야 합니다. 또한 파일명에 마침표(`.`)나 물결표(`~`)가 포함되면 `sudo`가 해당 설정을 무시하므로 네이밍 규칙에 주의해야 합니다.
+
+3. **작업 시 셸 세션 유지:**
+   * sudo 관련 설정을 변경하거나 복구할 때는 현재 열려 있는 root 터미널 세션을 닫지 말고, 다른 터미널 창을 열어 `sudo -v` 또는 일반 명령어가 정상 작동하는지 완전히 검증한 후 기존 세션을 종료해야 잠김 현상을 방지할 수 있습니다.

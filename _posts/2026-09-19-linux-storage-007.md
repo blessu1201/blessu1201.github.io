@@ -1,53 +1,40 @@
 ---
 layout: article
-title: 시스템 관리_07 LVM 이벤트 감시 시작 실패(Failed to start LVM event inspection)&quot; 또는 LVM 볼륨 활성화 문제 해결
-tags: [Linux, LVM, Storage, Troubleshooting, Systemd]
+title: 시스템 관리_07 RHEL/CentOS에서 손상되거나 잠긴 RPM 데이터베이스(/var/lib/rpm) 복구 및 정리 방법
+tags: [Linux, RHEL, CentOS, RPM, DNF, YUM, Troubleshooting]
 keys: 260919-linux-storage-007
 ---
 
-- 출처 / 참고: 리눅스 파일시스템 마운트 관리 및 스토리지 복구 가이드
-> 명령어: `systemctl status lvm2-monitor`, `vgscan`, `vgchange -ay`, `lvscan`, `lsblk`  
-> 키워드: LVM Event Inspection, Volume Group, Logical Volume, Active, Inactive, Emergency Mode  
-> 사용처: 부팅 중 LVM 모니터링 데몬 실패 시, 긴급 모드(Emergency Shell) 진입 시, 비활성화된 LVM 볼륨 강제 활성화 및 복구 작업  
+- 출처 / 참고: 리눅스 패키지 관리 및 RPM 데이터베이스 복구 가이드
+> 명령어: `rpm --rebuilddb`, `rm -f /var/lib/rpm/__db*`, `yum clean all` / `dnf clean all`, `lsof /var/lib/rpm/Packages`  
+> 키워드: RPM Database Corruption, BDB Lock, sqlite, Stale Lock, Packages, rebuilddb  
+> 사용처: yum/dnf 실행 시 응답 없음(무한 대기), `rpmdb open failed` 오류 발생 시, 비정상 종료로 인한 BDB 락 파일 정리 및 데이터베이스 재구축  
 
 ---
 
 > 실행예제
 
 ```bash
-# 1. 시스템 부팅/서비스 실패 상태 확인 (systemd 실패 서비스 조회)
-$ sudo systemctl status lvm2-monitor.service
-● lvm2-monitor.service - Monitoring of LVM2 mirrors, snapshots etc. using dmeventd or progress polling
-     Loaded: loaded (/lib/systemd/system/lvm2-monitor.service; enabled; vendor preset: enabled)
-     Active: failed (Result: exit-code) since Mon 2026-09-21 10:14:22 KST; 2min ago
-       Docs: man:dmeventd(8)
-             man:lvcreate(8)
-             man:lvchange(8)
-             man:vgchange(8)
-   Process: 612 ExecStart=/sbin/lvm vgchange --monitor y (code=exited, status=5)
-   Main PID: 612 (code=exited, status=5)
+# 1. yum/dnf 또는 rpm 명령 실행 시 락 또는 손상 에러 확인
+$ sudo yum check-update
+Loaded plugins: fastestmirror
+error: db5 error(-30973) from dbenv->open: BDB0087 DB_RUNRECOVERY: Fatal error, run database recovery
+error: cannot open Packages index using db5 -  (-30973)
+error: cannot open Packages database in /var/lib/rpm
+CRITICAL:yum.main:
 
-Sep 21 10:14:22 srv-node01 systemd[1]: Starting Monitoring of LVM2 mirrors, snapshots etc. using dmeventd or progress polling...
-Sep 21 10:14:22 srv-node01 lvm[612]:   Failed to find device mapper event daemon.
-Sep 21 10:14:22 srv-node01 lvm[612]:   Volume group "vg_data" not found or not active
-Sep 21 10:14:22 srv-node01 systemd[1]: lvm2-monitor.service: Main process exited, code=exited, status=5/NOTINSTALLED
-Sep 21 10:14:22 srv-node01 systemd[1]: Failed to start Monitoring of LVM2 mirrors, snapshots etc. using dmeventd or progress polling.
+Error: rpmdb open failed
 
-# 2. 현재 논리 볼륨(LV) 활성화 여부 확인 ('inactive' 상태 확인)
-$ sudo lvscan
-  inactive          '/dev/vg_system/lv_root' [50.00 GiB] inherit
-  inactive          '/dev/vg_system/lv_var' [30.00 GiB] inherit
-  inactive          '/dev/vg_data/lv_storage' [500.00 GiB] inherit
+# 2. RPM 데이터베이스 디렉터리 내 점유 프로세스 확인 (Stale Process 점검)
+$ sudo lsof /var/lib/rpm/*
+COMMAND   PID USER   FD   TYPE DEVICE SIZE/OFF   NODE NAME
+yum     14521 root    6uW  REG  253,0  2129920 131201 /var/lib/rpm/Packages
 
-# 3. 블록 디바이스 구조 및 마운트 연결 실패 상태 확인
-$ lsblk -f
-NAME        FSTYPE      FSVER LABEL UUID                                 FSAVAIL FSUSE% MOUNTPOINTS
-sda                                                                                     
-├─sda1      vfat        FAT32       A1B2-C3D4                             505.2M     1% /boot/efi
-├─sda2      ext4        1.0         e4f5g6h7-1234-5678-90ab-cdef12345678  1.2G    20% /boot
-└─sda3      LVM2_member             Wxyz01-abcd-efgh-ijkl-mnop-qrst-uvwxyz              
-sdb                                                                                     
-└─sdb1      LVM2_member             123456-7890-abcd-efgh-ijkl-mnop-qrstuv              
+# 3. RPM 데이터베이스 잠금 파일(__db.*) 및 손상 징후 확인
+$ ls -la /var/lib/rpm/__db*
+-rw-r--r--. 1 root root   24576 Sep 22 13:10 /var/lib/rpm/__db.001
+-rw-r--r--. 1 root root  229376 Sep 22 13:10 /var/lib/rpm/__db.002
+-rw-r--r--. 1 root root 1318912 Sep 22 13:10 /var/lib/rpm/__db.003
 ```
 
 &nbsp;
@@ -58,33 +45,42 @@ sdb
 ```bash
 #!/usr/bin/env bash
 #
-# LVM Volume Group / Logical Volume 복구 및 재활성화 자동화 스크립트
+# RHEL/CentOS RPM Database 손상 복구 및 잠금 해제 스크립트
 #
 
 set -euo pipefail
 
-echo "=== [1] 물리 볼륨(PV) 및 볼륨 그룹(VG) 검색 ==="
-lvm pvscan --cache
-lvm vgscan --mknodes
+echo "=== [1] 실행 중인 중복 yum/dnf/rpm 프로세스 강제 종료 ==="
+pkill -9 -f "yum" || true
+pkill -9 -f "dnf" || true
+pkill -9 -f "rpm" || true
 
-echo "=== [2] 비활성화된 모든 볼륨 그룹 활성화 (vgchange -ay) ==="
-lvm vgchange -ay
+BACKUP_DIR="/var/lib/rpm_backup_$(date +%Y%m%d_%H%M%S)"
+echo "=== [2] 기존 RPM 데이터베이스 안전 백업 생성: ${BACKUP_DIR} ==="
+mkdir -p "${BACKUP_DIR}"
+cp -a /var/lib/rpm/ "${BACKUP_DIR}/"
 
-echo "=== [3] dmeventd (Device Mapper Event Daemon) 상태 점검 및 재시작 ==="
-if systemctl is-enabled dmeventd.socket >/dev/null 2>&1; then
-    systemctl restart dmeventd.socket dmeventd.service || true
+echo "=== [3] 잠금 파일 및 임시 환경 파일(__db.*) 제거 ==="
+# RHEL 6/7/8(BDB 환경) 잠금 파일 정리
+rm -f /var/lib/rpm/__db*
+# sqlite 기반(RHEL 8/9 일부 환경) 임시 락 및 저널 파일 정리
+rm -f /var/lib/rpm/.rpm.lock /var/lib/rpm/rpmdb.sqlite-wal /var/lib/rpm/rpmdb.sqlite-shm 2>/dev/null || true
+
+echo "=== [4] RPM 데이터베이스 재구축 (rebuilddb) ==="
+rpm --rebuilddb -v
+
+echo "=== [5] 패키지 매니저 캐시 정리 및 인덱스 갱신 ==="
+if command -v dnf >/dev/null 2>&1; then
+    dnf clean all
+    dnf makecache
+elif command -v yum >/dev/null 2>&1; then
+    yum clean all
+    yum makecache
 fi
 
-echo "=== [4] lvm2-monitor 서비스 재기동 ==="
-systemctl restart lvm2-monitor.service
-
-echo "=== [5] LVM 논리 볼륨 활성화 상태 및 디바이스 매핑 검증 ==="
-lvm lvscan
-
-echo "=== [6] 파일시스템 마운트 점검 (/etc/fstab 기준) ==="
-mount -a
-
-echo "=== [완료] LVM 복구 및 마운트 프로세스가 정상적으로 처리되었습니다. ==="
+echo "=== [6] RPM 데이터베이스 정합성 검증 ==="
+rpm -qa | wc -l >/dev/null
+echo "=== [완료] RPM 데이터베이스가 정상적으로 복구되었습니다. ==="
 ```
 
 &nbsp;
@@ -93,25 +89,23 @@ echo "=== [완료] LVM 복구 및 마운트 프로세스가 정상적으로 처�
 ## 해설
 
 1. **에러 원인 분석:**
-   - `Failed to start LVM event inspection` 또는 `lvm2-monitor.service` 실패는 부팅 과정에서 Device Mapper 이벤트 데몬(`dmeventd`)과의 통신이 실패하거나, 스토리지 디바이스 인식 지연 등으로 볼륨 그룹(VG)이 비활성화(`inactive`) 상태로 남아 있을 때 발생합니다.
-   - 주로 다중 디스크 구성 환경, 커널 업데이트 후 드라이버 지연 로딩, 스냅샷/미러링 볼륨 모니터링 실패, 혹은 디스크 UUID 변동으로 인해 긴급 모드(Emergency Mode)로 떨어질 때 동반됩니다.
+   * 패키지 설치(`yum install` / `dnf update`) 도중 강제 재부팅, 프로세스 비정상 종료(SIGKILL), 혹은 디스크 I/O 병목이 발생하면 Berkeley DB(BDB) 트랜잭션 락(`__db.*`)이 해제되지 못하고 고아 파일(Stale Locks)로 남게 됩니다.
+   * 이로 인해 후속 명령어가 데이터베이스 잠금을 획득하지 못해 무한 대기 상태에 빠지거나, 인덱스 불일치로 `DB_RUNRECOVERY` 또는 `rpmdb open failed` 오류가 발생합니다.
 
 2. **복구 절차 및 핵심 로직:**
-   - **`pvscan --cache` & `vgscan --mknodes`:** LVM 메타데이터 캐시를 갱신하고 누락된 `/dev/mapper` 노드를 다시 생성합니다.
-   - **`vgchange -ay` (Activate Yes):** 시스템에 존재하는 모든 볼륨 그룹과 하위 논리 볼륨을 즉시 활성(`active`) 상태로 전환하여 커널 디바이스 매핑에 등록합니다.
-   - **`systemctl restart dmeventd` & `lvm2-monitor`:** LVM의 상태 감시 데몬을 재구동하여 실패한 systemd 유닛 상태를 정상(`active (running)`)으로 복원합니다.
-   - **`mount -a`:** 활성화된 볼륨들을 `/etc/fstab` 정의에 맞추어 마운트 포인트를 복원합니다.
+   * **프로세스 정리 및 백업:** 아직 백그라운드에 물려 있는 좀비 패키지 프로세스를 정리한 뒤, 원본 `/var/lib/rpm/` 디렉터리를 백업하여 복구 실패 시 롤백이 가능하도록 보장합니다.
+   * **락 파일 제거 (`rm -f /var/lib/rpm/__db*`):** 패키지 메타데이터 본체(`Packages` 파일 등)는 건드리지 않고 공유 메모리 및 동기화용 락 파일만 제거하여 점유 상태를 해제합니다.
+   * **인덱스 재구축 (`rpm --rebuilddb`):** 기존 `Packages` 파일에 기록된 정보를 바탕으로 손상된 BDB/SQLite 헤더와 인덱스 테이블을 완전히 새로 생성합니다.
+   * **캐시 갱신 (`clean all`):** 손상된 기존 메타데이터 캐시를 완전히 비우고 저장소 리포지토리 정보를 새로 동기화합니다.
 
 &nbsp;
 &nbsp;
 
 ## 주의사항
 
-1. **UUID 불일치 확인 (`/etc/fstab`):**
-   - LVM 볼륨이 정상 활성화되었음에도 부팅 시 여전히 긴급 모드로 진입한다면, `/etc/fstab`에 명시된 볼륨의 UUID나 디바이스 경로(`/dev/mapper/...`)가 실제 `blkid` 결과와 일치하는지 반드시 검토해야 합니다.
-2. **다중 경로(Multipath) 및 iSCSI/SAN 스토리지 지연:**
-   - 네트워크 기반 스토리지나 SAN 환경의 경우 네트워크 데몬 활성화 이전에 LVM 검사가 먼저 실행되어 실패할 수 있습니다. 이 경우 `_netdev` 마운트 옵션을 추가하거나 systemd 종속성 순서를 확인해야 합니다.
-3. **볼륨 필터링 설정 (`/etc/lvm/lvm.conf`):**
-   - `lvm.conf` 내의 `filter` 또는 `global_filter` 지시어로 인해 특정 물리 디스크(PV)가 제외 처리되어 있지 않은지 점검해야 합니다. 필터 설정이 잘못되면 시스템 재부팅 시 볼륨 그룹을 찾지 못합니다.
-4. **Initramfs 재생성 권장:**
-   - LVM 설정이나 디스크 구성을 수정한 후에는 드라이버 및 lvm 모듈이 부트 이미지에 정확히 반영되도록 `update-initramfs -u` (Ubuntu/Debian) 또는 `dracut -f` (RHEL/CentOS/Rocky)를 실행해야 합니다.
+1. **`Packages` 원본 파일 보호:**
+   * `/var/lib/rpm/Packages`(또는 RHEL 9/Fedora의 `rpmdb.sqlite`) 파일 자체가 물리적으로 손상(0 byte 등)된 경우 `rpm --rebuilddb`로도 복구가 불가능할 수 있으므로, 반드시 사전 백업을 확인해야 합니다.
+2. **배포판 버전별 데이터베이스 구조 차이:**
+   * RHEL 7/CentOS 7까지는 Berkeley DB(`__db.*`, `Packages`)를 기본 사용하지만, RHEL 8 후반 및 RHEL 9부터는 SQLite 백엔드(`rpmdb.sqlite`)를 기본으로 사용합니다. 스크립트 작성 시 해당 버전 환경을 감안해야 합니다.
+3. **디스크 여유 공간 점검:**
+   * 디스크 풀(`No space left on device`)로 인해 DB 쓰기가 중단되어 손상되는 경우가 흔하므로, 복구 전 반드시 `df -h /var` 명령으로 디스크 용량이 충분한지 점검해야 합니다.
