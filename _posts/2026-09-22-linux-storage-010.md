@@ -1,6 +1,6 @@
 ---
 layout: article
-title: "부팅 실패를 유발하는 손상된 /etc/fstab 파일 복구 가이드"
+title: 시스템 관리_10 "부팅 실패를 유발하는 손상된 /etc/fstab 파일 복구 가이드"
 tags: [Linux, Storage, Troubleshooting, Boot, Filesystem, systemd]
 keys: 260922-linux-storage-010
 ---
